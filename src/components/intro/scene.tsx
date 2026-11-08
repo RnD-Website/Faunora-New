@@ -19,12 +19,6 @@ function Mark({ fill, dx = 0, dy = 0, opacity = 1 }: { fill: string; dx?: number
   );
 }
 
-// Bulbs along the front arc of the base tier
-const bulbs = Array.from({ length: 17 }, (_, i) => {
-  const a = (Math.PI * (10 + (i * 160) / 16)) / 180;
-  return { x: 720 + 318 * Math.cos(a), y: 752 + 52 * Math.sin(a) };
-});
-
 export function Scene() {
   return (
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden="true">
@@ -37,9 +31,9 @@ export function Scene() {
         </radialGradient>
         <linearGradient id="sc-floor" gradientUnits="userSpaceOnUse" x1="0" y1="600" x2="0" y2="900">
           <stop offset="0" stopColor="#4f5f28" stopOpacity="0" />
-          <stop offset="0.22" stopColor="#4c5b27" stopOpacity="0.85" />
-          <stop offset="0.5" stopColor="#3d4b1d" />
-          <stop offset="1" stopColor="#252e10" />
+          <stop offset="0.3" stopColor="#4a5925" stopOpacity="0.7" />
+          <stop offset="0.6" stopColor="#3e4c1e" stopOpacity="0.95" />
+          <stop offset="1" stopColor="#2e3914" />
         </linearGradient>
         <linearGradient id="sc-niche" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#3b4719" />
@@ -73,12 +67,6 @@ export function Scene() {
           <stop offset="0" stopColor="#fafaf0" />
           <stop offset="1" stopColor="#d8dcc3" />
         </radialGradient>
-        <linearGradient id="sc-trim" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stopColor="#4c5a28" />
-          <stop offset="0.3" stopColor="#c9d3a8" />
-          <stop offset="0.65" stopColor="#7c914c" />
-          <stop offset="1" stopColor="#404f1d" />
-        </linearGradient>
         <linearGradient id="sc-prop" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0" stopColor="#76815a" />
           <stop offset="0.4" stopColor="#dde2c8" />
@@ -102,10 +90,6 @@ export function Scene() {
           <stop offset="0" stopColor="#ffffff" stopOpacity="0.85" />
           <stop offset="0.35" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
-        <radialGradient id="sc-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stopColor="#ffe9a8" stopOpacity="0.95" />
-          <stop offset="1" stopColor="#ffe9a8" stopOpacity="0" />
-        </radialGradient>
         <radialGradient id="sc-vignette" cx="50%" cy="45%" r="75%">
           <stop offset="0.55" stopColor="#10150a" stopOpacity="0" />
           <stop offset="1" stopColor="#10150a" stopOpacity="0.5" />
@@ -141,6 +125,9 @@ export function Scene() {
         <filter id="sc-haze" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="28" />
         </filter>
+        <filter id="sc-floorblur" x="-60%" y="-120%" width="220%" height="340%">
+          <feGaussianBlur stdDeviation="34" />
+        </filter>
         <filter id="sc-depth" x="-10%" y="-10%" width="120%" height="120%">
           <feGaussianBlur stdDeviation="1.6" />
         </filter>
@@ -173,7 +160,7 @@ export function Scene() {
         {/* Side props, softly out of focus */}
         <g filter="url(#sc-depth)">
           {/* left: sphere on a low plinth */}
-          <ellipse cx="380" cy="730" rx="120" ry="22" fill="#10150a" opacity="0.3" filter="url(#sc-blur)" />
+          <ellipse cx="380" cy="734" rx="150" ry="30" fill="#10150a" opacity="0.22" filter="url(#sc-floorblur)" />
           <ellipse cx="372" cy="720" rx="64" ry="13" fill="url(#sc-prop)" />
           <rect x="308" y="648" width="128" height="72" fill="url(#sc-prop)" />
           <ellipse cx="372" cy="648" rx="64" ry="13" fill="url(#sc-top)" />
@@ -182,7 +169,7 @@ export function Scene() {
           <ellipse cx="360" cy="592" rx="12" ry="8" fill="#ffffff" opacity="0.55" filter="url(#sc-soft)" />
 
           {/* right: smaller plinth with a cream pearl */}
-          <ellipse cx="1096" cy="746" rx="100" ry="18" fill="#10150a" opacity="0.28" filter="url(#sc-blur)" />
+          <ellipse cx="1096" cy="750" rx="130" ry="26" fill="#10150a" opacity="0.2" filter="url(#sc-floorblur)" />
           <ellipse cx="1088" cy="736" rx="52" ry="11" fill="url(#sc-prop)" />
           <rect x="1036" y="694" width="104" height="42" fill="url(#sc-prop)" />
           <ellipse cx="1088" cy="694" rx="52" ry="11" fill="url(#sc-top)" />
@@ -192,26 +179,18 @@ export function Scene() {
         </g>
 
         {/* Base tier */}
-        <ellipse cx="720" cy="812" rx="450" ry="64" fill="#10150a" opacity="0.36" filter="url(#sc-haze)" />
-        <ellipse cx="720" cy="796" rx="430" ry="42" fill="url(#sc-glow)" opacity="0.45" className="intro-bulb-glow" style={{ transitionDelay: "0.6s" }} />
+        <ellipse cx="720" cy="812" rx="500" ry="80" fill="#10150a" opacity="0.26" filter="url(#sc-floorblur)" />
         <ellipse cx="720" cy="772" rx="338" ry="58" fill="url(#sc-cyl)" />
         <rect x="382" y="736" width="676" height="36" fill="url(#sc-cyl)" />
         <ellipse cx="720" cy="736" rx="338" ry="58" fill="url(#sc-top)" />
         <ellipse cx="720" cy="736" rx="338" ry="58" fill="none" stroke="#ffffff" strokeWidth="2.5" opacity="0.85" />
         <path d="M384 744 A338 58 0 0 0 1056 744" fill="none" stroke="#ffffff" strokeWidth="1.5" opacity="0.35" />
         <ellipse cx="720" cy="738" rx="262" ry="42" fill="none" stroke="#c4caa8" strokeWidth="1.5" opacity="0.8" />
-        {bulbs.map((b, i) => (
-          <g key={i} className="intro-bulb" style={{ transitionDelay: `${0.25 + i * 0.045}s` }}>
-            <circle cx={b.x} cy={b.y} r="17" fill="url(#sc-glow)" className="intro-bulb-glow" />
-            <circle cx={b.x} cy={b.y} r="4.5" className="intro-bulb-core" />
-          </g>
-        ))}
 
         {/* Pedestal cylinder */}
         <ellipse cx="720" cy="708" rx="250" ry="46" fill="#10150a" opacity="0.26" filter="url(#sc-blur)" />
         <ellipse cx="720" cy="696" rx="208" ry="40" fill="url(#sc-cyl)" />
         <rect x="512" y="602" width="416" height="94" fill="url(#sc-cyl)" />
-        <path d="M512 616 A208 40 0 0 0 928 616" fill="none" stroke="url(#sc-trim)" strokeWidth="6" />
         <ellipse cx="720" cy="602" rx="208" ry="40" fill="url(#sc-top)" />
         <ellipse cx="720" cy="602" rx="208" ry="40" fill="none" stroke="#ffffff" strokeWidth="2.5" />
         <path d="M514 610 A208 40 0 0 0 926 610" fill="none" stroke="#ffffff" strokeWidth="1.2" opacity="0.4" />

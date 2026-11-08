@@ -91,7 +91,6 @@ export function Header() {
           <Link href="/contact" className="btn btn-ghost hidden !py-2.5 md:inline-flex">
             Contact us
           </Link>
-          <RequestButton className="btn btn-primary hidden !py-2.5 sm:inline-flex">Request sample</RequestButton>
           <button
             type="button"
             className="grid size-11 place-items-center rounded-full bg-forest text-white lg:hidden"
