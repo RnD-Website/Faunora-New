@@ -96,12 +96,8 @@ export function ProductsShowcase() {
 
   return (
     <section ref={ref} id="products" className="showcase relative isolate bg-forest-900" aria-labelledby="showcase-title">
-      {/* Pinned backdrop: dark field with a rising horizon glow */}
-      <div className="sticky top-0 h-svh overflow-hidden" aria-hidden="true">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_10%,rgb(124_145_76/0.22),transparent_55%),radial-gradient(ellipse_at_15%_30%,rgb(89_106_51/0.25),transparent_50%)]" />
-        <div className="showcase-dust absolute inset-0" />
-        <div className="showcase-horizon absolute left-1/2 top-full aspect-square w-[240vw] rounded-full md:w-[170vw]" />
-      </div>
+      {/* Pinned spacer so the heading and cards share one sticky frame */}
+      <div className="sticky top-0 h-svh" aria-hidden="true" />
 
       {/* Pinned heading — the cards fly over it */}
       <div className="pointer-events-none sticky top-0 -mt-[100svh] grid h-svh place-items-center px-4 text-center">
