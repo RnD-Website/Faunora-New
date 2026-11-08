@@ -777,3 +777,15 @@ header[data-tone="light"] .btn-ghost {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+/* Welcome colour wash: blobs drift slowly */
+@keyframes welcome-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, -6%, 0) scale(1.08); }
+}
+.welcome-blob {
+  animation: welcome-drift 16s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .welcome-blob { animation: none; }
+}

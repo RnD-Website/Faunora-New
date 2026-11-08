@@ -4,9 +4,10 @@ import { home, posts } from "@/content/site";
 import { ProductsShowcase } from "@/components/products-showcase";
 import { CommunityCarousel } from "@/components/community-carousel";
 import { HeroIntro } from "@/components/intro/hero-intro";
+import { WelcomeHero } from "@/components/welcome-hero";
 import { Reveal } from "@/components/reveal";
 import { RequestButton } from "@/components/request-modal";
-import { ArrowRight, Capsule, Check, Sparkle } from "@/components/icons";
+import { ArrowRight, Check, Sparkle } from "@/components/icons";
 import { NutriCoreOrbit } from "@/components/nutricore-orbit";
 import { TrialsMap } from "@/components/trials-map";
 import { ScrollProgress } from "@/components/scroll-progress";
@@ -14,7 +15,7 @@ import { CountUp } from "@/components/count-up";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 
 export default function Home() {
-  const { hero, marquee, problem, solution, stats, sustainability, trials, onRequest, closing } = home;
+  const { marquee, problem, solution, stats, sustainability, trials, onRequest, closing } = home;
 
   return (
     <>
@@ -22,45 +23,7 @@ export default function Home() {
       <HeroIntro />
 
       {/* ── Welcome ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-beige">
-        <div className="container-x grid items-center gap-10 pb-16 pt-16 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:pb-24">
-          <div>
-            <p className="eyebrow text-forest-500">
-              Vet-formulated animal nutrition
-            </p>
-            <h2 className="font-display mt-6 text-[clamp(2.4rem,5.4vw,4.6rem)] leading-[0.95]">Made for the animals you love.</h2>
-                        <p className="lede mt-6 max-w-xl text-lg text-forest/75">{hero.body}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="#products" className="btn btn-dark">
-                Explore products <ArrowRight />
-              </Link>
-              <RequestButton className="btn btn-ghost">Request a sample</RequestButton>
-            </div>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-[540px]">
-            <div className="corners relative aspect-[4/5] bg-sand">
-              <Image
-                src="/images/hero-owner-dog.jpg"
-                alt="A woman kissing her happy golden retriever outdoors"
-                fill
-                sizes="(min-width: 1024px) 540px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="corners float absolute -left-3 top-10 bg-white px-4 py-3 shadow-xl md:-left-8">
-              <p className="text-2xl font-semibold tracking-tight">3×</p>
-              <p className="text-xs text-muted">absorption</p>
-            </div>
-            <div className="corners float absolute -right-2 bottom-12 flex items-center gap-3 bg-forest px-4 py-3 text-white shadow-xl [animation-delay:1.5s] md:-right-6">
-              <span className="grid size-9 place-items-center keep-round bg-sage text-forest">
-                <Capsule className="size-5" />
-              </span>
-              <span className="text-sm font-semibold leading-tight">NutriCore™<br /><span className="font-normal text-white/70">micro-capsules</span></span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WelcomeHero />
 
       {/* ── Marquee ──────────────────────────────────────── */}
       <section aria-label="Highlights" className="overflow-hidden border-y border-line bg-white py-5">
