@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { home, posts, products } from "@/content/site";
-import { ProductCard, PostCard } from "@/components/cards";
+import { home, posts } from "@/content/site";
+import { PostCard } from "@/components/cards";
+import { ProductsShowcase } from "@/components/products-showcase";
 import { HeroIntro } from "@/components/intro/hero-intro";
 import { Reveal } from "@/components/reveal";
 import { RequestButton } from "@/components/request-modal";
@@ -156,25 +157,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Products ─────────────────────────────────────── */}
-      <section id="products" className="bg-beige-50 py-20 md:py-28">
-        <div className="container-x">
-          <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <p className="eyebrow text-forest-500">Products</p>
-              <h2 className="h-xl mt-3 max-w-2xl">{home.products.title}</h2>
-            </div>
-            <p className="max-w-sm text-lg text-muted">{home.products.body}</p>
-          </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((p, i) => (
-              <Reveal key={p.slug} delay={i * 100}>
-                <ProductCard p={p} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Products: pinned heading, cards fly past ───── */}
+      <ProductsShowcase />
 
       {/* ── Field trials ─────────────────────────────────── */}
       <section id="trials" className="py-20 md:py-28">
