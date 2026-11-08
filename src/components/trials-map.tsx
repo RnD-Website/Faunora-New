@@ -30,11 +30,11 @@ export function TrialsMap({ sites }: { sites: Site[] }) {
         <path d={d} fill="none" stroke="currentColor" strokeWidth="0.7" strokeLinejoin="round" opacity="0.38" />
       </svg>
 
-      <ul className="absolute inset-0" aria-label="Trial locations">
+      <ul className="trials-pins absolute inset-0" aria-label="Trial locations">
         {sites.map((s) => {
           const [x, y] = projection([s.lon, s.lat]) ?? [0, 0];
           return (
-            <li key={s.country} className="trial-pin absolute" style={{ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%` }}>
+            <li key={s.country} className={`trial-pin absolute ${s.country === "Brazil" ? "is-default" : ""}`} style={{ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%` }}>
               <button type="button" className="group relative -translate-x-1/2 -translate-y-1/2 p-1.5 outline-none" aria-label={`${s.country}: ${s.species}, ${s.status}`}>
                 <LogoMark className="trial-pin-mark h-[18px] w-auto text-sage transition duration-300 group-hover:scale-125 group-hover:text-forest group-focus-visible:scale-125 group-focus-visible:text-forest" />
                 <span className="trial-tip pointer-events-none absolute bottom-[calc(100%+10px)] left-1/2 w-40 bg-sage/85 p-3 text-left text-[#f4ede6] backdrop-blur-sm">

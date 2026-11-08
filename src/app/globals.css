@@ -705,6 +705,14 @@ header[data-tone="light"] .btn-ghost {
   opacity: 1;
   translate: -50% 0;
 }
+/* Brazil's card shows by default; it hides while any other marker is hovered/focused */
+.trials-pins:not(:has(.trial-pin:not(.is-default) button:hover, .trial-pin:not(.is-default) button:focus-visible)) .trial-pin.is-default .trial-tip {
+  opacity: 1;
+  translate: -50% 0;
+}
+.trial-pin.is-default {
+  z-index: 6;
+}
 .trials-photo {
   transform: scale(1.12) translateY(calc((var(--sp) - 0.5) * -6%));
   will-change: transform;
