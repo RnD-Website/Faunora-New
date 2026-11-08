@@ -97,8 +97,8 @@ export function NutriCoreOrbit() {
 
           {/* Kibble globe */}
           <div className="orbit-globe keep-round absolute inset-[19%] overflow-hidden shadow-[0_40px_80px_-20px_rgb(10_20_8/0.7)]">
-            <Image src="/images/kibble-poster.jpg" alt="" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-110 object-cover object-[50%_70%]" />
-            <video className="absolute inset-0 h-full w-full scale-110 object-cover object-[50%_70%] motion-reduce:hidden" src="/videos/kibble.mp4" poster="/images/kibble-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+            <Image src="/images/kibble-poster.jpg" alt="" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-110 object-cover object-[45%_55%]" />
+            <video className="absolute inset-0 h-full w-full scale-110 object-cover object-[45%_55%] motion-reduce:hidden" src="/videos/kibble.mp4" poster="/images/kibble-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
             {/* sphere shading: soft key light, dark rim */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_40%,rgb(20_32_16/0.78)_100%)]" />
             {/* glossy specular highlight */}
