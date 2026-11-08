@@ -190,6 +190,53 @@ export const home = {
     title: "Faunora Aqua™ is available on request.",
     body: "Our gut-health formula for fish and shrimp farms is in limited release. Tell us about your ponds or cages and we will send a trial batch.",
   },
+  vision: {
+    index: "07",
+    label: "Our mission",
+    word: "NutriCore™",
+    readoutsLeft: [
+      ["Coating", "Plant-based"],
+      ["Release", "Gut-targeted"],
+      ["Formats", "Chew · Premix · Water"],
+      ["Species", "Pets · Livestock · Aqua"],
+      ["Status", "In field trials"],
+    ],
+    readoutsRight: [
+      ["Heat", "Protected"],
+      ["Moisture", "Protected"],
+      ["Fillers", "None added"],
+      ["Shell", "Food-grade"],
+      ["Batches", "Traceable"],
+    ],
+    statement: "Every chew, premix and drop engineered so nutrition actually reaches the animal.",
+    body: [
+      "NutriCore™ brings together our encapsulation science, species-specific formulas and on-farm testing. Each active is sealed in a plant-based shell that survives heat, moisture and stomach acid, then releases where the gut can absorb it.",
+      "We believe animals deserve nutrition that works the first time — for healthier pets, more resilient herds and less waste on every farm.",
+    ],
+  },
+  testimonials: [
+    {
+      quote: "My patients finally get what the label promises. Owners notice the difference in coat and energy within weeks, and I can recommend one product across very different diets.",
+      name: "Dr. Daniel Mercer",
+      role: "Companion-animal vet",
+      image: "/images/vet-dachshund.jpg",
+      alt: "Veterinarian holding a dachshund in a clinic",
+    },
+    {
+      quote: "On the farm, consistency is everything. The premix blends evenly, stores well through summer and the herd simply eats it. Fewer bags, fewer trucks, same results.",
+      name: "Hannah Brooks",
+      role: "Large-animal vet · Herd advisor",
+      image: "/images/farmer-vet.jpg",
+      alt: "Farm vet talking with a farmer beside a truck",
+    },
+    {
+      quote: "Our golden is picky about everything, but the Companion chew is the one treat she asks for. Knowing it is clean and plant-based makes it an easy daily habit.",
+      name: "Maya Lindqvist",
+      role: "Dog owner · Companion™",
+      image: "/images/hero-owner-dog.jpg",
+      alt: "Woman hugging her golden retriever outdoors",
+    },
+  ],
   closing: {
     title: "See the difference for yourself.",
     body: "Request a sample for your clinic, farm or store — or talk to our nutrition team.",

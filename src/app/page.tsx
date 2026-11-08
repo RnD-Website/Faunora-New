@@ -10,6 +10,8 @@ import { ArrowRight, Capsule, Check, Sparkle } from "@/components/icons";
 import { NutriCoreOrbit } from "@/components/nutricore-orbit";
 import { TrialsMap } from "@/components/trials-map";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { VisionSection } from "@/components/vision-section";
+import { TestimonialSlider } from "@/components/testimonial-slider";
 
 export default function Home() {
   const { hero, marquee, problem, solution, stats, sustainability, trials, onRequest, closing } = home;
@@ -200,6 +202,10 @@ export default function Home() {
           </div>
         </div>
       </ScrollProgress>
+
+      {/* ── Mission scene + testimonials ─────────────── */}
+      <VisionSection />
+      <TestimonialSlider />
 
       {/* ── Community: carousel over a full-bleed landscape ─ */}
       <section className="relative isolate overflow-hidden bg-forest-900 py-16 text-[#f4ede6] md:py-20 lg:min-h-[100svh] lg:py-24">
