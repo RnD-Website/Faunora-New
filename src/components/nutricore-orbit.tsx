@@ -125,7 +125,7 @@ export function NutriCoreOrbit() {
             >
               <div className="flex items-start justify-between gap-3">
                 <h4 className="text-xs font-semibold tracking-[0.04em]">{f.title}</h4>
-                <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold shadow-[inset_0_1px_0_rgb(255_255_255/0.5),0_4px_12px_-4px_rgb(10_20_8/0.4)] ${badgeTones[i]}`}>{f.badge}</span>
+                <span className={`keep-round shrink-0 px-3 py-1 text-[11px] font-semibold shadow-[inset_0_1px_0_rgb(255_255_255/0.5),0_4px_12px_-4px_rgb(10_20_8/0.4)] ${badgeTones[i]}`}>{f.badge}</span>
               </div>
               <div className="mt-4 h-px bg-gradient-to-r from-white/25 via-white/10 to-transparent" />
               <div className="mt-4 flex items-end justify-between gap-3">

@@ -66,7 +66,7 @@ function ProfileCard({
 
 function Chip({ title, sub, className = "" }: { title: string; sub: string; className?: string }) {
   return (
-    <div className={`flex items-center gap-2 bg-white px-3 py-2 shadow-[0_12px_30px_-14px_rgb(31_37_9/0.35)] ring-1 ring-line ${className}`}>
+    <div className={`keep-round flex items-center gap-2 bg-white py-2 pl-3.5 pr-5 shadow-[0_12px_30px_-14px_rgb(31_37_9/0.35)] ring-1 ring-line ${className}`}>
       <ArrowRight className="size-3.5 shrink-0 text-forest" />
       <span className="text-[12px] leading-tight">
         <strong className="block font-semibold text-forest">{title}</strong>
@@ -148,7 +148,7 @@ export function WelcomeHero() {
               <div className="float relative" style={{ animationDelay: b.delay }}>
                 <Avatar src={b.src} alt={b.alt} className={b.size} />
                 {b.badge && (
-                  <span className="absolute -bottom-2 -right-2 grid size-6 place-items-center bg-white text-forest shadow-md ring-1 ring-line">
+                  <span className="absolute -bottom-2 -right-2 keep-round grid size-6 place-items-center bg-white text-forest shadow-md ring-1 ring-line">
                     {b.badge === "spark" ? <Sparkle className="size-3 text-sage" /> : <ArrowRight className="size-3" />}
                   </span>
                 )}

@@ -40,7 +40,7 @@ export default function Home() {
               height={30}
               unoptimized
               loading="eager"
-              className="h-7 w-auto opacity-55 transition-opacity duration-300 hover:opacity-100 md:h-8"
+              className="h-7 w-auto opacity-85 transition-opacity duration-300 hover:opacity-100 md:h-8"
             />
           ))}
         </div>
