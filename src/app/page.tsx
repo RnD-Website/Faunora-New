@@ -28,7 +28,7 @@ export default function Home() {
       <WelcomeHero />
 
       {/* ── Partner logos: two rows scrolling in opposite directions ── */}
-      <section aria-label="Trusted by" className="space-y-8 overflow-hidden pb-24 pt-2 md:space-y-10 md:pb-36 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+      <section aria-label="Trusted by" className="space-y-8 overflow-hidden pb-14 pt-2 md:space-y-10 md:pb-20 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
         {[partnerLogos, [...partnerLogos.slice(3), ...partnerLogos.slice(0, 3)]].map((row, r) => (
           <div key={r} className={`marquee-track flex w-max items-center gap-16 md:gap-24 ${r === 0 ? "marquee-track--reverse" : ""}`}>
             {[...row, ...row, ...row, ...row].map((src, i) => (

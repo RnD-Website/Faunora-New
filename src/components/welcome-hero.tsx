@@ -79,7 +79,7 @@ function Chip({ title, sub, className = "" }: { title: string; sub: string; clas
 /** Centred welcome: headline, one-line intro, CTA, then a band of floating profile cards. */
 export function WelcomeHero() {
   return (
-    <section className="welcome relative overflow-hidden pb-14 pt-6 md:pb-24 md:pt-10">
+    <section className="welcome relative overflow-hidden pb-20 pt-6 md:pb-36 md:pt-10">
       <div className="container-x relative z-10 text-center">
         <p className="eyebrow text-forest-500">Vet-formulated animal nutrition</p>
         <h2 className="font-display mx-auto mt-5 max-w-[20ch] text-[clamp(2.6rem,6vw,5.2rem)] leading-[0.95]">Made for the animals you love.</h2>
