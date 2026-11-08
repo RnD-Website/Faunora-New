@@ -7,15 +7,17 @@ import { HeroIntro } from "@/components/intro/hero-intro";
 import { WelcomeHero } from "@/components/welcome-hero";
 import { Reveal } from "@/components/reveal";
 import { RequestButton } from "@/components/request-modal";
-import { ArrowRight, Check, Sparkle } from "@/components/icons";
+import { ArrowRight, Check } from "@/components/icons";
 import { NutriCoreOrbit } from "@/components/nutricore-orbit";
 import { TrialsMap } from "@/components/trials-map";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { CountUp } from "@/components/count-up";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 
+const partnerLogos = ["/logos/01.svg", "/logos/02.svg", "/logos/03.svg", "/logos/04.svg", "/logos/05.svg", "/logos/06.svg"];
+
 export default function Home() {
-  const { marquee, problem, solution, stats, sustainability, trials, onRequest, closing } = home;
+  const { problem, solution, stats, sustainability, trials, onRequest, closing } = home;
 
   return (
     <>
@@ -25,14 +27,21 @@ export default function Home() {
       {/* ── Welcome ──────────────────────────────────────── */}
       <WelcomeHero />
 
-      {/* ── Marquee ──────────────────────────────────────── */}
-      <section aria-label="Highlights" className="overflow-hidden border-y border-line bg-white py-5">
-        <div className="marquee-track flex w-max gap-12">
-          {[...marquee, ...marquee].map((m, i) => (
-            <span key={i} className="flex items-center gap-12 whitespace-nowrap text-lg font-semibold tracking-tight text-forest/80" aria-hidden={i >= marquee.length}>
-              {m}
-              <Sparkle className="size-4 text-sage" />
-            </span>
+      {/* ── Partner logos (scrolling) ────────────────────── */}
+      <section aria-label="Trusted by" className="overflow-hidden py-10 md:py-14 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+        <div className="marquee-track flex w-max items-center gap-16 md:gap-24">
+          {[...partnerLogos, ...partnerLogos].map((src, i) => (
+            <Image
+              key={i}
+              src={src}
+              alt={i < partnerLogos.length ? "Partner logo" : ""}
+              aria-hidden={i >= partnerLogos.length}
+              width={135}
+              height={30}
+              unoptimized
+              loading="eager"
+              className="h-7 w-auto opacity-55 transition-opacity duration-300 hover:opacity-100 md:h-8"
+            />
           ))}
         </div>
       </section>
