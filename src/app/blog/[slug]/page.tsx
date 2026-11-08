@@ -22,7 +22,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   return (
     <article className="pb-20 md:pb-28">
       <div className="container-x max-w-3xl pt-10 md:pt-16">
-        <Link href="/blog" className="text-sm font-semibold text-navy-500 hover:text-navy">← All articles</Link>
+        <Link href="/blog" className="text-sm font-semibold text-forest-500 hover:text-forest">← All articles</Link>
         <p className="mt-6 text-sm text-muted">
           {new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })} · {post.readTime}
         </p>
@@ -30,13 +30,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <p className="lede mt-5 text-xl text-muted">{post.excerpt}</p>
       </div>
       <div className="container-x mt-10 max-w-5xl">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] bg-peach">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] bg-beige">
           <Image src={post.image} alt={post.imageAlt} fill priority sizes="(min-width: 1024px) 1024px, 100vw" className="object-cover" />
         </div>
       </div>
-      <div className="container-x mt-12 max-w-3xl space-y-6 text-lg leading-relaxed text-navy/85">
+      <div className="container-x mt-12 max-w-3xl space-y-6 text-lg leading-relaxed text-forest/85">
         {post.body.map((para, i) => <p key={i}>{para}</p>)}
-        <div className="!mt-12 rounded-[var(--radius-card)] bg-peach p-8">
+        <div className="!mt-12 rounded-[var(--radius-card)] bg-beige p-8">
           <p className="h-md">Want to try Faunora?</p>
           <p className="mt-2 text-base text-muted">Request a sample tailored to your animals.</p>
           <RequestButton className="btn btn-dark mt-5">Request a sample</RequestButton>

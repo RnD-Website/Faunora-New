@@ -110,7 +110,7 @@ export function HeroIntro() {
 
   return (
     <section ref={sectionRef} data-intro-phase={phase} className="intro relative -mt-[var(--header-h)] h-[260svh]" aria-label="Faunora introduction">
-      <div className="sticky top-0 h-svh overflow-hidden bg-navy">
+      <div className="sticky top-0 h-svh overflow-hidden bg-forest">
         {/* camera: scroll zoom (outer) + intro push-in (inner) */}
         <div className="intro-zoom absolute inset-0">
           <div className="intro-scene absolute inset-0">
@@ -125,7 +125,7 @@ export function HeroIntro() {
             <defs>
               <path id="ring-path" d="M250 250 m-210 0 a210 210 0 1 1 420 0 a210 210 0 1 1 -420 0" />
             </defs>
-            <text fill="currentColor" fontSize="15" fontWeight="600" letterSpacing="4" style={{ textTransform: "uppercase", fontFamily: "var(--font-sans)" }}>
+            <text fill="currentColor" stroke="rgb(31 37 9 / 0.55)" strokeWidth="3" paintOrder="stroke" strokeLinejoin="round" fontSize="15" fontWeight="600" letterSpacing="4" style={{ textTransform: "uppercase", fontFamily: "var(--font-sans)" }}>
               <textPath href="#ring-path" textLength="1316" lengthAdjust="spacing">
                 {ringText}
               </textPath>
@@ -139,22 +139,22 @@ export function HeroIntro() {
         {/* Headline layer (Farm Minerals layout) */}
         <div className="intro-copy absolute inset-0 pt-[calc(var(--header-h)+24px)]">
           <div className="container-x relative h-full">
-            <h1 className="intro-title font-display max-w-[9ch] text-[clamp(2.3rem,5vw,4.4rem)] leading-[0.95] text-navy">
+            <h1 className="intro-title font-display max-w-[9ch] text-[clamp(2.3rem,5vw,4.4rem)] leading-[0.95] text-[#f4ede6]">
               {home.hero.title}
             </h1>
 
             {/* Right column: subtitle + primary button */}
             <div className="intro-sub absolute bottom-8 right-4 flex flex-col items-end gap-5 text-right md:bottom-auto md:right-8 md:top-[44%] md:gap-7">
-              <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold uppercase leading-[1.1] tracking-[-0.01em] text-navy">
+              <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold uppercase leading-[1.1] tracking-[-0.01em] text-[#f4ede6]">
                 {home.hero.subtitle}
               </p>
-              <Link href="#products" className="btn btn-dark">
+              <Link href="#products" className="btn btn-light">
                 Explore products <ArrowRight />
               </Link>
             </div>
 
             {/* Scroll cue, bottom left */}
-            <div className="intro-cta absolute bottom-8 left-4 flex flex-col items-center gap-2 text-navy md:bottom-10 md:left-8" aria-hidden="true">
+            <div className="intro-cta absolute bottom-8 left-4 flex flex-col items-center gap-2 text-[#f4ede6] md:bottom-10 md:left-8" aria-hidden="true">
               <span className="intro-mouse" />
               <span className="eyebrow text-[0.65rem]">Scroll</span>
             </div>
@@ -162,7 +162,7 @@ export function HeroIntro() {
         </div>
 
         {/* Fade into the next section at the end of the zoom */}
-        <div className="intro-exit pointer-events-none absolute inset-0 bg-peach" />
+        <div className="intro-exit pointer-events-none absolute inset-0 bg-beige" />
 
         {/* Loader */}
         <div className="intro-loader absolute inset-0 z-10 text-white" role="status" aria-live="polite" aria-label={`Loading ${pct}%`}>
@@ -180,13 +180,13 @@ export function HeroIntro() {
                   {pct}%
                 </span>
                 <span className="absolute top-6 -translate-x-1/2" style={{ left: `${progress}%` }}>
-                  <span key={badge.src} className="intro-badge relative block size-14 overflow-hidden rounded-full ring-2 ring-orange md:size-16">
+                  <span key={badge.src} className="intro-badge relative block size-14 overflow-hidden rounded-full ring-2 ring-sage md:size-16">
                     <Image src={badge.src} alt={badge.alt} fill sizes="64px" className="object-cover" priority />
                   </span>
                 </span>
               </div>
               <div className="hidden w-36 shrink-0 items-center justify-end gap-2 md:flex">
-                <LogoMark className="h-6 w-auto text-orange" />
+                <LogoMark className="h-6 w-auto text-sage-200" />
                 <span className="font-display text-2xl">Faunora</span>
               </div>
             </div>
@@ -195,7 +195,7 @@ export function HeroIntro() {
                 Loading<span className="intro-dots" />
               </p>
               <span className="flex items-center gap-2">
-                <LogoMark className="h-5 w-auto text-orange" />
+                <LogoMark className="h-5 w-auto text-sage-200" />
                 <span className="font-display text-xl">Faunora</span>
               </span>
             </div>

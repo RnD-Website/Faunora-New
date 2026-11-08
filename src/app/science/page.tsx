@@ -20,20 +20,20 @@ export default function SciencePage() {
         <div className="container-x grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s) => (
             <div key={s.n} className="rounded-[var(--radius-card)] bg-paper p-7 ring-1 ring-line">
-              <p className="font-display text-5xl text-orange">{s.n}</p>
+              <p className="font-display text-5xl text-sage">{s.n}</p>
               <h2 className="h-md mt-4">{s.title}</h2>
               <p className="mt-2 text-muted">{s.body}</p>
             </div>
           ))}
         </div>
       </section>
-      <section id="safety" className="bg-navy py-20 text-white md:py-28">
+      <section id="safety" className="bg-forest py-20 text-white md:py-28">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)]">
             <Image src="/images/lab.jpg" alt="Scientist working in a laboratory" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div>
-            <p className="eyebrow text-orange">Safety & quality</p>
+            <p className="eyebrow text-sage-200">Safety & quality</p>
             <h2 className="h-xl mt-3">Tested batch by batch.</h2>
             <p className="lede mt-5 text-lg text-white/75">
               Every batch is tested for potency, heavy metals and microbial safety before release. Formulas are developed with veterinary nutritionists and manufactured in GMP-certified facilities.

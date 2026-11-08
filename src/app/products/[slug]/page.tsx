@@ -22,17 +22,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const p = products.find((x) => x.slug === slug);
   if (!p) notFound();
   const others = products.filter((x) => x.slug !== p.slug);
-  const tone = { peach: "bg-peach", teal: "bg-sand", orange: "bg-orange/15" }[p.accent];
+  const tone = { beige: "bg-beige", teal: "bg-sand", sage: "bg-sage/15" }[p.accent];
 
   return (
     <>
       <section className={`${tone} -mt-[var(--header-h)] pt-[var(--header-h)]`}>
         <div className="container-x grid items-center gap-10 py-12 md:py-20 lg:grid-cols-2">
           <div>
-            <Link href="/#products" className="text-sm font-semibold text-navy-500 hover:text-navy">← All products</Link>
-            <p className="eyebrow mt-6 text-navy-500">{p.category}</p>
+            <Link href="/#products" className="text-sm font-semibold text-forest-500 hover:text-forest">← All products</Link>
+            <p className="eyebrow mt-6 text-forest-500">{p.category}</p>
             <h1 className="font-display mt-3 text-5xl leading-[1] md:text-6xl">{p.name}</h1>
-            <p className="lede mt-6 max-w-xl text-lg text-navy/75">{p.intro}</p>
+            <p className="lede mt-6 max-w-xl text-lg text-forest/75">{p.intro}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {p.forAnimals.map((a) => (
                 <span key={a} className="rounded-full bg-white px-3 py-1.5 text-sm font-medium">{a}</span>
@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {p.benefits.map((b) => (
               <div key={b.title} className="rounded-[var(--radius-card)] bg-paper p-6 ring-1 ring-line">
-                <span className="grid size-10 place-items-center rounded-full bg-orange text-navy"><Check /></span>
+                <span className="grid size-10 place-items-center rounded-full bg-sage text-forest"><Check /></span>
                 <h3 className="h-md mt-4">{b.title}</h3>
                 <p className="mt-2 text-muted">{b.body}</p>
               </div>
@@ -65,7 +65,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="bg-peach-50 py-20 md:py-28">
+      <section className="bg-beige-50 py-20 md:py-28">
         <div className="container-x">
           <h2 className="h-xl">Explore more</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">

@@ -17,11 +17,11 @@ const spots = [
 
 /* Ring segments: [start°, end°, colour] — 0° is 12 o'clock, clockwise */
 const segments: [number, number, string][] = [
-  [-86, -22, "rgb(255 255 255 / 0.28)"],
-  [-18, 58, "#ffb061"],
-  [62, 138, "#ffd9b8"],
-  [142, 214, "#ff7f00"],
-  [218, 270, "#ff9a3d"],
+  [-86, -22, "rgb(244 237 230 / 0.3)"],
+  [-18, 58, "#c9d3a8"],
+  [62, 138, "#eef0de"],
+  [142, 214, "#7c914c"],
+  [218, 270, "#a9b98a"],
 ];
 
 function arc(cx: number, cy: number, r: number, a0: number, a1: number) {
@@ -74,14 +74,14 @@ export function NutriCoreOrbit() {
     <div
       ref={stageRef}
       data-seen={seen || undefined}
-      className="orbit relative overflow-hidden rounded-[40px] bg-navy px-5 py-10 text-white md:px-10 md:py-14"
+      className="orbit relative overflow-hidden rounded-[40px] bg-forest-900 px-5 py-10 text-white md:px-10 md:py-14"
     >
       {/* blurred warm light, like a defocused photo */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <Image src="/images/kibble.jpg" alt="" fill sizes="60vw" className="scale-125 object-cover opacity-30 blur-3xl" />
-        <div className="absolute -right-24 -top-32 size-[640px] rounded-full bg-orange/45 blur-[120px]" />
-        <div className="absolute -bottom-40 -left-32 size-[520px] rounded-full bg-[#7a2e00]/60 blur-[120px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_60%,transparent_30%,rgb(22_19_69/0.85)_100%)]" />
+        <div className="absolute -right-24 -top-32 size-[640px] rounded-full bg-sage/50 blur-[120px]" />
+        <div className="absolute -bottom-40 -left-32 size-[520px] rounded-full bg-[#596a33]/70 blur-[120px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_60%,transparent_30%,rgb(31_37_9/0.88)_100%)]" />
       </div>
 
       <h3 className="relative text-sm font-semibold leading-snug md:text-base">
@@ -113,7 +113,7 @@ export function NutriCoreOrbit() {
           {/* Kibble globe */}
           <div className="orbit-globe absolute inset-[19%] overflow-hidden rounded-full shadow-[0_40px_80px_-20px_rgb(0_0_0/0.6)]">
             <Image src="/images/kibble.jpg" alt="Close-up of nutrient-rich kibble" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-110 object-cover" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_34%_28%,rgb(255_200_140/0.55),transparent_42%),radial-gradient(circle_at_50%_50%,transparent_45%,rgb(22_10_4/0.75)_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_34%_28%,rgb(240_235_210/0.4),transparent_42%),radial-gradient(circle_at_50%_50%,transparent_45%,rgb(16_21_10/0.75)_100%)]" />
             <div className="absolute inset-0 grid place-items-center text-center">
               <div>
                 <p className="text-[clamp(4.5rem,11vw,8.5rem)] font-light leading-[0.85] tracking-[-0.06em] tabular-nums">
@@ -136,7 +136,7 @@ export function NutriCoreOrbit() {
             >
               <div className="flex items-start justify-between gap-3">
                 <h4 className="text-xs font-semibold tracking-[0.04em]">{f.title}</h4>
-                <span className="shrink-0 rounded-full bg-orange px-2.5 py-1 text-[11px] font-semibold text-navy">{f.badge}</span>
+                <span className="shrink-0 rounded-full bg-sage-200 px-2.5 py-1 text-[11px] font-semibold text-forest-900">{f.badge}</span>
               </div>
               <div className="mt-4 flex items-end justify-between gap-3">
                 <div>

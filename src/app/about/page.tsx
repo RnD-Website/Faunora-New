@@ -16,7 +16,7 @@ export default function AboutPage() {
       <PageHero eyebrow="About us" title="We exist for the animals." body="Faunora was founded by veterinarians and nutrition scientists who were tired of seeing good nutrition wasted." />
       <section className="py-20 md:py-28">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-card)] bg-peach">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-card)] bg-beige">
             <Image src="/images/vet-dachshund.jpg" alt="A veterinarian examining a dachshund" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div>

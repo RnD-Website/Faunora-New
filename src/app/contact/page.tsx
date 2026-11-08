@@ -18,13 +18,13 @@ export default function ContactPage() {
         <div className="container-x grid gap-6 md:grid-cols-3">
           {cards.map((c) => (
             <a key={c.title} href={c.href} className="rounded-[var(--radius-card)] bg-paper p-8 ring-1 ring-line transition hover:-translate-y-1 hover:shadow-lg">
-              <p className="eyebrow text-navy-500">{c.title}</p>
+              <p className="eyebrow text-forest-500">{c.title}</p>
               <p className="h-md mt-3 break-words">{c.value}</p>
             </a>
           ))}
         </div>
         <div className="container-x mt-10">
-          <div className="flex flex-col items-start justify-between gap-6 rounded-[var(--radius-card)] bg-navy p-8 text-white md:flex-row md:items-center md:p-12">
+          <div className="flex flex-col items-start justify-between gap-6 rounded-[var(--radius-card)] bg-forest p-8 text-white md:flex-row md:items-center md:p-12">
             <div>
               <h2 className="h-lg">Looking for a sample or a quote?</h2>
               <p className="mt-2 text-white/70">Use our request form so we can route you to the right specialist.</p>

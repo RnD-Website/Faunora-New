@@ -24,7 +24,7 @@ export type Product = {
   short: string;
   image: string;
   imageAlt: string;
-  accent: "peach" | "teal" | "orange";
+  accent: "beige" | "teal" | "sage";
   intro: string;
   benefits: { title: string; body: string }[];
   forAnimals: string[];
@@ -37,9 +37,9 @@ export const products: Product[] = [
     name: "Faunora Companion™",
     category: "Pet supplements",
     short: "Daily soft chews for dogs and cats — joints, gut, skin and coat in one bite.",
-    image: "/images/puppy.jpg",
-    imageAlt: "Brown and white puppy looking up",
-    accent: "peach",
+    image: "/images/labrador-tulip.jpg",
+    imageAlt: "Golden Labrador sitting with a tulip in its mouth",
+    accent: "beige",
     intro:
       "A vet-formulated daily chew that delivers omega-3s, probiotics and joint-support actives inside our NutriCore™ micro-capsules, so they survive the stomach and absorb where they should.",
     benefits: [
@@ -77,7 +77,7 @@ export const products: Product[] = [
     short: "Water-soluble vitamins, electrolytes and amino acids for layers and broilers.",
     image: "/images/hen.jpg",
     imageAlt: "Brown hen standing on grass",
-    accent: "orange",
+    accent: "sage",
     intro:
       "Dissolves instantly in drinking lines to keep flocks performing through heat stress, vaccination and transport — with no clogging and no extra handling.",
     benefits: [

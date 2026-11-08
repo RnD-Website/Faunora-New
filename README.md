@@ -27,7 +27,7 @@ Open http://localhost:3000.
 
 ## Design system
 
-- **Colors** (from petfinn.com): navy `#161345`, orange `#FF7F00`, sky `#D7ECFF`, teal `#60C4BF`, paper `#F9F9F9`.
+- **Colors** (matched to farmminerals.com): main green `#404F1D`, heading olive `#636F3D`, olive `#596A33`, sage `#7C914C`, beige `#F4EDE6`, deep green `#1F2509`.
 - **Type** (modeled on onliftoff.com): Liftoff uses *Recife Display*, a paid font, for headlines.
   This site uses **Fraunces** (soft axis) as a free stand-in. Body text and headings use **Inter** with tight tracking.
 

@@ -36,8 +36,9 @@ export function Header() {
   return (
     <>
     <header
+      data-tone={pathname === "/" && !scrolled && !mobileOpen ? "light" : undefined}
       className={`sticky top-0 z-40 transition-[background-color,box-shadow] duration-300 ${
-        scrolled || mobileOpen ? "bg-white/90 shadow-[0_1px_0_var(--line)] backdrop-blur-md" : "bg-transparent"
+        scrolled || mobileOpen ? "bg-[#f4ede6]/90 shadow-[0_1px_0_var(--line)] backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="container-x flex h-[var(--header-h)] items-center justify-between gap-6">
@@ -56,7 +57,7 @@ export function Header() {
                   type="button"
                   aria-expanded={openMenu === item.label}
                   onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
-                  className="flex items-center gap-1 rounded-full px-4 py-2 font-medium tracking-tight hover:bg-peach-50"
+                  className="flex items-center gap-1 rounded-full px-4 py-2 font-medium tracking-tight hover:bg-beige-50"
                 >
                   {item.label}
                   <ChevronDown className={`size-4 transition ${openMenu === item.label ? "rotate-180" : ""}`} />
@@ -69,7 +70,7 @@ export function Header() {
                   <ul className="w-72 rounded-3xl border border-line bg-white p-2 shadow-xl">
                     {item.items.map((sub) => (
                       <li key={sub.href}>
-                        <Link href={sub.href} className="block rounded-2xl px-4 py-3 hover:bg-peach-50">
+                        <Link href={sub.href} className="block rounded-2xl px-4 py-3 hover:bg-beige-50">
                           <span className="block font-semibold tracking-tight">{sub.label}</span>
                           <span className="block text-sm text-muted">{sub.note}</span>
                         </Link>
@@ -79,7 +80,7 @@ export function Header() {
                 </div>
               </div>
             ) : (
-              <Link key={item.label} href={item.href} className="rounded-full px-4 py-2 font-medium tracking-tight hover:bg-peach-50">
+              <Link key={item.label} href={item.href} className="rounded-full px-4 py-2 font-medium tracking-tight hover:bg-beige-50">
                 {item.label}
               </Link>
             ),
@@ -93,7 +94,7 @@ export function Header() {
           <RequestButton className="btn btn-primary hidden !py-2.5 sm:inline-flex">Request sample</RequestButton>
           <button
             type="button"
-            className="grid size-11 place-items-center rounded-full bg-navy text-white lg:hidden"
+            className="grid size-11 place-items-center rounded-full bg-forest text-white lg:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
@@ -114,7 +115,7 @@ export function Header() {
           {nav.map((item) =>
             "items" in item ? (
               <div key={item.label}>
-                <p className="eyebrow mb-2 text-navy-500">{item.label}</p>
+                <p className="eyebrow mb-2 text-forest-500">{item.label}</p>
                 <ul className="space-y-1">
                   {item.items.map((sub) => (
                     <li key={sub.href}>

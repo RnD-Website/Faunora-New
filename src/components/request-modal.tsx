@@ -93,7 +93,7 @@ export function RequestProvider({ children }: { children: ReactNode }) {
   }
 
   const field =
-    "w-full rounded-2xl border border-line bg-white px-4 py-3 text-[15px] text-navy placeholder:text-muted/70 focus:border-navy focus:outline-none";
+    "w-full rounded-2xl border border-line bg-white px-4 py-3 text-[15px] text-forest placeholder:text-muted/70 focus:border-forest focus:outline-none";
   const label = "mb-1.5 block text-sm font-semibold tracking-tight";
 
   return (
@@ -103,21 +103,21 @@ export function RequestProvider({ children }: { children: ReactNode }) {
         ref={dialog}
         aria-labelledby="request-title"
         onClick={(e) => e.target === dialog.current && close()}
-        className="m-auto w-[min(680px,calc(100%-24px))] max-h-[calc(100dvh-24px)] overflow-y-auto rounded-[28px] bg-paper p-0 text-navy shadow-2xl backdrop:bg-navy/60 backdrop:backdrop-blur-sm"
+        className="m-auto w-[min(680px,calc(100%-24px))] max-h-[calc(100dvh-24px)] overflow-y-auto rounded-[28px] bg-paper p-0 text-forest shadow-2xl backdrop:bg-forest/60 backdrop:backdrop-blur-sm"
       >
         <div className="relative p-6 md:p-9">
           <button
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-white hover:bg-peach"
+            className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-white hover:bg-beige"
           >
             <Close />
           </button>
 
           {status === "done" ? (
             <div className="py-10 text-center">
-              <div className="mx-auto mb-5 grid size-16 place-items-center rounded-full bg-orange text-navy">
+              <div className="mx-auto mb-5 grid size-16 place-items-center rounded-full bg-sage text-forest">
                 <Check className="size-8" />
               </div>
               <h2 id="request-title" className="h-lg">Thank you!</h2>
@@ -131,7 +131,7 @@ export function RequestProvider({ children }: { children: ReactNode }) {
           ) : (
             <form onSubmit={onSubmit} className="space-y-5">
               <div className="pr-10">
-                <p className="eyebrow text-navy-500">Request a sample</p>
+                <p className="eyebrow text-forest-500">Request a sample</p>
                 <h2 id="request-title" className="h-lg mt-2">
                   {product ? `Request ${product}` : "Request Faunora for your animals"}
                 </h2>
@@ -177,7 +177,7 @@ export function RequestProvider({ children }: { children: ReactNode }) {
                   {requestForm.animals.map((a) => (
                     <label key={a} className="cursor-pointer">
                       <input type="checkbox" name="animals" value={a} className="peer sr-only" />
-                      <span className="inline-block rounded-full border border-line bg-white px-4 py-2 text-sm font-medium transition peer-checked:border-navy peer-checked:bg-navy peer-checked:text-white peer-focus-visible:outline-3 peer-focus-visible:outline-teal">
+                      <span className="inline-block rounded-full border border-line bg-white px-4 py-2 text-sm font-medium transition peer-checked:border-forest peer-checked:bg-forest peer-checked:text-white peer-focus-visible:outline-3 peer-focus-visible:outline-teal">
                         {a}
                       </span>
                     </label>
@@ -208,7 +208,7 @@ export function RequestProvider({ children }: { children: ReactNode }) {
               <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
               {status === "error" && (
-                <p role="alert" className="rounded-2xl bg-orange/15 px-4 py-3 text-sm font-medium">
+                <p role="alert" className="rounded-2xl bg-sage/15 px-4 py-3 text-sm font-medium">
                   Oops! {error}
                 </p>
               )}
