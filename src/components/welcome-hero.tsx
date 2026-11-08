@@ -79,11 +79,11 @@ function Chip({ title, sub, className = "" }: { title: string; sub: string; clas
 /** Centred welcome: headline, one-line intro, CTA, then a band of floating profile cards. */
 export function WelcomeHero() {
   return (
-    <section className="welcome relative overflow-hidden pb-20 pt-6 md:pb-28 md:pt-10">
+    <section className="welcome relative overflow-hidden pb-8 pt-6 md:pb-10 md:pt-10">
       <div className="container-x relative z-10 text-center">
         <p className="eyebrow text-forest-500">Vet-formulated animal nutrition</p>
         <h2 className="font-display mx-auto mt-5 max-w-[20ch] text-[clamp(2.6rem,6vw,5.2rem)] leading-[0.95]">Made for the animals you love.</h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg text-forest/75">{home.hero.body}</p>
+        <p className="mx-auto mt-5 max-w-3xl text-lg text-forest/75">{home.hero.body}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link href="#products" className="btn btn-dark">
             Explore products <ArrowRight />
@@ -93,7 +93,7 @@ export function WelcomeHero() {
       </div>
 
       {/* Floating cards band */}
-      <div className="relative mt-14 md:mt-20 lg:h-[440px]">
+      <div className="relative mt-6 md:mt-8 lg:h-[440px]">
 
         {/* Mobile / tablet: stacked cards */}
         <InView className="welcome-stage container-x relative flex flex-col items-center gap-5 lg:hidden" threshold={0.15}>

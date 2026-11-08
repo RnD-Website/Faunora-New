@@ -27,23 +27,25 @@ export default function Home() {
       {/* ── Welcome ──────────────────────────────────────── */}
       <WelcomeHero />
 
-      {/* ── Partner logos (scrolling) ────────────────────── */}
-      <section aria-label="Trusted by" className="overflow-hidden py-10 md:py-14 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-        <div className="marquee-track flex w-max items-center gap-16 md:gap-24">
-          {[...partnerLogos, ...partnerLogos].map((src, i) => (
-            <Image
-              key={i}
-              src={src}
-              alt={i < partnerLogos.length ? "Partner logo" : ""}
-              aria-hidden={i >= partnerLogos.length}
-              width={135}
-              height={30}
-              unoptimized
-              loading="eager"
-              className="h-7 w-auto opacity-85 transition-opacity duration-300 hover:opacity-100 md:h-8"
-            />
-          ))}
-        </div>
+      {/* ── Partner logos: two rows scrolling in opposite directions ── */}
+      <section aria-label="Trusted by" className="space-y-8 overflow-hidden pb-24 pt-2 md:space-y-10 md:pb-36 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+        {[partnerLogos, [...partnerLogos.slice(3), ...partnerLogos.slice(0, 3)]].map((row, r) => (
+          <div key={r} className={`marquee-track flex w-max items-center gap-16 md:gap-24 ${r === 0 ? "marquee-track--reverse" : ""}`}>
+            {[...row, ...row, ...row, ...row].map((src, i) => (
+              <Image
+                key={i}
+                src={src}
+                alt={r === 0 && i < row.length ? "Partner logo" : ""}
+                aria-hidden={r > 0 || i >= row.length}
+                width={135}
+                height={30}
+                unoptimized
+                loading="eager"
+                className="h-7 w-auto shrink-0 opacity-85 transition-opacity duration-300 hover:opacity-100 md:h-8"
+              />
+            ))}
+          </div>
+        ))}
       </section>
 
       {/* ── Problem: full-bleed photo with text on top ──── */}
