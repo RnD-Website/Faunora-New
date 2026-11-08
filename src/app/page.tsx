@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { home, posts } from "@/content/site";
-import { PostCard } from "@/components/cards";
 import { ProductsShowcase } from "@/components/products-showcase";
+import { CommunityCarousel } from "@/components/community-carousel";
 import { HeroIntro } from "@/components/intro/hero-intro";
 import { Reveal } from "@/components/reveal";
 import { RequestButton } from "@/components/request-modal";
@@ -229,21 +229,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Blog ─────────────────────────────────────────── */}
-      <section className="py-20 md:py-28">
-        <div className="container-x">
-          <Reveal className="flex items-end justify-between gap-4">
-            <h2 className="h-xl">Latest from the community</h2>
-            <Link href="/blog" className="hidden items-center gap-2 font-semibold md:inline-flex">
+      {/* ── Community: carousel over a full-bleed landscape ─ */}
+      <section className="relative isolate overflow-hidden bg-forest-900 py-16 text-[#f4ede6] md:py-20 lg:min-h-[100svh] lg:py-24">
+        <Image src="/images/pasture-wide.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.55)_0%,rgb(31_37_9/0.35)_40%,rgb(31_37_9/0.6)_100%)]" />
+        <div className="container-x relative flex h-full flex-col lg:min-h-[calc(100svh-12rem)]">
+          <div className="flex items-start justify-between gap-6">
+            <h2 className="font-display max-w-[10ch] text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.95]">Latest from the community</h2>
+            <Link href="/blog" className="btn btn-ghost hidden shrink-0 text-[#f4ede6] md:inline-flex [--fill:#f4ede6] [--fill-text:var(--forest)]">
               All articles <ArrowRight />
             </Link>
-          </Reveal>
-          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, i) => (
-              <Reveal key={post.slug} delay={i * 100}>
-                <PostCard post={post} />
-              </Reveal>
-            ))}
+          </div>
+          <div className="relative mt-10 lg:mt-auto lg:pl-[34%]">
+            <CommunityCarousel posts={posts} />
           </div>
         </div>
       </section>

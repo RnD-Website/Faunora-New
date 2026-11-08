@@ -248,6 +248,48 @@ export const posts: Post[] = [
       "Ask your vet about a daily routine — and choose a supplement your dog actually enjoys, so it becomes a habit.",
     ],
   },
+  {
+    slug: "what-pasture-misses",
+    title: "What grazing cattle still miss on pasture",
+    excerpt: "Lush grass can still run short on selenium, copper and cobalt. How to spot the gaps before milk yield drops.",
+    image: "/images/pasture-cows.jpg",
+    imageAlt: "Cows grazing on a green pasture",
+    date: "2026-08-14",
+    readTime: "5 min read",
+    body: [
+      "Fresh pasture looks like the perfect diet, but soil type and season shape what is actually in the grass.",
+      "Many regions are naturally low in selenium and cobalt, and high-sulphur forage can lock up copper. The first signs are subtle: dull coats, slower growth and lower fertility.",
+      "A protected mineral premix such as Faunora Herd™ tops up what pasture cannot supply, without changing how the herd is fed.",
+    ],
+  },
+  {
+    slug: "gut-health-in-aquaculture",
+    title: "Gut health is the new frontier in fish farming",
+    excerpt: "Why feed conversion in ponds and cages starts in the gut — and what micro-encapsulation changes.",
+    image: "/images/fish-cages.jpg",
+    imageAlt: "Fish farm cages on a calm lake",
+    date: "2026-07-22",
+    readTime: "6 min read",
+    body: [
+      "In water, nutrients leach out of feed within minutes. Much of what is paid for never reaches the fish.",
+      "Encapsulated actives stay intact in water and release in the gut, supporting a healthier microbiome and better feed conversion.",
+      "Faunora Aqua™ is in limited release for fish and shrimp farms — get in touch to join a trial.",
+    ],
+  },
+  {
+    slug: "cats-and-supplements",
+    title: "Do indoor cats need supplements?",
+    excerpt: "Indoor life changes what cats need. A vet's view on joints, hairballs and skin health.",
+    image: "/images/cat.jpg",
+    imageAlt: "Orange and white cat resting",
+    date: "2026-06-30",
+    readTime: "4 min read",
+    body: [
+      "Indoor cats move less, groom more and often eat the same food every day.",
+      "Omega-3s support skin and coat, while targeted fibre and probiotics help with hairballs and digestion.",
+      "Always start with your vet — then choose a supplement your cat will actually eat.",
+    ],
+  },
 ];
 
 export const requestForm = {
