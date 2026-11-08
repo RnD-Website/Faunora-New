@@ -740,22 +740,6 @@ header[data-tone="light"] .btn-ghost {
   }
 }
 
-/* Mission scene — scroll parallax driven by --sp (0 → 1 as it crosses the viewport) */
-.vision-word {
-  transform: translateY(calc((var(--sp, 0.5) - 0.4) * 22vh));
-  will-change: transform;
-}
-.vision-chew {
-  transform: translate(-50%, -50%) translateY(calc((var(--sp, 0.5) - 0.4) * -26vh)) rotate(calc((var(--sp, 0.5) - 0.4) * 50deg));
-  will-change: transform;
-}
-.vision-rock-a {
-  transform: translateY(calc((var(--sp, 0.5) - 0.4) * -40vh));
-}
-.vision-rock-b {
-  transform: translateY(calc((var(--sp, 0.5) - 0.4) * -14vh));
-}
-
 /* Testimonial autoplay progress */
 .testimonial-bar.is-active {
   animation: testimonial-fill 7s linear forwards;
@@ -774,14 +758,6 @@ header[data-tone="light"] .btn-ghost {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .vision-word,
-  .vision-rock-a,
-  .vision-rock-b {
-    transform: none;
-  }
-  .vision-chew {
-    transform: translate(-50%, -50%);
-  }
   .testimonial-bar.is-active {
     animation: none;
     width: 100%;
