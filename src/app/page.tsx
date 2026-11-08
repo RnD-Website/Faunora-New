@@ -137,7 +137,8 @@ export default function Home() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="lg:order-2">
             <div className="corners relative aspect-[4/3] bg-sand">
-              <Image src="/images/pasture-cows.jpg" alt="Cows grazing on a lush green pasture" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src="/images/cows-poster.jpg" alt="Cows grazing on a summer pasture" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <video className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden" src="/videos/cows.mp4" poster="/images/cows-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
             </div>
           </Reveal>
           <Reveal delay={100}>
@@ -180,8 +181,9 @@ export default function Home() {
 
         {/* Right: photo with floating notes + Aqua on request */}
         <div className="relative isolate min-h-[88svh] overflow-hidden bg-forest-900 text-[#f4ede6] lg:min-h-0">
-          <Image src="/images/fish-cages.jpg" alt="Fish farm cages on a calm lake" fill sizes="(min-width: 1024px) 50vw, 100vw" className="trials-photo -z-20 object-cover" />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.15)_0%,rgb(31_37_9/0.1)_45%,rgb(31_37_9/0.7)_100%)]" />
+          <Image src="/images/fish-farm-poster.jpg" alt="Aerial view of round fish-farm cages on a calm lake" fill sizes="(min-width: 1024px) 50vw, 100vw" className="trials-photo -z-20 object-cover" />
+          <video className="trials-photo absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden" src="/videos/fish-farm.mp4" poster="/images/fish-farm-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.25)_0%,rgb(31_37_9/0.15)_45%,rgb(31_37_9/0.75)_100%)]" />
 
           <div className="trials-note trials-note--a corners absolute right-0 top-0 w-[46%] min-w-[170px] max-w-[300px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
             <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Next update</p>
@@ -201,9 +203,6 @@ export default function Home() {
           </div>
         </div>
       </ScrollProgress>
-
-      {/* gap before the community section */}
-      <div aria-hidden="true" className="h-20 bg-[#f4ede6] md:h-28" />
 
       {/* ── Community: carousel over a full-bleed landscape ─ */}
       <section className="relative isolate overflow-hidden bg-forest-900 py-16 text-[#f4ede6] md:py-20 lg:min-h-[100svh] lg:py-24">
@@ -235,7 +234,7 @@ export default function Home() {
       </section>
 
       {/* ── Closing CTA ──────────────────────────────────── */}
-      <section className="bg-olive py-20 text-[#f4ede6] md:py-28">
+      <section className="bg-[linear-gradient(180deg,var(--olive)_0%,var(--olive)_55%,#7c8a52_72%,#c9cba8_88%,#f4ede6_100%)] pb-44 pt-20 text-[#f4ede6] md:pb-64 md:pt-28">
         <div className="container-x text-center">
           <Reveal>
             <h2 className="font-display mx-auto max-w-4xl text-5xl leading-[1] md:text-6xl">{closing.title}</h2>

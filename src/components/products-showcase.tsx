@@ -102,7 +102,7 @@ export function ProductsShowcase() {
       {/* Pinned heading — the cards fly over it */}
       <div className="pointer-events-none sticky top-0 -mt-[100svh] grid h-svh place-items-center px-4 text-center">
         <div>
-          <p className="mx-auto inline-block border border-[#f4ede6]/70 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#f4ede6]">
+          <p className="mx-auto inline-block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#f4ede6]">
             Our products
           </p>
           <h2 id="showcase-title" className="font-display mx-auto mt-5 max-w-[16ch] text-[clamp(2.4rem,6.4vw,6rem)] leading-[0.95] text-[#f4ede6]">
