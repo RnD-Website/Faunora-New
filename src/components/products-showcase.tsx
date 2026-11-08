@@ -109,8 +109,8 @@ export function ProductsShowcase() {
             {home.products.title}
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-[#f4ede6]/80 md:whitespace-nowrap">{home.products.body}</p>
-          <Link href="/products" className="btn btn-light pointer-events-auto mt-8">
-            View all products <ArrowRight />
+          <Link href="/contact" className="btn btn-light pointer-events-auto mt-8">
+            Contact Us Now <ArrowRight />
           </Link>
         </div>
       </div>

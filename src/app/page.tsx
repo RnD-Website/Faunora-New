@@ -48,20 +48,20 @@ export default function Home() {
 
       {/* ── Problem: full-bleed photo with text on top ──── */}
       <section className="relative isolate flex min-h-[640px] items-end overflow-hidden text-[#f4ede6] lg:min-h-[100svh]">
-        <Image src="/images/empty-bowl.jpg" alt="A dog licking its lips beside a nearly empty food bowl" fill sizes="100vw" className="-z-20 object-cover object-[50%_42%]" />
+        <Image src="/images/dog-bowl-wide.jpg" alt="A dog resting its head on a table beside a bowl of kibble" fill sizes="100vw" className="-z-20 -scale-x-100 object-cover object-[40%_55%]" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(31_37_9/0.88)_0%,rgb(31_37_9/0.6)_38%,rgb(31_37_9/0.15)_70%,rgb(31_37_9/0.35)_100%)]" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.35)_0%,transparent_30%,transparent_60%,rgb(31_37_9/0.75)_100%)]" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[rgb(31_37_9/0.35)] lg:hidden" />
 
         <div className="container-x grid w-full gap-12 py-20 md:py-28 lg:grid-cols-12 lg:items-end">
-          <Reveal className="lg:col-span-6">
+          <Reveal className="lg:col-span-7">
             <p className="eyebrow text-[#c9d3a8]">The problem</p>
-            <h2 className="h-xl mt-4 max-w-[14ch] text-[#f4ede6]">{problem.title}</h2>
+            <h2 className="h-xl mt-4 max-w-[18ch] text-[#f4ede6]">{problem.title}</h2>
             <p className="mt-6 max-w-lg text-lg text-[#f4ede6]/80">{problem.body}</p>
           </Reveal>
-          <Reveal delay={150} className="lg:col-span-5 lg:col-start-8">
+          <Reveal delay={150} className="lg:col-span-4 lg:col-start-9">
             <div className="corners bg-forest-900/55 p-6 ring-1 ring-[#f4ede6]/30 backdrop-blur-md md:p-8" style={{ ["--corner" as string]: "#f4ede6" }}>
-              <p className="font-display whitespace-nowrap text-[clamp(3rem,5vw,4.8rem)] leading-none">{problem.stat}</p>
+              <p className="font-display whitespace-nowrap text-[clamp(2.6rem,3.5vw,4rem)] leading-none">{problem.stat}</p>
               <p className="mt-3 text-lg font-medium tracking-tight text-[#f4ede6]/85">{problem.statLabel}</p>
             </div>
           </Reveal>
