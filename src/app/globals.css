@@ -203,3 +203,275 @@ button:focus-visible {
     scroll-behavior: auto;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Intro: loader → lights on → push-in → scroll zoom
+   Base rules = finished ("ready") state. Loading/lighting overrides
+   are scoped to html:not(.intro-skip) so a repeat visit in the same
+   session renders the finished hero straight away.
+   ══════════════════════════════════════════════════════════════ */
+.intro {
+  --p: 0;
+  --cam: 1; /* final camera scale */
+  --cy: 0svh; /* vertical offset of the product */
+  /* the scene box is 120% of the viewport height (see .intro-scene) */
+  --s: max(calc(100vw / 1440), calc(120svh / 900));
+}
+@media (max-aspect-ratio: 5/4) {
+  .intro {
+    --cam: 0.74;
+    --cy: 7svh;
+  }
+}
+@media (max-width: 640px) {
+  .intro {
+    --cam: 0.6;
+    --cy: 6svh;
+  }
+}
+.intro-zoom {
+  transform: scale(calc(1 + var(--p) * var(--p) * 7));
+  transform-origin: 50% calc(50% + var(--cy));
+  will-change: transform;
+}
+.intro-scene {
+  inset: -10svh 0;
+  transform: translateY(var(--cy));
+  transition: filter 1.3s ease;
+}
+.intro-camera {
+  transform-box: view-box;
+  transform-origin: 720px 450px;
+  transform: scale(var(--cam));
+  transition: transform 1.8s cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+.intro-dim {
+  background: #161345;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 1.3s ease;
+}
+.intro-exit {
+  opacity: calc((var(--p) - 0.62) * 3.4);
+}
+
+/* Bulbs */
+.intro-bulb-core {
+  fill: #ffd38f;
+  transition: fill 0.4s ease;
+  transition-delay: inherit;
+}
+.intro-bulb-glow {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  transition-delay: inherit;
+}
+
+/* Floating chew, capsules and contact shadow */
+.intro-chew,
+.intro-shadow,
+.intro-capsule {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes chew-float {
+  50% {
+    transform: translateY(-16px) rotate(3deg);
+  }
+}
+@keyframes shadow-breathe {
+  50% {
+    transform: scaleX(0.82);
+    opacity: 0.1;
+  }
+}
+@keyframes capsule-drift {
+  50% {
+    transform: translate(6px, -14px);
+  }
+}
+.intro-chew {
+  animation: chew-float 5.5s ease-in-out infinite;
+}
+.intro-shadow {
+  animation: shadow-breathe 5.5s ease-in-out infinite;
+}
+.intro-capsule {
+  animation: capsule-drift 4.5s ease-in-out infinite;
+}
+
+/* Ring text */
+.intro-ring {
+  top: calc(50% + var(--cy));
+  width: min(calc(var(--s) * 510 * var(--cam)), 94vw);
+  aspect-ratio: 1;
+  color: var(--navy);
+  transform: translate(-50%, -50%) scale(calc(1 + var(--p) * 1.6));
+  opacity: calc(1 - var(--p) * 3.5);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.intro-ring-spin,
+.intro-ring-dot {
+  transition:
+    opacity 1.2s ease,
+    filter 1.2s ease;
+}
+.intro-ring-spin {
+  animation: spin 38s linear infinite;
+}
+.intro-ring-dot {
+  position: absolute;
+  inset: 0;
+  animation: spin 9s linear infinite reverse;
+}
+.intro-ring-dot > span {
+  position: absolute;
+  left: 50%;
+  top: calc(40 / 500 * 100%);
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border-radius: 999px;
+  background: var(--orange);
+  box-shadow: 0 0 0 6px rgb(255 127 0 / 0.18);
+}
+
+/* Headline layer */
+.intro-copy {
+  opacity: calc(1 - var(--p) * 5);
+  transform: translateY(calc(var(--p) * -180px));
+}
+.intro-title,
+.intro-sub,
+.intro-cta {
+  transition:
+    opacity 1s ease,
+    transform 1.1s cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+.intro-sub {
+  transition-delay: 0.15s;
+}
+.intro-cta {
+  transition-delay: 0.3s;
+}
+.intro-mouse {
+  position: relative;
+  width: 22px;
+  height: 34px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+.intro-mouse::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 4px;
+  height: 7px;
+  margin-left: -2px;
+  border-radius: 4px;
+  background: currentColor;
+  animation: mouse-wheel 1.6s ease-in-out infinite;
+}
+@keyframes mouse-wheel {
+  60% {
+    transform: translateY(9px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Loader */
+.intro-loader {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.6s ease,
+    visibility 0s linear 0.6s;
+}
+.intro-dots::after {
+  content: "...";
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  width: 0;
+  animation: dots 1.2s steps(4, end) infinite;
+}
+@keyframes dots {
+  to {
+    width: 1.05em;
+  }
+}
+@keyframes badge-in {
+  from {
+    transform: rotateY(90deg) scale(0.6);
+    opacity: 0;
+  }
+}
+.intro-badge {
+  animation: badge-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+}
+
+header {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+/* ── Loading / lighting overrides (first visit only) ── */
+html:not(.intro-skip):has(.intro[data-intro-phase="loading"]),
+html:not(.intro-skip):has(.intro[data-intro-phase="lighting"]) {
+  overflow: hidden;
+}
+html:not(.intro-skip):has(.intro[data-intro-phase="loading"]) header,
+html:not(.intro-skip):has(.intro[data-intro-phase="lighting"]) header {
+  opacity: 0;
+  transform: translateY(-16px);
+  pointer-events: none;
+}
+html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-loader {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-scene {
+  filter: brightness(0.32) saturate(0.45);
+}
+html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase="lighting"]) .intro-camera {
+  transform: scale(calc(var(--cam) * 0.84));
+}
+html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-dim {
+  opacity: 0.55;
+}
+html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-bulb-core {
+  fill: #5d6b80;
+}
+html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-bulb-glow {
+  opacity: 0;
+}
+html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase="lighting"]) :is(.intro-ring-spin, .intro-ring-dot) {
+  opacity: 0;
+  filter: blur(8px);
+}
+html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase="lighting"]) :is(.intro-title, .intro-sub, .intro-cta) {
+  opacity: 0;
+  transform: translateY(36px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-chew,
+  .intro-shadow,
+  .intro-capsule,
+  .intro-ring-spin,
+  .intro-ring-dot {
+    animation: none;
+  }
+}

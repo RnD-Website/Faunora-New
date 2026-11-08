@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { home, posts, products } from "@/content/site";
 import { ProductCard, PostCard } from "@/components/cards";
+import { HeroIntro } from "@/components/intro/hero-intro";
 import { Reveal } from "@/components/reveal";
 import { RequestButton } from "@/components/request-modal";
 import { ArrowRight, Capsule, Check, Drop, Layers, Leaf, Pin, Shield, Sparkle } from "@/components/icons";
@@ -13,16 +14,18 @@ export default function Home() {
 
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative -mt-[var(--header-h)] overflow-hidden bg-sky pt-[var(--header-h)]">
-        <div className="container-x grid items-center gap-10 pb-16 pt-10 md:pt-16 lg:grid-cols-[1.05fr_1fr] lg:pb-24">
+      {/* ── Intro hero: loader, lights-on, scroll zoom ───── */}
+      <HeroIntro />
+
+      {/* ── Welcome ──────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-sky">
+        <div className="container-x grid items-center gap-10 pb-16 pt-16 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:pb-24">
           <div>
             <p className="eyebrow inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-navy">
               <Sparkle className="size-3.5 text-orange" /> Vet-formulated animal nutrition
             </p>
-            <h1 className="font-display mt-6 text-[clamp(3.2rem,8vw,6.6rem)] leading-[0.95]">{hero.title}</h1>
-            <p className="h-lg mt-4 text-navy-500">{hero.subtitle}</p>
-            <p className="lede mt-6 max-w-xl text-lg text-navy/75">{hero.body}</p>
+            <h2 className="font-display mt-6 text-[clamp(3rem,7vw,5.8rem)] leading-[0.95]">Made for the animals you love.</h2>
+                        <p className="lede mt-6 max-w-xl text-lg text-navy/75">{hero.body}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#products" className="btn btn-dark">
                 Explore products <ArrowRight />
@@ -37,7 +40,6 @@ export default function Home() {
                 src="/images/hero-owner-dog.jpg"
                 alt="A woman kissing her happy golden retriever outdoors"
                 fill
-                priority
                 sizes="(min-width: 1024px) 540px, 100vw"
                 className="object-cover"
               />
