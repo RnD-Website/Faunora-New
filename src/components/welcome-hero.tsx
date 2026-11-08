@@ -3,6 +3,7 @@ import Link from "next/link";
 import { home } from "@/content/site";
 import { ArrowRight, Leaf, Shield, Sparkle } from "./icons";
 import { RequestButton } from "./request-modal";
+import { InView } from "./in-view";
 
 /* Small round animal portraits floating between the two cards */
 const bubbles = [
@@ -65,7 +66,7 @@ function ProfileCard({
 
 function Chip({ title, sub, className = "" }: { title: string; sub: string; className?: string }) {
   return (
-    <div className={`flex items-center gap-2 bg-[#f6e9da]/95 px-3 py-2 shadow-[0_12px_30px_-14px_rgb(31_37_9/0.35)] backdrop-blur ${className}`}>
+    <div className={`flex items-center gap-2 bg-white px-3 py-2 shadow-[0_12px_30px_-14px_rgb(31_37_9/0.35)] ring-1 ring-line ${className}`}>
       <ArrowRight className="size-3.5 shrink-0 text-forest" />
       <span className="text-[12px] leading-tight">
         <strong className="block font-semibold text-forest">{title}</strong>
@@ -95,7 +96,7 @@ export function WelcomeHero() {
       <div className="relative mt-14 md:mt-20 lg:h-[440px]">
 
         {/* Mobile / tablet: stacked cards */}
-        <div className="container-x relative flex flex-col items-center gap-5 lg:hidden">
+        <InView className="welcome-stage container-x relative flex flex-col items-center gap-5 lg:hidden" threshold={0.15}>
           <ProfileCard
             icon={<Leaf className="size-4 text-sage" />}
             label="Daily routine"
@@ -114,45 +115,66 @@ export function WelcomeHero() {
             chipLead="Interested in"
             chipStrong="Herd™ premix"
           />
-        </div>
+        </InView>
 
-        {/* Desktop: floating composition */}
-        <div className="relative mx-auto hidden h-full max-w-[1100px] lg:block">
-          <ProfileCard
-            icon={<Leaf className="size-4 text-sage" />}
-            label="Daily routine"
-            avatar={{ src: "/images/labrador-tulip.jpg", alt: "Golden labrador" }}
-            name="Luna"
-            meta="Golden retriever, 7 years"
-            chipLead="Taking"
-            chipStrong="Companion™ chews"
-            className="float absolute left-[4%] top-[18%]"
-          />
+        {/* Desktop: floating composition — pieces fly in on scroll, then float; connectors keep flowing */}
+        <InView className="welcome-stage relative mx-auto hidden h-full max-w-[1100px] lg:block" threshold={0.3}>
+          <svg viewBox="0 0 1100 440" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true">
+            {[
+              "M344 158 C 420 158, 440 128, 506 128",
+              "M641 128 C 700 128, 700 188, 756 188",
+              "M344 205 C 420 205, 450 286, 517 286",
+              "M655 286 C 712 286, 712 222, 756 222",
+            ].map((d, i) => (
+              <path key={d} d={d} className="welcome-link" style={{ ["--i" as string]: i }} vectorEffect="non-scaling-stroke" />
+            ))}
+          </svg>
 
-          {bubbles.map((b) => (
-            <div key={b.src} className={`float absolute ${b.pos}`} style={{ animationDelay: b.delay }}>
-              <Avatar src={b.src} alt={b.alt} className={b.size} />
-              {b.badge && (
-                <span className="absolute -bottom-2 -right-2 grid size-6 place-items-center bg-[#f6e9da] text-forest shadow-md">
-                  {b.badge === "spark" ? <Sparkle className="size-3 text-sage" /> : <ArrowRight className="size-3" />}
-                </span>
-              )}
+          <div className="welcome-enter absolute left-[4%] top-[18%]" style={{ ["--d" as string]: "0ms", ["--x" as string]: "-60px" }}>
+            <ProfileCard
+              icon={<Leaf className="size-4 text-sage" />}
+              label="Daily routine"
+              avatar={{ src: "/images/labrador-tulip.jpg", alt: "Golden labrador" }}
+              name="Luna"
+              meta="Golden retriever, 7 years"
+              chipLead="Taking"
+              chipStrong="Companion™ chews"
+              className="float"
+            />
+          </div>
+
+          {bubbles.map((b, i) => (
+            <div key={b.src} className={`welcome-enter welcome-pop absolute ${b.pos}`} style={{ ["--d" as string]: `${300 + i * 110}ms` }}>
+              <div className="float relative" style={{ animationDelay: b.delay }}>
+                <Avatar src={b.src} alt={b.alt} className={b.size} />
+                {b.badge && (
+                  <span className="absolute -bottom-2 -right-2 grid size-6 place-items-center bg-white text-forest shadow-md ring-1 ring-line">
+                    {b.badge === "spark" ? <Sparkle className="size-3 text-sage" /> : <ArrowRight className="size-3" />}
+                  </span>
+                )}
+              </div>
             </div>
           ))}
-          <Chip title="Shared" sub="Vet's feeding plan" className="float absolute left-[46%] top-[24%] [animation-delay:0.4s]" />
-          <Chip title="Recommended" sub="NutriCore™ dose" className="float absolute left-[47%] top-[60%] [animation-delay:1.4s]" />
+          <div className="welcome-enter absolute left-[46%] top-[24%]" style={{ ["--d" as string]: "650ms", ["--y" as string]: "18px" }}>
+            <Chip title="Shared" sub="Vet's feeding plan" className="float [animation-delay:0.4s]" />
+          </div>
+          <div className="welcome-enter absolute left-[47%] top-[60%]" style={{ ["--d" as string]: "850ms", ["--y" as string]: "18px" }}>
+            <Chip title="Recommended" sub="NutriCore™ dose" className="float [animation-delay:1.4s]" />
+          </div>
 
-          <ProfileCard
-            icon={<Shield className="size-4 text-sage" />}
-            label="Herd profile"
-            avatar={{ src: "/images/calves.jpg", alt: "Calves in a barn" }}
-            name="Meadow Farm"
-            meta="120 dairy cows"
-            chipLead="Interested in"
-            chipStrong="Herd™ premix"
-            className="float absolute right-[4%] top-[24%] [animation-delay:2s]"
-          />
-        </div>
+          <div className="welcome-enter absolute right-[4%] top-[24%]" style={{ ["--d" as string]: "150ms", ["--x" as string]: "60px" }}>
+            <ProfileCard
+              icon={<Shield className="size-4 text-sage" />}
+              label="Herd profile"
+              avatar={{ src: "/images/calves.jpg", alt: "Calves in a barn" }}
+              name="Meadow Farm"
+              meta="120 dairy cows"
+              chipLead="Interested in"
+              chipStrong="Herd™ premix"
+              className="float [animation-delay:2s]"
+            />
+          </div>
+        </InView>
       </div>
     </section>
   );
