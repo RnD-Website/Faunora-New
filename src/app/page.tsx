@@ -207,7 +207,19 @@ export default function Home() {
 
       {/* ── Community: carousel over a full-bleed landscape ─ */}
       <section className="relative isolate overflow-hidden bg-forest-900 py-16 text-[#f4ede6] md:py-20 lg:min-h-[100svh] lg:py-24">
+        {/* poster image (also the fallback when motion is reduced) + looping background video */}
         <Image src="/images/pasture-wide.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover" />
+        <video
+          className="absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden"
+          src="/videos/pasture.mp4"
+          poster="/images/pasture-wide.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.55)_0%,rgb(31_37_9/0.35)_40%,rgb(31_37_9/0.6)_100%)]" />
         <div className="container-x relative flex h-full flex-col lg:min-h-[calc(100svh-12rem)]">
           <div className="flex items-start justify-between gap-6">
