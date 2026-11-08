@@ -8,11 +8,11 @@ const { figures } = home.solution;
 
 /* Card positions around the ring on large screens (% of the stage) */
 const spots = [
-  { left: "15%", top: "3%" },
-  { left: "60%", top: "13%" },
-  { left: "2%", top: "39%" },
-  { left: "11%", top: "71%" },
-  { left: "59%", top: "71%" },
+  { left: "15%", top: "2%" },
+  { left: "60%", top: "12%" },
+  { left: "2%", top: "38%" },
+  { left: "11%", top: "73%" },
+  { left: "59%", top: "73%" },
 ];
 
 /* Ring segments: [start°, end°, colour] — 0° is 12 o'clock, clockwise */
@@ -88,10 +88,10 @@ export function NutriCoreOrbit() {
     >
       {/* blurred warm light, like a defocused photo */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <Image src="/images/meadow.jpg" alt="" fill sizes="60vw" className="left-[35%] top-[-20%] !h-[110%] !w-[75%] object-cover opacity-45 blur-[70px]" />
+        <Image src="/images/pasture-cows.jpg" alt="" fill sizes="60vw" className="left-[35%] top-[-20%] !h-[110%] !w-[75%] object-cover opacity-25 blur-[80px] saturate-150" />
         <div className="absolute -right-20 -top-28 size-[620px] rounded-full bg-[#8f9c4c]/45 blur-[120px]" />
         <div className="absolute right-[18%] top-[4%] size-[360px] rounded-full bg-[#a6b45a]/30 blur-[100px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_10%,transparent_35%,rgb(57_79_54/0.9)_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_10%,transparent_30%,rgb(57_79_54/0.95)_68%)]" />
       </div>
 
       <h3 className="relative text-sm font-semibold leading-snug md:text-base">
@@ -101,7 +101,7 @@ export function NutriCoreOrbit() {
       </h3>
 
       {/* Stage */}
-      <div className="relative mx-auto mt-6 max-w-[1200px] lg:mt-0 lg:aspect-[1200/820]">
+      <div className="relative mx-auto mt-6 max-w-[1200px] lg:mt-0 lg:aspect-[1200/900]">
         {/* Ring + globe */}
         <div className="orbit-core relative mx-auto aspect-square w-[min(88vw,460px)] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[50%] lg:-translate-x-1/2 lg:-translate-y-1/2">
           <svg viewBox="0 0 600 600" className="orbit-ring absolute inset-0 h-full w-full" aria-hidden="true">
@@ -120,17 +120,24 @@ export function NutriCoreOrbit() {
             ))}
           </svg>
 
+          {/* Glass bezel around the globe */}
+          <div className="orbit-globe orbit-bezel absolute inset-[15.5%] rounded-full" aria-hidden="true" />
+
           {/* Kibble globe */}
-          <div className="orbit-globe absolute inset-[19%] overflow-hidden rounded-full shadow-[0_40px_80px_-20px_rgb(0_0_0/0.6)]">
-            <Image src="/images/meadow.jpg" alt="Dense green grass dotted with tiny wildflowers" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-125 object-cover brightness-[1.3] saturate-[1.15]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_34%_28%,rgb(236_253_222/0.35),transparent_40%),radial-gradient(circle_at_50%_50%,transparent_48%,rgb(20_38_18/0.6)_100%)]" />
+          <div className="orbit-globe absolute inset-[19%] overflow-hidden rounded-full shadow-[0_40px_80px_-20px_rgb(10_20_8/0.7)]">
+            <Image src="/images/kibble.jpg" alt="Close-up of nutrient-rich kibble" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-110 object-cover" />
+            {/* sphere shading: soft key light, dark rim */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_40%,rgb(20_32_16/0.78)_100%)]" />
+            {/* glossy specular highlight */}
+            <div className="absolute left-[14%] top-[6%] h-[34%] w-[62%] -rotate-12 rounded-[50%] bg-[linear-gradient(180deg,rgb(255_255_255/0.42),rgb(255_255_255/0)_85%)] blur-[2px]" />
+            <div className="absolute inset-0 rounded-full shadow-[inset_0_2px_0_rgb(255_255_255/0.35),inset_0_-20px_40px_rgb(10_20_8/0.45)]" />
             <div className="absolute inset-0 grid place-items-center text-center">
               <div>
-                <p className="text-[clamp(4.5rem,11vw,8.5rem)] font-light leading-[0.85] tracking-[-0.06em] tabular-nums">
+                <p className="text-[clamp(4.5rem,11vw,8.5rem)] font-light leading-[0.85] tracking-[-0.06em] tabular-nums [text-shadow:0_6px_30px_rgb(10_20_8/0.55)]">
                   <CountUp to={figures.center.value} run={seen} />
                   {figures.center.suffix}
                 </p>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.08em] md:text-base">{figures.center.label}</p>
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.08em] [text-shadow:0_2px_14px_rgb(10_20_8/0.7)] md:text-base">{figures.center.label}</p>
               </div>
             </div>
           </div>
@@ -141,13 +148,14 @@ export function NutriCoreOrbit() {
           {figures.items.map((f, i) => (
             <li
               key={f.title}
-              className={`orbit-card rounded-2xl border p-5 ${i === HIGHLIGHT ? "border-[#8ab862]/35 bg-[#4b704c]/90" : "border-white/15 bg-[#31482e]/70"} shadow-[0_20px_50px_-20px_rgb(0_0_0/0.5)] backdrop-blur-md lg:absolute lg:w-[27%]`}
+              className={`orbit-card glass-card relative rounded-[20px] p-5 lg:absolute lg:w-[27%] ${i === HIGHLIGHT ? "glass-card--tint" : ""}`}
               style={{ ...spotsStyle(i), transitionDelay: `${0.35 + i * 0.1}s` }}
             >
               <div className="flex items-start justify-between gap-3">
                 <h4 className="text-xs font-semibold tracking-[0.04em]">{f.title}</h4>
-                <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold ${badgeTones[i]}`}>{f.badge}</span>
+                <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold shadow-[inset_0_1px_0_rgb(255_255_255/0.5),0_4px_12px_-4px_rgb(10_20_8/0.4)] ${badgeTones[i]}`}>{f.badge}</span>
               </div>
+              <div className="mt-4 h-px bg-gradient-to-r from-white/25 via-white/10 to-transparent" />
               <div className="mt-4 flex items-end justify-between gap-3">
                 <div>
                   <p className="flex items-baseline gap-1.5 leading-none">
@@ -157,9 +165,9 @@ export function NutriCoreOrbit() {
                     </span>
                     <span className="text-xs font-semibold">{f.unit}</span>
                   </p>
-                  <p className="mt-2 text-[11px] text-white/60">{f.label}</p>
+                  <p className="mt-2 text-[11px] text-white/70">{f.label}</p>
                 </div>
-                <p className="max-w-[11ch] text-right text-[11px] leading-snug text-white/60">{f.note}</p>
+                <p className="max-w-[11ch] text-right text-[11px] leading-snug text-white/65">{f.note}</p>
               </div>
             </li>
           ))}
