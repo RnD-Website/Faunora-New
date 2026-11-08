@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { home } from "@/content/site";
+import { CountUp } from "./count-up";
 
 const { figures } = home.solution;
 
@@ -55,28 +56,6 @@ function useInView<T extends Element>() {
   return [ref, seen] as const;
 }
 
-function CountUp({ to, run, duration = 1400 }: { to: number; run: boolean; duration?: number }) {
-  const [v, setV] = useState(0);
-  useEffect(() => {
-    if (!run) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- jump straight to the final value
-      setV(to);
-      return;
-    }
-    let raf = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
-      setV(Math.round(to * (1 - Math.pow(1 - t, 3))));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [run, to, duration]);
-  return <>{v}</>;
-}
-
 export function NutriCoreOrbit() {
   const [stageRef, seen] = useInView<HTMLDivElement>();
 
@@ -118,7 +97,8 @@ export function NutriCoreOrbit() {
 
           {/* Kibble globe */}
           <div className="orbit-globe keep-round absolute inset-[19%] overflow-hidden shadow-[0_40px_80px_-20px_rgb(10_20_8/0.7)]">
-            <Image src="/images/kibble.jpg" alt="Close-up of nutrient-rich kibble" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-110 object-cover" />
+            <Image src="/images/kibble-poster.jpg" alt="" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-110 object-cover object-[50%_70%]" />
+            <video className="absolute inset-0 h-full w-full scale-110 object-cover object-[50%_70%] motion-reduce:hidden" src="/videos/kibble.mp4" poster="/images/kibble-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
             {/* sphere shading: soft key light, dark rim */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_40%,rgb(20_32_16/0.78)_100%)]" />
             {/* glossy specular highlight */}
@@ -127,8 +107,7 @@ export function NutriCoreOrbit() {
             <div className="absolute inset-0 grid place-items-center text-center">
               <div>
                 <p className="text-[clamp(4.5rem,11vw,8.5rem)] font-light leading-[0.85] tracking-[-0.06em] tabular-nums [text-shadow:0_6px_30px_rgb(10_20_8/0.55)]">
-                  <CountUp to={figures.center.value} run={seen} />
-                  {figures.center.suffix}
+                  <CountUp value={`${figures.center.value}${figures.center.suffix}`} duration={2200} />
                 </p>
                 <p className="mt-2 text-sm font-semibold uppercase tracking-[0.08em] [text-shadow:0_2px_14px_rgb(10_20_8/0.7)] md:text-base">{figures.center.label}</p>
               </div>
@@ -153,8 +132,7 @@ export function NutriCoreOrbit() {
                 <div>
                   <p className="flex items-baseline gap-1.5 leading-none">
                     <span className="text-[clamp(2.6rem,4vw,3.4rem)] font-light tracking-[-0.05em] tabular-nums">
-                      {"prefix" in f && f.prefix}
-                      <CountUp to={f.value} run={seen} />
+                      <CountUp value={`${"prefix" in f ? f.prefix : ""}${f.value}`} />
                     </span>
                     <span className="text-xs font-semibold">{f.unit}</span>
                   </p>

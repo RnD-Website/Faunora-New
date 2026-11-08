@@ -10,6 +10,7 @@ import { ArrowRight, Capsule, Check, Sparkle } from "@/components/icons";
 import { NutriCoreOrbit } from "@/components/nutricore-orbit";
 import { TrialsMap } from "@/components/trials-map";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { CountUp } from "@/components/count-up";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 
 export default function Home() {
@@ -122,7 +123,7 @@ export default function Home() {
               <div key={s.label} className="corners p-6 text-center ring-1 ring-forest/25 transition hover:bg-forest/[0.04] md:p-10">
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
-                  <span className="block text-5xl font-semibold tracking-[-0.06em] text-sage md:text-6xl">{s.value}</span>
+                  <CountUp value={s.value} className="block text-5xl font-semibold tracking-[-0.06em] text-sage md:text-6xl" />
                   <span className="mt-2 block text-forest/75">{s.label}</span>
                 </dd>
               </div>
