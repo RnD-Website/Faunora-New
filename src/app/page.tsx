@@ -166,7 +166,7 @@ export default function Home() {
       {/* ── Field trials + Aqua on request (split, map + parallax photo) ── */}
       <ScrollProgress id="trials" className="trials grid lg:min-h-[100svh] lg:grid-cols-2">
         {/* Left: map */}
-        <div className="flex flex-col justify-between gap-10 bg-[#f4ede6] px-4 pb-10 pt-20 md:px-8 md:pt-28 lg:pb-16">
+        <div className="flex flex-col justify-between gap-10 bg-[#f4ede6] px-[var(--gutter)] pb-10 pt-20 md:pt-28 lg:pb-16">
           <Reveal>
             <h2 className="font-display max-w-[11ch] text-[clamp(2.4rem,4.6vw,4.2rem)] leading-[0.95] text-forest">{trials.title}</h2>
             <p className="mt-6 max-w-md text-[12.5px] font-medium uppercase leading-relaxed tracking-[0.04em] text-forest/80">
@@ -194,7 +194,7 @@ export default function Home() {
             <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.why}</p>
           </div>
 
-          <div className="absolute inset-x-4 bottom-8 md:inset-x-8 md:bottom-12">
+          <div className="absolute inset-x-[var(--gutter)] bottom-8 md:bottom-12">
             <h3 className="font-display max-w-[13ch] text-[clamp(2rem,3.6vw,3.4rem)] leading-[0.98]">{onRequest.title}</h3>
             <p className="mt-4 max-w-md text-[#f4ede6]/80">{onRequest.body}</p>
             <RequestButton product="Faunora Aqua™" className="btn btn-light mt-6">

@@ -114,16 +114,18 @@ body {
   line-height: 1.55;
 }
 
-.container-x {
-  width: 100%;
-  max-width: 1280px;
-  margin-inline: auto;
-  padding-inline: 16px;
+:root {
+  --gutter: 16px; /* one side gap for the whole site */
 }
 @media (min-width: 768px) {
-  .container-x {
-    padding-inline: 32px;
+  :root {
+    --gutter: 24px;
   }
+}
+.container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
 /* Buttons — signature hover: a fill wipes across in a contrasting brand

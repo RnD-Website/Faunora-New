@@ -126,7 +126,7 @@ export function HeroIntro() {
             </h1>
 
             {/* Right column: subtitle + primary button */}
-            <div className="intro-sub absolute bottom-8 right-4 flex flex-col items-end gap-5 text-right md:bottom-auto md:right-8 md:top-[44%] md:gap-7">
+            <div className="intro-sub absolute bottom-8 right-[var(--gutter)] flex flex-col items-end gap-5 text-right md:bottom-auto md:top-[44%] md:gap-7">
               <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold uppercase leading-[1.1] tracking-[-0.01em] text-[#f4ede6] [text-shadow:0_2px_18px_rgb(16_21_10/0.65)]">
                 {home.hero.subtitle}
               </p>
@@ -136,7 +136,7 @@ export function HeroIntro() {
             </div>
 
             {/* Scroll cue, bottom left */}
-            <div className="intro-cta absolute bottom-8 left-4 flex flex-col items-center gap-2 text-[#f4ede6] md:bottom-10 md:left-8" aria-hidden="true">
+            <div className="intro-cta absolute bottom-8 left-[var(--gutter)] flex flex-col items-center gap-2 text-[#f4ede6] md:bottom-10" aria-hidden="true">
               <span className="intro-mouse" />
               <span className="eyebrow text-[0.65rem]">Scroll</span>
             </div>
