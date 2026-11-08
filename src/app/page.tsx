@@ -77,7 +77,7 @@ export default function Home() {
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-lg font-medium tracking-tight text-forest-500">{solution.kicker}</p>
             <h2 className="font-display mt-4 text-5xl leading-[1] md:text-6xl">{solution.title}</h2>
-            <p className="lede mx-auto mt-6 max-w-2xl text-lg text-muted">{solution.body}</p>
+            <p className="lede mx-auto mt-6 max-w-4xl text-lg text-muted">{solution.body}</p>
             <Link href="/science" className="mt-6 inline-flex items-center gap-2 font-semibold underline decoration-sage decoration-2 underline-offset-4">
               How NutriCore™ works <ArrowRight />
             </Link>
@@ -175,7 +175,7 @@ export default function Home() {
 
           <div className="absolute inset-x-6 bottom-14 md:inset-x-10 md:bottom-20 lg:inset-x-12">
             <h3 className="font-display max-w-[22ch] text-[clamp(2rem,3.4vw,3.2rem)] leading-[0.98]">{onRequest.title}</h3>
-            <p className="mt-4 max-w-md text-[#f4ede6]/80">{onRequest.body}</p>
+            <p className="mt-4 max-w-2xl text-[#f4ede6]/80">{onRequest.body}</p>
             <RequestButton product="Faunora Aqua™" className="btn btn-light mt-6">
               Request product <ArrowRight />
             </RequestButton>
