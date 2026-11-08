@@ -234,7 +234,7 @@ export default function Home() {
       </section>
 
       {/* ── Closing CTA ──────────────────────────────────── */}
-      <section className="bg-[linear-gradient(180deg,var(--olive)_0%,var(--olive)_55%,#7c8a52_72%,#c9cba8_88%,#f4ede6_100%)] pb-44 pt-20 text-[#f4ede6] md:pb-64 md:pt-28">
+      <section className="bg-[linear-gradient(180deg,var(--olive)_0%,var(--olive)_50%,#62723c_60%,#7a8853_69%,#9aa476_78%,#bec3a0_86%,#dddcc6_93%,#f4ede6_100%)] pb-28 pt-20 text-[#f4ede6] md:pb-36 md:pt-28">
         <div className="container-x text-center">
           <Reveal>
             <h2 className="font-display mx-auto max-w-4xl text-5xl leading-[1] md:text-6xl">{closing.title}</h2>

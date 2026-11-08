@@ -15,7 +15,7 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[linear-gradient(180deg,#f4ede6_0%,#ece8da_38%,#d8dfbd_72%,#b3c28f_100%)] text-forest">
-      <div className="container-x pt-12 text-[12.5px] font-medium uppercase tracking-[0.05em] md:pt-16">
+      <div className="container-x pt-6 text-[12.5px] font-medium uppercase tracking-[0.05em] md:pt-8">
         {/* Link columns + socials */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-12">
           {groups.map((g) => (
@@ -86,9 +86,6 @@ export function Footer() {
         <Chew id="ft-chew-b" rotate={22} className="pointer-events-none absolute left-[22%] top-[28%] w-[7%]" />
         <Sphere id="ft-sphere-a" className="pointer-events-none absolute -left-[1.5%] bottom-[-14%] w-[10%]" />
         <Sphere id="ft-sphere-b" tone="cream" className="pointer-events-none absolute -right-[2%] bottom-[-26%] w-[15%]" />
-        <Sphere id="ft-pearl-a" tone="cream" className="pointer-events-none absolute left-[46%] top-[-14%] w-[2.2%]" />
-        <Sphere id="ft-pearl-b" className="pointer-events-none absolute left-[78%] top-[-6%] w-[1.6%]" />
-        <Sphere id="ft-pearl-c" tone="cream" className="pointer-events-none absolute left-[9%] top-[-10%] w-[1.4%]" />
       </div>
     </footer>
   );
