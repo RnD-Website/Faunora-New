@@ -127,7 +127,7 @@ export function HeroIntro() {
 
             {/* Right column: subtitle + primary button */}
             <div className="intro-sub absolute bottom-8 right-4 flex flex-col items-end gap-5 text-right md:bottom-auto md:right-8 md:top-[44%] md:gap-7">
-              <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold uppercase leading-[1.1] tracking-[-0.01em] text-[#f4ede6]">
+              <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold uppercase leading-[1.1] tracking-[-0.01em] text-[#f4ede6] [text-shadow:0_2px_18px_rgb(16_21_10/0.65)]">
                 {home.hero.subtitle}
               </p>
               <Link href="#products" className="btn btn-light">
@@ -156,12 +156,12 @@ export function HeroIntro() {
               <div className="relative h-px flex-1 bg-white/35">
                 <div className="absolute inset-y-0 left-0 bg-white" style={{ width: `${progress}%` }} />
                 <span
-                  className="font-display absolute bottom-5 -translate-x-1/2 text-4xl tabular-nums md:text-5xl"
-                  style={{ left: `${progress}%` }}
+                  className="font-display absolute bottom-5 text-4xl tabular-nums md:text-5xl"
+                  style={{ left: `${progress}%`, transform: `translateX(-${progress}%)` }}
                 >
                   {pct}%
                 </span>
-                <span className="absolute top-6 -translate-x-1/2" style={{ left: `${progress}%` }}>
+                <span className="absolute top-6" style={{ left: `${progress}%`, transform: `translateX(-${progress}%)` }}>
                   <span key={badge.src} className="intro-badge keep-round relative block size-14 overflow-hidden ring-2 ring-sage md:size-16">
                     <Image src={badge.src} alt={badge.alt} fill sizes="64px" className="object-cover" priority />
                   </span>

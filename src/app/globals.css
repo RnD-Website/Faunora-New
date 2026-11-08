@@ -238,8 +238,8 @@ button:focus-visible {
    ══════════════════════════════════════════════════════════════ */
 .intro {
   --p: 0;
-  --cam: 1; /* final camera scale */
-  --cy: 0svh; /* vertical offset of the product */
+  --cam: 0.9; /* final camera scale */
+  --cy: -2svh; /* vertical offset of the product */
   /* the scene box is 120% of the viewport height (see .intro-scene) */
   --s: max(calc(100vw / 1440), calc(120svh / 900));
 }
@@ -252,7 +252,7 @@ button:focus-visible {
 @media (max-width: 640px) {
   .intro {
     --cam: 0.6;
-    --cy: 6svh;
+    --cy: -3svh;
   }
 }
 .intro-zoom {
