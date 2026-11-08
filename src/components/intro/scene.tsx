@@ -138,11 +138,7 @@ export function Scene() {
 
         {/* Side props, softly out of focus */}
         <g filter="url(#sc-depth)">
-          {/* left: tall column + sphere on a low plinth */}
-          <ellipse cx="236" cy="712" rx="120" ry="22" fill="#10150a" opacity="0.28" filter="url(#sc-soft)" />
-          <ellipse cx="230" cy="700" rx="86" ry="18" fill="#6d7750" />
-          <rect x="144" y="300" width="172" height="400" fill="url(#sc-prop)" />
-          <ellipse cx="230" cy="300" rx="86" ry="18" fill="#eef0de" />
+          {/* left: sphere on a low plinth */}
           <ellipse cx="372" cy="720" rx="64" ry="13" fill="#6d7750" />
           <rect x="308" y="648" width="128" height="72" fill="url(#sc-prop)" />
           <ellipse cx="372" cy="648" rx="64" ry="13" fill="#eef0de" />
@@ -150,10 +146,7 @@ export function Scene() {
           <circle cx="372" cy="608" r="38" fill="url(#sc-sphere)" />
           <ellipse cx="360" cy="592" rx="12" ry="8" fill="#ffffff" opacity="0.55" filter="url(#sc-soft)" />
 
-          {/* right: arch panel + small cube */}
-          <ellipse cx="1218" cy="708" rx="110" ry="18" fill="#10150a" opacity="0.25" filter="url(#sc-soft)" />
-          <path d="M1130 702 V250 A88 88 0 0 1 1306 250 V702Z" fill="url(#sc-prop)" />
-          <path d="M1150 702 V262 A68 68 0 0 1 1286 262 V702Z" fill="#c9d3a8" opacity="0.35" />
+          {/* right: small cube */}
           <path d="M1050 724 l40 -14 l40 14 l-40 14Z" fill="#eef0de" />
           <path d="M1050 724 v-0 l40 14 v52 l-40 -14Z" fill="#c3c9a6" />
           <path d="M1130 724 l-40 14 v52 l40 -14Z" fill="#7f8a5e" />
