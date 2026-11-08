@@ -192,25 +192,31 @@ export const home = {
   },
   testimonials: [
     {
-      quote: "My patients finally get what the label promises. Owners notice the difference in coat and energy within weeks, and I can recommend one product across very different diets.",
-      name: "Dr. Daniel Mercer",
-      role: "Companion-animal vet",
-      image: "/images/vet-dachshund.jpg",
-      alt: "Veterinarian holding a dachshund in a clinic",
+      quote: "Our beagle is picky about everything, but the Companion chew is the one treat he asks for. Knowing it is clean and plant-based makes it an easy daily habit.",
+      name: "Maya Lindqvist",
+      role: "Dog owner · Companion™",
+      video: "/videos/t-owner.mp4",
+      poster: "/images/t-owner-poster.jpg",
+      focus: "50% 40%",
+      alt: "Woman kneeling in a meadow with her beagle",
     },
     {
       quote: "On the farm, consistency is everything. The premix blends evenly, stores well through summer and the herd simply eats it. Fewer bags, fewer trucks, same results.",
-      name: "Hannah Brooks",
-      role: "Large-animal vet · Herd advisor",
-      image: "/images/farmer-vet.jpg",
-      alt: "Farm vet talking with a farmer beside a truck",
+      name: "Thomas Keller",
+      role: "Family dairy farm · Herd™",
+      video: "/videos/t-farm.mp4",
+      poster: "/images/t-farm-poster.jpg",
+      focus: "78% 50%",
+      alt: "Family raising a new timber barn on their farm",
     },
     {
-      quote: "Our golden is picky about everything, but the Companion chew is the one treat she asks for. Knowing it is clean and plant-based makes it an easy daily habit.",
-      name: "Maya Lindqvist",
-      role: "Dog owner · Companion™",
-      image: "/images/hero-owner-dog.jpg",
-      alt: "Woman hugging her golden retriever outdoors",
+      quote: "Horses tell you quickly when something works. Coats are brighter, hooves stronger, and I can recommend one product across very different feeding routines.",
+      name: "Dr. Elena Ruiz",
+      role: "Equine vet",
+      video: "/videos/t-equine.mp4",
+      poster: "/images/t-equine-poster.jpg",
+      focus: "68% 50%",
+      alt: "Vet standing with a paint horse in a green paddock",
     },
   ],
   closing: {
@@ -218,6 +224,8 @@ export const home = {
     body: "Request a sample for your clinic, farm or store — or talk to our nutrition team.",
   },
 };
+
+export type Testimonial = (typeof home.testimonials)[number];
 
 export type Post = {
   slug: string;

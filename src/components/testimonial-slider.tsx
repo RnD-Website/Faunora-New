@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { Testimonial } from "@/content/site";
 import { home } from "@/content/site";
 import { ArrowRight } from "./icons";
 
@@ -64,15 +65,7 @@ export function TestimonialSlider() {
           </div>
           <div className="relative ml-[12%] aspect-[4/5] overflow-hidden bg-forest">
             {items.map((t, i) => (
-              <Image
-                key={t.name}
-                src={t.image}
-                alt={t.alt}
-                fill
-                sizes="(min-width: 1024px) 34vw, 88vw"
-                className={`object-cover transition-[opacity,transform] duration-[900ms] ease-out ${i === index ? "scale-100 opacity-100" : "scale-105 opacity-0"}`}
-                aria-hidden={i !== index}
-              />
+              <TestimonialVideo key={t.name} item={t} active={i === index} />
             ))}
           </div>
         </div>
@@ -125,5 +118,35 @@ export function TestimonialSlider() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Only the active clip plays; the others pause and fade out. Poster shows while loading / with reduced motion. */
+function TestimonialVideo({ item, active }: { item: Testimonial; active: boolean }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    if (active && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [active]);
+  return (
+    <video
+      ref={ref}
+      src={item.video}
+      poster={item.poster}
+      muted
+      loop
+      playsInline
+      preload={active ? "auto" : "metadata"}
+      aria-label={item.alt}
+      aria-hidden={!active}
+      style={{ objectPosition: item.focus }}
+      className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-[900ms] ease-out ${active ? "scale-100 opacity-100" : "scale-105 opacity-0"}`}
+    />
   );
 }
