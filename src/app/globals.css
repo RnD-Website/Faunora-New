@@ -119,7 +119,12 @@ body {
 }
 @media (min-width: 768px) {
   :root {
-    --gutter: 24px;
+    --gutter: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --gutter: 48px;
   }
 }
 .container-x {

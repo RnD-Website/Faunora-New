@@ -86,14 +86,6 @@ export function NutriCoreOrbit() {
       data-seen={seen || undefined}
       className="orbit relative overflow-hidden rounded-[40px] bg-[#394f36] px-5 py-10 text-white md:px-10 md:py-14"
     >
-      {/* blurred warm light, like a defocused photo */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <Image src="/images/pasture-cows.jpg" alt="" fill sizes="60vw" className="left-[35%] top-[-20%] !h-[110%] !w-[75%] object-cover opacity-25 blur-[80px] saturate-150" />
-        <div className="absolute -right-20 -top-28 size-[620px] keep-round bg-[#8f9c4c]/45 blur-[120px]" />
-        <div className="absolute right-[18%] top-[4%] size-[360px] keep-round bg-[#a6b45a]/30 blur-[100px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_10%,transparent_30%,rgb(57_79_54/0.95)_68%)]" />
-      </div>
-
       <h3 className="relative text-sm font-semibold leading-snug md:text-base">
         {figures.heading[0]}
         <br />
@@ -175,7 +167,6 @@ export function NutriCoreOrbit() {
         </ul>
       </div>
 
-      <p className="relative mt-8 text-center text-xs text-white/45 lg:mt-0">*{figures.footnote}</p>
     </div>
   );
 }

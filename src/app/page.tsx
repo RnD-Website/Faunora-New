@@ -48,10 +48,10 @@ export default function Home() {
             </div>
             <div className="corners float absolute -left-3 top-10 bg-white px-4 py-3 shadow-xl md:-left-8">
               <p className="text-2xl font-semibold tracking-tight">3×</p>
-              <p className="text-xs text-muted">absorption*</p>
+              <p className="text-xs text-muted">absorption</p>
             </div>
             <div className="corners float absolute -right-2 bottom-12 flex items-center gap-3 bg-forest px-4 py-3 text-white shadow-xl [animation-delay:1.5s] md:-right-6">
-              <span className="grid size-9 place-items-center rounded-full bg-sage text-forest">
+              <span className="grid size-9 place-items-center keep-round bg-sage text-forest">
                 <Capsule className="size-5" />
               </span>
               <span className="text-sm font-semibold leading-tight">NutriCore™<br /><span className="font-normal text-white/70">micro-capsules</span></span>
@@ -87,7 +87,6 @@ export default function Home() {
             <div className="corners mt-8 bg-sage/10 p-6 ring-1 ring-sage/30">
               <p className="font-display text-6xl text-forest">{problem.stat}</p>
               <p className="mt-2 text-lg font-medium tracking-tight">{problem.statLabel}</p>
-              <p className="mt-3 text-xs text-muted">{problem.source}</p>
             </div>
           </Reveal>
         </div>
@@ -128,7 +127,6 @@ export default function Home() {
               </div>
             ))}
           </dl>
-          <p className="mt-6 text-center text-xs text-white/50">*{stats.footnote}</p>
         </div>
       </section>
 
@@ -148,7 +146,7 @@ export default function Home() {
             <ul className="mt-6 space-y-3">
               {["Plant-based capsule shells", "Recyclable packaging", "Concentrated = fewer trucks"].map((t) => (
                 <li key={t} className="flex items-center gap-3 font-medium">
-                  <span className="grid size-6 place-items-center rounded-full bg-sage text-forest"><Check className="size-3.5" /></span>
+                  <span className="grid size-6 place-items-center keep-round bg-sage text-forest"><Check className="size-3.5" /></span>
                   {t}
                 </li>
               ))}
@@ -169,13 +167,12 @@ export default function Home() {
         <div className="flex flex-col justify-between gap-10 bg-[#f4ede6] px-[var(--gutter)] pb-10 pt-20 md:pt-28 lg:pb-16">
           <Reveal>
             <h2 className="font-display max-w-[11ch] text-[clamp(2.4rem,4.6vw,4.2rem)] leading-[0.95] text-forest">{trials.title}</h2>
-            <p className="mt-6 max-w-md text-[12.5px] font-medium uppercase leading-relaxed tracking-[0.04em] text-forest/80">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-forest/80">
               We&rsquo;re currently testing in {trials.sites.map((s) => s.country).join(", ")} and more.
             </p>
           </Reveal>
           <div className="text-forest">
             <TrialsMap sites={trials.sites} />
-            <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.08em] text-forest/55">Hover or tap a marker to see the trial</p>
           </div>
         </div>
 
@@ -234,7 +231,7 @@ export default function Home() {
       </section>
 
       {/* ── Closing CTA ──────────────────────────────────── */}
-      <section className="bg-[linear-gradient(180deg,var(--olive)_0%,var(--olive)_50%,#62723c_60%,#7a8853_69%,#9aa476_78%,#bec3a0_86%,#dddcc6_93%,#f4ede6_100%)] pb-28 pt-20 text-[#f4ede6] md:pb-36 md:pt-28">
+      <section className="bg-[linear-gradient(180deg,var(--olive)_0%,var(--olive)_50%,#62723c_60%,#7a8853_69%,#9aa476_78%,#bfc4a0_86%,#d9dbc4_93%,#ebe8d9_100%)] pb-28 pt-20 text-[#f4ede6] md:pb-36 md:pt-28">
         <div className="container-x text-center">
           <Reveal>
             <h2 className="font-display mx-auto max-w-4xl text-5xl leading-[1] md:text-6xl">{closing.title}</h2>

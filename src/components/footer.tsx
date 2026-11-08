@@ -14,7 +14,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[linear-gradient(180deg,#f4ede6_0%,#ece8da_38%,#d8dfbd_72%,#b3c28f_100%)] text-forest">
+    <footer className="relative overflow-hidden bg-[linear-gradient(180deg,#ebe8d9_0%,#e3e5cf_40%,#d3dbb6_72%,#b3c28f_100%)] text-forest">
       <div className="container-x pt-6 text-[12.5px] font-medium uppercase tracking-[0.05em] md:pt-8">
         {/* Link columns + socials */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-12">
