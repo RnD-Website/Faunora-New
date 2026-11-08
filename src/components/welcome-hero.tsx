@@ -86,9 +86,9 @@ export function WelcomeHero() {
         <p className="mx-auto mt-5 max-w-3xl text-lg text-forest/75">{home.hero.body}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link href="#products" className="btn btn-dark">
-            Explore products <ArrowRight />
+            Explore Products <ArrowRight />
           </Link>
-          <RequestButton className="btn btn-ghost">Request a sample</RequestButton>
+          <RequestButton className="btn btn-ghost">Request a Sample</RequestButton>
         </div>
       </div>
 

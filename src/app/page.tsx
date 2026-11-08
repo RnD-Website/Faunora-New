@@ -61,6 +61,9 @@ export default function Home() {
             <p className="eyebrow text-[#c9d3a8]">The problem</p>
             <h2 className="h-xl mt-4 max-w-[18ch] text-[#f4ede6]">{problem.title}</h2>
             <p className="mt-6 max-w-lg text-lg text-[#f4ede6]/80">{problem.body}</p>
+            <Link href="/contact" className="btn btn-light mt-8">
+              Contact Us <ArrowRight />
+            </Link>
           </Reveal>
           <Reveal delay={150} className="lg:col-span-4 lg:col-start-9">
             <div className="corners bg-forest-900/55 p-6 ring-1 ring-[#f4ede6]/30 backdrop-blur-md md:p-8" style={{ ["--corner" as string]: "#f4ede6" }}>

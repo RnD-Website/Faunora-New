@@ -38,7 +38,7 @@ export function Header() {
     <header
       data-tone={pathname === "/" && !scrolled && !mobileOpen ? "light" : undefined}
       className={`sticky top-0 z-40 transition-[background-color,box-shadow] duration-300 ${
-        scrolled || mobileOpen ? "bg-[#f4ede6]/90 shadow-[0_1px_0_var(--line)] backdrop-blur-md" : "bg-transparent"
+        scrolled || mobileOpen ? "bg-[#f4ede6]/90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="container-x flex h-[var(--header-h)] items-center justify-between gap-6">
@@ -89,7 +89,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Link href="/contact" className="btn btn-ghost hidden !py-2.5 md:inline-flex">
-            Contact us
+            Contact Us
           </Link>
           <button
             type="button"
@@ -134,7 +134,7 @@ export function Header() {
           <div className="flex flex-col gap-3 pt-4">
             <RequestButton className="btn btn-primary">Request sample</RequestButton>
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="btn btn-ghost">
-              Contact us
+              Contact Us
             </Link>
           </div>
         </nav>
