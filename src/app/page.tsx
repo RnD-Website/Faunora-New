@@ -48,7 +48,8 @@ export default function Home() {
 
       {/* ── Problem: full-bleed photo with text on top ──── */}
       <section className="relative isolate flex min-h-[640px] items-end overflow-hidden text-[#f4ede6] lg:min-h-[100svh]">
-        <Image src="/images/dog-bowl-wide.jpg" alt="A dog resting its head on a table beside a bowl of kibble" fill sizes="100vw" className="-z-20 -scale-x-100 object-cover object-[40%_55%]" />
+        <Image src="/images/problem-poster.jpg" alt="A dog beside a bowl of kibble" fill sizes="100vw" className="-z-20 object-cover" />
+        <video className="absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden" src="/videos/problem.mp4" poster="/images/problem-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(31_37_9/0.88)_0%,rgb(31_37_9/0.6)_38%,rgb(31_37_9/0.15)_70%,rgb(31_37_9/0.35)_100%)]" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.35)_0%,transparent_30%,transparent_60%,rgb(31_37_9/0.75)_100%)]" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[rgb(31_37_9/0.35)] lg:hidden" />
