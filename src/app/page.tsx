@@ -5,12 +5,11 @@ import { ProductCard, PostCard } from "@/components/cards";
 import { HeroIntro } from "@/components/intro/hero-intro";
 import { Reveal } from "@/components/reveal";
 import { RequestButton } from "@/components/request-modal";
-import { ArrowRight, Capsule, Check, Drop, Layers, Leaf, Pin, Shield, Sparkle } from "@/components/icons";
+import { ArrowRight, Capsule, Check, Pin, Sparkle } from "@/components/icons";
+import { NutriCoreOrbit } from "@/components/nutricore-orbit";
 
 export default function Home() {
   const { hero, marquee, problem, solution, stats, sustainability, trials, onRequest, closing } = home;
-  const techIcons = [Capsule, Layers, Leaf];
-  const benefitIcons = [Drop, Sparkle, Shield, Check];
 
   return (
     <>
@@ -103,51 +102,9 @@ export default function Home() {
             </Link>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_1.15fr_1fr] lg:items-center">
-            <div className="space-y-4">
-              {solution.tech.map((t, i) => {
-                const Icon = techIcons[i];
-                return (
-                  <Reveal key={t.title} delay={i * 80}>
-                    <div className="rounded-3xl bg-white p-6 ring-1 ring-line">
-                      <Icon className="size-7 text-orange" />
-                      <h3 className="h-md mt-3">{t.title}</h3>
-                      <p className="mt-1 text-muted">{t.body}</p>
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-
-            <Reveal delay={120}>
-              <div className="relative aspect-square overflow-hidden rounded-full bg-navy">
-                <Image src="/images/kibble.jpg" alt="Close-up of nutrient-rich kibble" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgb(255_127_0/0.35),rgb(22_19_69/0.85)_75%)]" />
-                <div className="absolute inset-0 grid place-items-center text-center text-white">
-                  <div>
-                    <p className="eyebrow text-orange">Meet</p>
-                    <p className="font-display text-5xl md:text-6xl">NutriCore™</p>
-                    <p className="mt-2 text-white/80">Protected. Targeted. Absorbed.</p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            <div className="grid grid-cols-2 gap-4">
-              {solution.benefits.map((b, i) => {
-                const Icon = benefitIcons[i];
-                return (
-                  <Reveal key={b.title} delay={i * 80}>
-                    <div className="h-full rounded-3xl bg-peach p-5">
-                      <Icon className="size-6 text-navy" />
-                      <h3 className="mt-3 font-semibold tracking-tight">{b.title}</h3>
-                      <p className="mt-1 text-sm text-navy/70">{b.body}</p>
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </div>
+          <Reveal className="mt-14">
+            <NutriCoreOrbit />
+          </Reveal>
         </div>
       </section>
 

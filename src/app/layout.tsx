@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { site } from "@/content/site";
 import { Header } from "@/components/header";
@@ -37,15 +38,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
-      <head>
-        {/* Play the loading intro once per browser session; mark repeat visits before first paint. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem("faunora-intro-seen")||new URLSearchParams(location.search).has("nointro"))document.documentElement.classList.add("intro-skip")}catch(e){}`,
-          }}
-        />
-      </head>
       <body className="flex min-h-dvh flex-col">
+        {/* Play the loading intro once per browser session; mark repeat visits before first paint. */}
+        <Script id="intro-skip" strategy="beforeInteractive">
+          {`try{if(sessionStorage.getItem("faunora-intro-seen")||new URLSearchParams(location.search).has("nointro"))document.documentElement.classList.add("intro-skip")}catch(e){}`}
+        </Script>
         <RequestProvider>
           <Header />
           <main className="flex-1">{children}</main>

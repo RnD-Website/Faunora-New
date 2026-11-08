@@ -139,17 +139,18 @@ export const home = {
     kicker: "How healthy could they be — if nothing was wasted?",
     title: "We built a better carrier.",
     body: "NutriCore™ wraps each active ingredient in a plant-based micro-capsule. It survives processing, storage and digestion, then releases exactly where the gut can absorb it.",
-    tech: [
-      { title: "Smaller than a grain of salt", body: "Micro-capsules blend evenly into chews, premix or water." },
-      { title: "Effortlessly integrative", body: "No change to feeding routines or equipment." },
-      { title: "Plant-based shell", body: "Made from food-grade fibres, fully digestible." },
-    ],
-    benefits: [
-      { title: "Just add it", body: "Mix, sprinkle or dissolve — done." },
-      { title: "Lower dose", body: "More absorbed means less needed." },
-      { title: "Stable for 24 months", body: "Potency that lasts on the shelf." },
-      { title: "0 artificial fillers", body: "Only what the animal needs." },
-    ],
+    figures: {
+      heading: ["NutriCore™", "in numbers"],
+      center: { value: 3, suffix: "×", label: "Higher absorption" },
+      items: [
+        { title: "Capsule size", badge: "NutriCore™", prefix: "<", value: 200, unit: "µm", label: "Smaller than a grain of salt", note: "Blends into chews, premix or water" },
+        { title: "Shelf stability", badge: "Stable", value: 24, unit: "MONTHS", label: "Full potency on the shelf", note: "Heat and moisture protected" },
+        { title: "Daily dose", badge: "−30%", value: 30, unit: "% LESS", label: "More absorbed, less needed", note: "Compared with uncoated actives" },
+        { title: "Artificial fillers", badge: "Clean", value: 0, unit: "ADDED", label: "Only what the animal needs", note: "No colours, no binders" },
+        { title: "Plant-based shell", badge: "Digestible", value: 100, unit: "%", label: "Food-grade plant fibres", note: "No synthetic polymers" },
+      ],
+      footnote: "Placeholder figures pending Faunora lab data.",
+    },
   },
   stats: {
     title: "Field-Tested. Vet-Approved.",
