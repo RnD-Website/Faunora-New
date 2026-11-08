@@ -58,6 +58,16 @@ function useInView<T extends Element>() {
 
 export function NutriCoreOrbit() {
   const [stageRef, seen] = useInView<HTMLDivElement>();
+  // Cards rotate clockwise around the ring: each moves to the next spot every few seconds
+  const [shift, setShift] = useState(0);
+  const paused = useRef(false);
+  useEffect(() => {
+    if (!seen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      if (!paused.current && document.visibilityState === "visible") setShift((n) => n + 1);
+    }, 4200);
+    return () => window.clearInterval(id);
+  }, [seen]);
 
   return (
     <div
@@ -116,12 +126,16 @@ export function NutriCoreOrbit() {
         </div>
 
         {/* Glass cards */}
-        <ul className="relative mt-8 grid gap-3 sm:grid-cols-2 lg:static lg:mt-0 lg:block">
+        <ul
+          className="relative mt-8 grid gap-3 sm:grid-cols-2 lg:static lg:mt-0 lg:block"
+          onMouseEnter={() => (paused.current = true)}
+          onMouseLeave={() => (paused.current = false)}
+        >
           {figures.items.map((f, i) => (
             <li
               key={f.title}
               className={`orbit-card glass-card corners relative p-5 lg:absolute lg:w-[27%] ${i === HIGHLIGHT ? "glass-card--tint" : ""}`}
-              style={{ ...spotsStyle(i), transitionDelay: `${0.35 + i * 0.1}s`, ["--i" as string]: i }}
+              style={{ ...spotsStyle(spotFor(i, shift)), transitionDelay: shift === 0 ? `${0.35 + i * 0.1}s` : "0s", ["--i" as string]: i }}
             >
               <div className="flex items-start justify-between gap-3">
                 <h4 className="text-xs font-semibold tracking-[0.04em]">{f.title}</h4>
@@ -147,6 +161,12 @@ export function NutriCoreOrbit() {
 
     </div>
   );
+}
+
+/* Clockwise path around the ring: top-left → top-right → bottom-right → bottom-left → left */
+const CYCLE = [0, 1, 4, 3, 2];
+function spotFor(card: number, shift: number) {
+  return CYCLE[(CYCLE.indexOf(card) + shift) % CYCLE.length];
 }
 
 function spotsStyle(i: number): React.CSSProperties {

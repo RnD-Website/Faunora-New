@@ -510,7 +510,8 @@ html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase=
   transition:
     opacity 0.8s ease,
     translate 0.9s cubic-bezier(0.2, 0.7, 0.1, 1),
-    box-shadow 0.3s;
+    left 1.4s cubic-bezier(0.65, 0, 0.35, 1),
+    top 1.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 /* Frosted glass card with a light sheen on the edge */
 .glass-card {
