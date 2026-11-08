@@ -115,17 +115,8 @@ body {
 }
 
 :root {
-  --gutter: 16px; /* one side gap for the whole site */
-}
-@media (min-width: 768px) {
-  :root {
-    --gutter: 20px;
-  }
-}
-@media (min-width: 1280px) {
-  :root {
-    --gutter: 24px;
-  }
+  /* one side gap for the whole site — scales with the screen (~145px on a 1900px display) */
+  --gutter: clamp(20px, 7.5vw, 150px);
 }
 .container-x {
   width: 100%;
