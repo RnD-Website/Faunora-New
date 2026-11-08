@@ -7,7 +7,7 @@ import { InView } from "./in-view";
 
 /* Small round animal portraits floating between the two cards */
 const bubbles = [
-  { src: "/images/corgi.jpg", alt: "Corgi", pos: "left-[40%] top-[10%]", size: "size-11", badge: "spark", delay: "0s" },
+  { src: "/images/corgi.jpg", alt: "Corgi", pos: "left-[40%] top-[10%]", size: "size-11", badge: "arrow", delay: "0s" },
   { src: "/images/cat.jpg", alt: "Cat", pos: "left-[43%] top-[42%]", size: "size-12", badge: null, delay: "1.2s" },
   { src: "/images/hen.jpg", alt: "Hen", pos: "left-[39%] top-[76%]", size: "size-10", badge: "arrow", delay: "0.6s" },
   { src: "/images/puppy.jpg", alt: "Puppy", pos: "left-[58%] top-[14%]", size: "size-10", badge: "arrow", delay: "1.8s" },
