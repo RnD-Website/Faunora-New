@@ -11,7 +11,7 @@ const bubbles = [
   { src: "/images/cat.jpg", alt: "Cat", pos: "left-[43%] top-[42%]", size: "size-12", badge: null, delay: "1.2s" },
   { src: "/images/hen.jpg", alt: "Hen", pos: "left-[39%] top-[76%]", size: "size-10", badge: "arrow", delay: "0.6s" },
   { src: "/images/puppy.jpg", alt: "Puppy", pos: "left-[58%] top-[14%]", size: "size-10", badge: "arrow", delay: "1.8s" },
-  { src: "/images/dog-beach.jpg", alt: "Dog on a beach", pos: "left-[56%] top-[62%]", size: "size-12", badge: null, delay: "0.9s" },
+  { src: "/images/dog-beach.jpg", alt: "Dog on a beach", pos: "left-[62%] top-[82%]", size: "size-12", badge: null, delay: "0.9s" },
 ];
 
 function Avatar({ src, alt, className = "size-12" }: { src: string; alt: string; className?: string }) {
