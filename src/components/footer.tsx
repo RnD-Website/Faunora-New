@@ -2,7 +2,7 @@ import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { Chew, Sphere } from "./props-3d";
 
-const linkCls = "block w-fit text-forest transition hover:text-forest-500";
+const linkCls = "link-line block w-fit text-forest";
 const labelCls = "mb-2 text-forest/45";
 
 export function Footer() {

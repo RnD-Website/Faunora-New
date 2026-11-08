@@ -220,7 +220,7 @@ export default function Home() {
           preload="auto"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#1f2509_0%,rgb(31_37_9/0.75)_14%,rgb(31_37_9/0.4)_38%,rgb(31_37_9/0.35)_60%,rgb(31_37_9/0.6)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#1f2509_0%,rgb(31_37_9/0.92)_10%,rgb(31_37_9/0.75)_20%,rgb(31_37_9/0.55)_32%,rgb(31_37_9/0.4)_46%,rgb(31_37_9/0.35)_62%,rgb(31_37_9/0.6)_100%)]" />
         <div className="container-x relative flex h-full flex-col lg:min-h-[calc(100svh-12rem)]">
           <div className="flex items-start justify-between gap-6">
             <h2 className="font-display max-w-[10ch] text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.95]">Latest from the community</h2>

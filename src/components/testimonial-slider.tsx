@@ -30,7 +30,7 @@ export function TestimonialSlider() {
 
   return (
     <section
-      className="testimonials relative overflow-hidden bg-forest-900 py-20 text-[#f4ede6] md:py-28"
+      className="testimonials relative overflow-hidden bg-forest-900 pb-32 pt-20 text-[#f4ede6] md:pb-44 md:pt-28"
       aria-roledescription="carousel"
       aria-label="What vets, farmers and owners say"
       onMouseEnter={() => (paused.current = true)}
@@ -57,7 +57,13 @@ export function TestimonialSlider() {
         &rdquo;
       </span>
 
-      <div className="container-x relative grid items-center gap-12 pt-16 md:pt-20 lg:grid-cols-12 lg:gap-10 lg:pt-10">
+      <div className="container-x relative text-center">
+        <p className="eyebrow text-[#c9d3a8]">{home.testimonialsIntro.eyebrow}</p>
+        <h2 className="font-display mx-auto mt-4 max-w-[18ch] text-[clamp(2.2rem,4.6vw,4rem)] leading-[0.98]">{home.testimonialsIntro.title}</h2>
+        <p className="mx-auto mt-5 max-w-xl text-[#f4ede6]/75">{home.testimonialsIntro.body}</p>
+      </div>
+
+      <div className="container-x relative mt-14 grid items-center gap-12 md:mt-20 lg:grid-cols-12 lg:gap-10">
         {/* Portrait */}
         <div className="relative lg:col-span-5">
           <div aria-hidden="true" className="absolute -left-[var(--gutter)] bottom-[-8%] h-[58%] w-[62%] overflow-hidden">

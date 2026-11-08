@@ -190,6 +190,11 @@ export const home = {
     title: "Faunora Aqua™ is available on request.",
     body: "Our gut-health formula for fish and shrimp farms is in limited release. Tell us about your ponds or cages and we will send a trial batch.",
   },
+  testimonialsIntro: {
+    eyebrow: "Testimonials",
+    title: "Trusted in clinics, on farms and at home.",
+    body: "Vets, farmers and owners on what changed once nutrition started reaching their animals.",
+  },
   testimonials: [
     {
       quote: "Our beagle is picky about everything, but the Companion chew is the one treat he asks for. Knowing it is clean and plant-based makes it an easy daily habit.",

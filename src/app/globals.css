@@ -119,12 +119,12 @@ body {
 }
 @media (min-width: 768px) {
   :root {
-    --gutter: 32px;
+    --gutter: 20px;
   }
 }
 @media (min-width: 1280px) {
   :root {
-    --gutter: 48px;
+    --gutter: 24px;
   }
 }
 .container-x {
@@ -762,4 +762,27 @@ header[data-tone="light"] .btn-ghost {
     animation: none;
     width: 100%;
   }
+}
+
+/* Footer links: a hairline draws in from the left on hover */
+.link-line {
+  position: relative;
+  padding-bottom: 2px;
+}
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.link-line:hover::after,
+.link-line:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
