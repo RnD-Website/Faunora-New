@@ -78,7 +78,7 @@ export default function Home() {
             </Link>
           </Reveal>
 
-          <Reveal className="corners mt-14">
+          <Reveal className="mt-14">
             <NutriCoreOrbit />
           </Reveal>
         </div>

@@ -509,9 +509,7 @@ html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase=
   translate: 0 24px;
   transition:
     opacity 0.8s ease,
-    translate 0.9s cubic-bezier(0.2, 0.7, 0.1, 1),
-    left 1.4s cubic-bezier(0.65, 0, 0.35, 1),
-    top 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+    translate 0.9s cubic-bezier(0.2, 0.7, 0.1, 1);
 }
 /* Frosted glass card with a light sheen on the edge */
 .glass-card {
@@ -562,15 +560,6 @@ html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase=
 .orbit[data-seen] .orbit-card {
   opacity: 1;
   translate: 0 0;
-  /* once settled, each card drifts on its own slow loop */
-  animation: orbit-drift 7s ease-in-out infinite;
-  animation-delay: calc(1.8s + var(--i, 0) * 0.7s);
-}
-@keyframes orbit-drift {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  25% { transform: translate3d(6px, -10px, 0); }
-  50% { transform: translate3d(0, -16px, 0); }
-  75% { transform: translate3d(-6px, -8px, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .orbit-ring {

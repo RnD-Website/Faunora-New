@@ -58,15 +58,52 @@ function useInView<T extends Element>() {
 
 export function NutriCoreOrbit() {
   const [stageRef, seen] = useInView<HTMLDivElement>();
-  // Cards rotate clockwise around the ring: each moves to the next spot every few seconds
-  const [shift, setShift] = useState(0);
+  // Cards orbit the globe on a smooth elliptical path (large screens only)
+  const boxRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLLIElement | null)[]>([]);
   const paused = useRef(false);
   useEffect(() => {
-    if (!seen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => {
-      if (!paused.current && document.visibilityState === "visible") setShift((n) => n + 1);
-    }, 4200);
-    return () => window.clearInterval(id);
+    const box = boxRef.current;
+    if (!box) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const n = figures.items.length;
+    let angle = -125; // degrees; first card starts top-left, others follow clockwise
+    let speed = 1;
+    let raf = 0;
+    let last = performance.now();
+    const place = () => {
+      const W = box.clientWidth;
+      const H = box.clientHeight;
+      CYCLE.forEach((card, k) => {
+        const el = cardRefs.current[card];
+        if (!el) return;
+        if (!mq.matches) {
+          el.style.left = "";
+          el.style.top = "";
+          return;
+        }
+        const a = ((angle + k * (360 / n)) * Math.PI) / 180;
+        el.style.left = `${W / 2 + W * 0.335 * Math.cos(a) - el.offsetWidth / 2}px`;
+        el.style.top = `${H / 2 + H * 0.39 * Math.sin(a) - el.offsetHeight / 2}px`;
+      });
+    };
+    const tick = (now: number) => {
+      const dt = Math.min(64, now - last);
+      last = now;
+      // ease the speed down while hovered, back up when released
+      speed += ((paused.current ? 0 : 1) - speed) * 0.06;
+      if (seen && document.visibilityState === "visible") angle += (dt / 1000) * 6 * speed; // ~60s per lap
+      place();
+      raf = requestAnimationFrame(tick);
+    };
+    place();
+    if (!still) raf = requestAnimationFrame(tick);
+    window.addEventListener("resize", place);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", place);
+    };
   }, [seen]);
 
   return (
@@ -82,7 +119,7 @@ export function NutriCoreOrbit() {
       </h3>
 
       {/* Stage */}
-      <div className="relative mx-auto mt-6 max-w-[1200px] lg:mt-0 lg:aspect-[1200/900]">
+      <div ref={boxRef} className="relative mx-auto mt-6 max-w-[1200px] lg:mt-0 lg:aspect-[1200/900]">
         {/* Ring + globe */}
         <div className="orbit-core relative mx-auto aspect-square w-[min(88vw,460px)] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[50%] lg:-translate-x-1/2 lg:-translate-y-1/2">
           <svg viewBox="0 0 600 600" className="orbit-ring absolute inset-0 h-full w-full" aria-hidden="true">
@@ -134,8 +171,11 @@ export function NutriCoreOrbit() {
           {figures.items.map((f, i) => (
             <li
               key={f.title}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
               className={`orbit-card glass-card corners relative p-5 lg:absolute lg:w-[27%] ${i === HIGHLIGHT ? "glass-card--tint" : ""}`}
-              style={{ ...spotsStyle(spotFor(i, shift)), transitionDelay: shift === 0 ? `${0.35 + i * 0.1}s` : "0s", ["--i" as string]: i }}
+              style={{ ...spotsStyle(i), transitionDelay: `${0.35 + i * 0.1}s`, ["--i" as string]: i }}
             >
               <div className="flex items-start justify-between gap-3">
                 <h4 className="text-xs font-semibold tracking-[0.04em]">{f.title}</h4>
@@ -163,11 +203,8 @@ export function NutriCoreOrbit() {
   );
 }
 
-/* Clockwise path around the ring: top-left → top-right → bottom-right → bottom-left → left */
+/* Clockwise order of the cards around the ring (by item index) */
 const CYCLE = [0, 1, 4, 3, 2];
-function spotFor(card: number, shift: number) {
-  return CYCLE[(CYCLE.indexOf(card) + shift) % CYCLE.length];
-}
 
 function spotsStyle(i: number): React.CSSProperties {
   const s = spots[i];
