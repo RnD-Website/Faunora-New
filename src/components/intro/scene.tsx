@@ -35,9 +35,11 @@ export function Scene() {
           <stop offset="0.8" stopColor="#36431b" />
           <stop offset="1" stopColor="#1f2509" />
         </radialGradient>
-        <linearGradient id="sc-floor" gradientUnits="userSpaceOnUse" x1="0" y1="640" x2="0" y2="900">
-          <stop offset="0" stopColor="#55652b" />
-          <stop offset="1" stopColor="#283210" />
+        <linearGradient id="sc-floor" gradientUnits="userSpaceOnUse" x1="0" y1="600" x2="0" y2="900">
+          <stop offset="0" stopColor="#4f5f28" stopOpacity="0" />
+          <stop offset="0.22" stopColor="#4c5b27" stopOpacity="0.85" />
+          <stop offset="0.5" stopColor="#3d4b1d" />
+          <stop offset="1" stopColor="#252e10" />
         </linearGradient>
         <linearGradient id="sc-niche" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#3b4719" />
@@ -111,7 +113,7 @@ export function Scene() {
           <stop offset="0.75" stopColor="#c9d3a8" stopOpacity="0.15" />
           <stop offset="1" stopColor="#c9d3a8" stopOpacity="0" />
         </linearGradient>
-        <linearGradient id="sc-niche-fade-g" gradientUnits="userSpaceOnUse" x1="0" y1="560" x2="0" y2="662">
+        <linearGradient id="sc-niche-fade-g" gradientUnits="userSpaceOnUse" x1="0" y1="570" x2="0" y2="664">
           <stop offset="0" stopColor="#ffffff" />
           <stop offset="1" stopColor="#000000" />
         </linearGradient>
@@ -148,23 +150,23 @@ export function Scene() {
       {/* Everything below moves with the camera (push-in on reveal) */}
       <g className="intro-camera">
         {/* Floor — oversized so it never shows an edge when the camera scales */}
-        <path d="M-900 646 Q720 616 2340 646 V1600 H-900Z" fill="url(#sc-floor)" />
+        <path d="M-900 600 Q720 590 2340 600 V1600 H-900Z" fill="url(#sc-floor)" />
         {/* Soft light pool where the spotlight lands */}
         <ellipse cx="720" cy="706" rx="460" ry="78" fill="#e6edcc" opacity="0.16" filter="url(#sc-haze)" />
 
         {/* Back niche (cyclorama), fading into the floor */}
         <g mask="url(#sc-niche-fade)">
-          <path d="M410 660 V330 A310 310 0 0 1 1030 330 V660Z" fill="url(#sc-niche)" />
-          <path d="M410 660 V330 A310 310 0 0 1 1030 330 V660Z" fill="url(#sc-niche-edge)" />
-          <path d="M410 660 V330 A310 310 0 0 1 1030 330 V660" fill="none" stroke="url(#sc-niche-stroke)" strokeWidth="2" />
+          <path d="M420 660 V430 A300 300 0 0 1 1020 430 V660Z" fill="url(#sc-niche)" />
+          <path d="M420 660 V430 A300 300 0 0 1 1020 430 V660Z" fill="url(#sc-niche-edge)" />
+          <path d="M420 660 V430 A300 300 0 0 1 1020 430 V660" fill="none" stroke="url(#sc-niche-stroke)" strokeWidth="2" />
         </g>
         {/* Ambient occlusion where the niche meets the floor */}
         <ellipse cx="720" cy="650" rx="340" ry="16" fill="#10150a" opacity="0.22" filter="url(#sc-soft)" />
         {/* Horizon haze softens the wall/floor seam */}
-        <ellipse cx="720" cy="644" rx="980" ry="30" fill="#b7c493" opacity="0.2" filter="url(#sc-haze)" />
+        <ellipse cx="720" cy="652" rx="1100" ry="60" fill="#6f7f3f" opacity="0.35" filter="url(#sc-haze)" />
 
         {/* Overhead spotlight */}
-        <path d="M660 -20 H780 L1000 650 H440Z" fill="url(#sc-beam)" filter="url(#sc-haze)" opacity="0.9" />
+        <path d="M664 60 H776 L990 650 H450Z" fill="url(#sc-beam)" filter="url(#sc-haze)" opacity="0.9" />
         <circle cx="720" cy="440" r="270" fill="url(#sc-halo)" />
 
         {/* Side props, softly out of focus */}
