@@ -25,17 +25,6 @@ const bulbs = Array.from({ length: 17 }, (_, i) => {
   return { x: 720 + 318 * Math.cos(a), y: 752 + 52 * Math.sin(a) };
 });
 
-// Micro-capsules drifting around the chew (NutriCore™ nod)
-const capsules = [
-  { x: 548, y: 318, r: 10, d: 0 },
-  { x: 905, y: 292, r: 6, d: 1.2 },
-  { x: 945, y: 505, r: 12, d: 0.6 },
-  { x: 506, y: 520, r: 7, d: 1.8 },
-  { x: 632, y: 238, r: 5, d: 2.4 },
-  { x: 838, y: 612, r: 5, d: 0.9 },
-  { x: 990, y: 380, r: 4, d: 3 },
-];
-
 export function Scene() {
   return (
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden="true">
@@ -109,11 +98,6 @@ export function Scene() {
           <stop offset="0" stopColor="#ffffff" stopOpacity="0.85" />
           <stop offset="0.35" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
-        <radialGradient id="sc-capsule" cx="32%" cy="28%" r="72%">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="0.5" stopColor="#e3e9cc" />
-          <stop offset="1" stopColor="#94a668" />
-        </radialGradient>
         <radialGradient id="sc-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0" stopColor="#ffe9a8" stopOpacity="0.95" />
           <stop offset="1" stopColor="#ffe9a8" stopOpacity="0" />
@@ -202,11 +186,6 @@ export function Scene() {
         {/* Orange light bounce + contact shadow (breathes with the float) */}
         <ellipse cx="720" cy="600" rx="140" ry="22" fill="#e2cca6" opacity="0.18" filter="url(#sc-soft)" />
         <ellipse cx="720" cy="604" rx="104" ry="14" fill="#10150a" opacity="0.35" filter="url(#sc-soft)" className="intro-shadow" />
-
-        {/* Micro-capsules */}
-        {capsules.map((c, i) => (
-          <circle key={i} cx={c.x} cy={c.y} r={c.r} fill="url(#sc-capsule)" className="intro-capsule" style={{ animationDelay: `${c.d}s` }} />
-        ))}
 
         {/* The chew */}
         <g transform="translate(720 450)">

@@ -18,7 +18,6 @@ const badges = [
   { src: "/images/hen.jpg", alt: "" },
   { src: "/images/calves.jpg", alt: "" },
 ];
-const ringText = "Faunora  ✦  Nutrition, Reimagined  ✦  For every paw, hoof and feather  ✦  ";
 
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
@@ -118,23 +117,6 @@ export function HeroIntro() {
           </div>
         </div>
         <div className="intro-dim pointer-events-none absolute inset-0" />
-
-        {/* Rotating ring text around the chew */}
-        <div className="intro-ring pointer-events-none absolute left-1/2 top-1/2">
-          <svg viewBox="0 0 500 500" className="intro-ring-spin h-full w-full" aria-hidden="true">
-            <defs>
-              <path id="ring-path" d="M250 250 m-210 0 a210 210 0 1 1 420 0 a210 210 0 1 1 -420 0" />
-            </defs>
-            <text fill="currentColor" stroke="rgb(31 37 9 / 0.55)" strokeWidth="3" paintOrder="stroke" strokeLinejoin="round" fontSize="15" fontWeight="600" letterSpacing="4" style={{ textTransform: "uppercase", fontFamily: "var(--font-sans)" }}>
-              <textPath href="#ring-path" textLength="1316" lengthAdjust="spacing">
-                {ringText}
-              </textPath>
-            </text>
-          </svg>
-          <span className="intro-ring-dot" aria-hidden="true">
-            <span />
-          </span>
-        </div>
 
         {/* Headline layer (Farm Minerals layout) */}
         <div className="intro-copy absolute inset-0 pt-[calc(var(--header-h)+24px)]">

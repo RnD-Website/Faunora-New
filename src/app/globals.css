@@ -292,10 +292,9 @@ button:focus-visible {
   transition-delay: inherit;
 }
 
-/* Floating chew, capsules and contact shadow */
+/* Floating chew and contact shadow */
 .intro-chew,
-.intro-shadow,
-.intro-capsule {
+.intro-shadow {
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -310,60 +309,17 @@ button:focus-visible {
     opacity: 0.1;
   }
 }
-@keyframes capsule-drift {
-  50% {
-    transform: translate(6px, -14px);
-  }
-}
 .intro-chew {
   animation: chew-float 5.5s ease-in-out infinite;
 }
 .intro-shadow {
   animation: shadow-breathe 5.5s ease-in-out infinite;
 }
-.intro-capsule {
-  animation: capsule-drift 4.5s ease-in-out infinite;
-}
 
-/* Ring text */
-.intro-ring {
-  top: calc(50% + var(--cy));
-  width: min(calc(var(--s) * 480 * var(--cam)), 94vw);
-  aspect-ratio: 1;
-  color: #f4ede6;
-  transform: translate(-50%, -50%) scale(calc(1 + var(--p) * 1.6));
-  opacity: calc(1 - var(--p) * 3.5);
-}
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
-}
-.intro-ring-spin,
-.intro-ring-dot {
-  transition:
-    opacity 1.2s ease,
-    filter 1.2s ease;
-}
-.intro-ring-spin {
-  animation: spin 38s linear infinite;
-}
-.intro-ring-dot {
-  position: absolute;
-  inset: 0;
-  animation: spin 9s linear infinite reverse;
-}
-.intro-ring-dot > span {
-  --dot: var(--sage-200);
-  position: absolute;
-  left: 50%;
-  top: calc(40 / 500 * 100%);
-  width: 18px;
-  height: 18px;
-  margin: -9px 0 0 -9px;
-  border-radius: 999px;
-  background: var(--dot);
-  box-shadow: 0 0 0 6px rgb(201 211 168 / 0.25);
 }
 
 /* Headline layer */
@@ -483,10 +439,6 @@ html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-bulb-core {
 html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-bulb-glow {
   opacity: 0;
 }
-html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase="lighting"]) :is(.intro-ring-spin, .intro-ring-dot) {
-  opacity: 0;
-  filter: blur(8px);
-}
 html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase="lighting"]) :is(.intro-title, .intro-sub, .intro-cta) {
   opacity: 0;
   transform: translateY(36px);
@@ -494,10 +446,7 @@ html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase=
 
 @media (prefers-reduced-motion: reduce) {
   .intro-chew,
-  .intro-shadow,
-  .intro-capsule,
-  .intro-ring-spin,
-  .intro-ring-dot {
+  .intro-shadow {
     animation: none;
   }
 }
