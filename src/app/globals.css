@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────
+   Faunora design tokens
+   Colors sampled from petfinn.com · type modeled on onliftoff.com
+   (Recife Display → Fraunces "soft", Inter tight-tracked)
+   ────────────────────────────────────────────────────────────── */
+:root {
+  --navy: #161345;
+  --navy-700: #24205e;
+  --navy-500: #4a4680;
+  --orange: #ff7f00;
+  --orange-600: #e66f00;
+  --sky: #d7ecff;
+  --sky-50: #eef6ff;
+  --teal: #60c4bf;
+  --teal-50: #e3f5f4;
+  --paper: #f9f9f9;
+  --white: #ffffff;
+  --muted: #5b5878;
+  --line: #e4e3ee;
+
+  --header-h: 72px;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-700: var(--navy-700);
+  --color-navy-500: var(--navy-500);
+  --color-orange: var(--orange);
+  --color-orange-600: var(--orange-600);
+  --color-sky: var(--sky);
+  --color-sky-50: var(--sky-50);
+  --color-teal: var(--teal);
+  --color-teal-50: var(--teal-50);
+  --color-paper: var(--paper);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --radius-card: 28px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+/* Display — Recife-like soft serif, tight tracking */
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "opsz" 96;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+}
+
+/* Headings in Inter, tracked tight like Liftoff */
+.h-xl {
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1.05;
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+}
+.h-lg {
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+.h-md {
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  font-size: 1.35rem;
+}
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lede {
+  letter-spacing: -0.02em;
+  line-height: 1.55;
+}
+
+.container-x {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+@media (min-width: 768px) {
+  .container-x {
+    padding-inline: 32px;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+.btn-primary {
+  background: var(--orange);
+  color: var(--navy);
+}
+.btn-primary:hover {
+  background: var(--orange-600);
+  box-shadow: 0 10px 24px -10px rgb(255 127 0 / 0.7);
+}
+.btn-dark {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-dark:hover {
+  background: var(--navy-700);
+}
+.btn-ghost {
+  border: 1.5px solid currentColor;
+}
+.btn-ghost:hover {
+  background: rgb(22 19 69 / 0.06);
+}
+
+}
+
+/* Marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .float {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
