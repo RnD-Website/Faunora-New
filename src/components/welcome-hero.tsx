@@ -75,7 +75,7 @@ function Chip({ title, sub, className = "" }: { title: string; sub: string; clas
   );
 }
 
-/** Centred welcome: headline, one-line intro, CTA, then a soft colour-wash band with floating profile cards. */
+/** Centred welcome: headline, one-line intro, CTA, then a band of floating profile cards. */
 export function WelcomeHero() {
   return (
     <section className="welcome relative overflow-hidden pb-20 pt-6 md:pb-28 md:pt-10">
@@ -91,14 +91,8 @@ export function WelcomeHero() {
         </div>
       </div>
 
-      {/* Colour-wash band */}
+      {/* Floating cards band */}
       <div className="relative mt-14 md:mt-20 lg:h-[440px]">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="welcome-blob keep-ellipse absolute left-[-4%] top-[18%] h-[62%] w-[34%] bg-[#2c3713]/70 blur-[70px]" />
-          <div className="welcome-blob keep-ellipse absolute left-[26%] top-[4%] h-[70%] w-[30%] bg-[#404f1d]/80 blur-[70px] [animation-delay:-4s]" />
-          <div className="welcome-blob keep-ellipse absolute left-[46%] top-[30%] h-[60%] w-[26%] bg-[#596a33]/70 blur-[70px] [animation-delay:-8s]" />
-          <div className="welcome-blob keep-ellipse absolute right-[-4%] top-[10%] h-[64%] w-[34%] bg-[#1f2509]/65 blur-[70px] [animation-delay:-2s]" />
-        </div>
 
         {/* Mobile / tablet: stacked cards */}
         <div className="container-x relative flex flex-col items-center gap-5 lg:hidden">
