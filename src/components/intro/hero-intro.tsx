@@ -119,7 +119,7 @@ export function HeroIntro() {
         <div className="intro-dim pointer-events-none absolute inset-0" />
 
         {/* Headline layer (Farm Minerals layout) */}
-        <div className="intro-copy absolute inset-0 pt-[calc(var(--header-h)+24px)]">
+        <div className="intro-copy absolute inset-0 pt-[calc(var(--header-h)+48px)] md:pt-[calc(var(--header-h)+80px)]">
           <div className="container-x relative h-full">
             <h1 className="intro-title font-display max-w-[9ch] text-[clamp(2.3rem,5vw,4.4rem)] leading-[0.95] text-[#f4ede6]">
               {home.hero.title}
