@@ -144,7 +144,7 @@ export function HeroIntro() {
         </div>
 
         {/* Fade into the next section at the end of the zoom */}
-        <div className="intro-exit pointer-events-none absolute inset-0 bg-beige" />
+        <div className="intro-exit pointer-events-none absolute inset-0 bg-[#f4ede6]" />
 
         {/* Loader */}
         <div className="intro-loader absolute inset-0 z-10 text-white" role="status" aria-live="polite" aria-label={`Loading ${pct}%`}>
