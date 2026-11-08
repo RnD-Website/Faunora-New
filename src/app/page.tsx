@@ -6,8 +6,10 @@ import { CommunityCarousel } from "@/components/community-carousel";
 import { HeroIntro } from "@/components/intro/hero-intro";
 import { Reveal } from "@/components/reveal";
 import { RequestButton } from "@/components/request-modal";
-import { ArrowRight, Capsule, Check, Pin, Sparkle } from "@/components/icons";
+import { ArrowRight, Capsule, Check, Sparkle } from "@/components/icons";
 import { NutriCoreOrbit } from "@/components/nutricore-orbit";
+import { TrialsMap } from "@/components/trials-map";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 export default function Home() {
   const { hero, marquee, problem, solution, stats, sustainability, trials, onRequest, closing } = home;
@@ -160,74 +162,48 @@ export default function Home() {
       {/* ── Products: pinned heading, cards fly past ───── */}
       <ProductsShowcase />
 
-      {/* ── Field trials ─────────────────────────────────── */}
-      <section id="trials" className="py-20 md:py-28">
-        <div className="container-x">
+      {/* ── Field trials + Aqua on request (split, map + parallax photo) ── */}
+      <ScrollProgress id="trials" className="trials grid lg:min-h-[100svh] lg:grid-cols-2">
+        {/* Left: map */}
+        <div className="flex flex-col justify-between gap-10 bg-[#f4ede6] px-4 pb-10 pt-20 md:px-8 md:pt-28 lg:pb-16">
           <Reveal>
-            <p className="eyebrow text-forest-500">Currently testing</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {trials.sites.map((s) => (
-                <span key={s.country} className="inline-flex items-center gap-1.5 rounded-full bg-paper px-4 py-2 text-sm font-medium ring-1 ring-line">
-                  <Pin className="size-4 text-sage" /> {s.country}
-                </span>
-              ))}
-            </div>
+            <h2 className="font-display max-w-[11ch] text-[clamp(2.4rem,4.6vw,4.2rem)] leading-[0.95] text-forest">{trials.title}</h2>
+            <p className="mt-6 max-w-md text-[12.5px] font-medium uppercase leading-relaxed tracking-[0.04em] text-forest/80">
+              We&rsquo;re currently testing in {trials.sites.map((s) => s.country).join(", ")} and more.
+            </p>
           </Reveal>
-
-          <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-            <Reveal>
-              <h2 className="h-xl">{trials.title}</h2>
-              <p className="lede mt-4 max-w-xl text-lg text-muted">{trials.body}</p>
-              <ul className="corners mt-8 divide-y divide-line ring-1 ring-line">
-                {trials.sites.map((s) => (
-                  <li key={s.country} className="flex items-center justify-between gap-4 bg-white px-5 py-4">
-                    <div>
-                      <p className="font-semibold tracking-tight">{s.country}</p>
-                      <p className="text-sm text-muted">{s.species}</p>
-                    </div>
-                    <span
-                      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${
-                        s.status === "Complete" ? "bg-teal-50 text-forest" : "bg-sage/15 text-forest"
-                      }`}
-                    >
-                      <span className={`keep-round size-2 ${s.status === "Complete" ? "bg-teal" : "animate-pulse bg-sage"}`} />
-                      {s.status}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal delay={120} className="flex flex-col gap-6">
-              <div className="corners relative min-h-[320px] flex-1 bg-sand">
-                <Image src="/images/farmer-vet.jpg" alt="A dairy farmer and a veterinarian talking beside a truck" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
-              </div>
-              <div className="corners bg-forest p-6 text-white">
-                <p className="font-semibold">{trials.next}</p>
-                <p className="mt-2 text-white/70">{trials.why}</p>
-              </div>
-            </Reveal>
+          <div className="text-forest">
+            <TrialsMap sites={trials.sites} />
+            <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.08em] text-forest/55">Hover or tap a marker to see the trial</p>
           </div>
         </div>
-      </section>
 
-      {/* ── On request ───────────────────────────────────── */}
-      <section className="px-4 md:px-8">
-        <div className="corners relative mx-auto max-w-[1280px] bg-forest">
-          <Image src="/images/fish-cages.jpg" alt="Fish farm cages on a calm lake" fill sizes="100vw" className="object-cover opacity-45" />
-          <div className="relative grid gap-6 p-8 text-white md:p-16 lg:grid-cols-[1.4fr_1fr] lg:items-end">
-            <div>
-              <span className="eyebrow rounded-full bg-sage px-3 py-1 text-forest">Limited release</span>
-              <h2 className="font-display mt-5 text-4xl leading-[1.02] md:text-6xl">{onRequest.title}</h2>
-              <p className="lede mt-4 max-w-xl text-lg text-white/85">{onRequest.body}</p>
-            </div>
-            <div className="lg:text-right">
-              <RequestButton product="Faunora Aqua™" className="btn btn-primary">
-                Request product <ArrowRight />
-              </RequestButton>
-            </div>
+        {/* Right: photo with floating notes + Aqua on request */}
+        <div className="relative isolate min-h-[88svh] overflow-hidden bg-forest-900 text-[#f4ede6] lg:min-h-0">
+          <Image src="/images/fish-cages.jpg" alt="Fish farm cages on a calm lake" fill sizes="(min-width: 1024px) 50vw, 100vw" className="trials-photo -z-20 object-cover" />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.15)_0%,rgb(31_37_9/0.1)_45%,rgb(31_37_9/0.7)_100%)]" />
+
+          <div className="trials-note trials-note--a corners absolute right-0 top-0 w-[46%] min-w-[170px] max-w-[300px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
+            <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Next update</p>
+            <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.next}</p>
+          </div>
+          <div className="trials-note trials-note--b corners absolute right-[30%] top-[24%] w-[40%] min-w-[160px] max-w-[260px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
+            <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Why we share this</p>
+            <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.why}</p>
+          </div>
+
+          <div className="absolute inset-x-4 bottom-8 md:inset-x-8 md:bottom-12">
+            <h3 className="font-display max-w-[13ch] text-[clamp(2rem,3.6vw,3.4rem)] leading-[0.98]">{onRequest.title}</h3>
+            <p className="mt-4 max-w-md text-[#f4ede6]/80">{onRequest.body}</p>
+            <RequestButton product="Faunora Aqua™" className="btn btn-light mt-6">
+              Request product <ArrowRight />
+            </RequestButton>
           </div>
         </div>
-      </section>
+      </ScrollProgress>
+
+      {/* gap before the community section */}
+      <div aria-hidden="true" className="h-20 bg-[#f4ede6] md:h-28" />
 
       {/* ── Community: carousel over a full-bleed landscape ─ */}
       <section className="relative isolate overflow-hidden bg-forest-900 py-16 text-[#f4ede6] md:py-20 lg:min-h-[100svh] lg:py-24">

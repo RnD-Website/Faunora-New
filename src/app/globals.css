@@ -688,3 +688,47 @@ header[data-tone="light"] .btn-ghost {
     inset: calc(var(--cs) / -2 - 3px);
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Field trials: map tooltips + parallax notes over the photo
+   ══════════════════════════════════════════════════════════════ */
+.trials {
+  --sp: 0.5;
+}
+.trial-tip {
+  opacity: 0;
+  translate: -50% 8px;
+  transition:
+    opacity 0.25s ease,
+    translate 0.35s cubic-bezier(0.2, 0.7, 0.1, 1);
+  z-index: 5;
+}
+.trial-pin:hover,
+.trial-pin:focus-within {
+  z-index: 10;
+}
+.trial-pin button:hover .trial-tip,
+.trial-pin button:focus-visible .trial-tip {
+  opacity: 1;
+  translate: -50% 0;
+}
+.trials-photo {
+  transform: scale(1.12) translateY(calc((var(--sp) - 0.5) * -6%));
+  will-change: transform;
+}
+.trials-note {
+  will-change: transform;
+}
+.trials-note--a {
+  transform: translateY(calc((0.5 - var(--sp)) * 260px));
+}
+.trials-note--b {
+  transform: translateY(calc((0.5 - var(--sp)) * 140px));
+}
+@media (prefers-reduced-motion: reduce) {
+  .trials-photo,
+  .trials-note--a,
+  .trials-note--b {
+    transform: none;
+  }
+}

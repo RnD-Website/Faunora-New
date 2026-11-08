@@ -155,7 +155,7 @@ export const home = {
   stats: {
     title: "Field-Tested. Vet-Approved.",
     items: [
-      { value: "6", label: "countries in active trials" },
+      { value: "8", label: "countries in active trials" },
       { value: "3×", label: "higher nutrient absorption" },
       { value: "18%", label: "less feed wasted per animal" },
       { value: "≥4×", label: "return on supplement spend" },
@@ -173,15 +173,17 @@ export const home = {
   trials: {
     title: "Field Trials in Progress",
     body: "We publish results as they come in — the good and the inconclusive. Here is where Faunora is being tested right now.",
-    next: "Next update: January 2027 — full-season milk yield and FCR data.",
-    why: "Why we share this: farmers and vets deserve evidence, not marketing claims.",
+    next: "January 2027 — full-season milk yield and FCR data.",
+    why: "Real data beats marketing claims. Follow the results as they come in.",
     sites: [
-      { country: "Bangladesh", species: "Dairy cattle", status: "In progress" },
-      { country: "India", species: "Broilers", status: "In progress" },
-      { country: "Kenya", species: "Goats", status: "In progress" },
-      { country: "Netherlands", species: "Dairy cattle", status: "Complete" },
-      { country: "United Kingdom", species: "Dogs & cats", status: "Complete" },
-      { country: "Vietnam", species: "Layers", status: "In progress" },
+      { country: "Bangladesh", species: "Dairy cattle", status: "In progress", lon: 90.4, lat: 23.7 },
+      { country: "India", species: "Broilers", status: "In progress", lon: 78.9, lat: 21.5 },
+      { country: "Kenya", species: "Goats", status: "In progress", lon: 37.9, lat: 0.2 },
+      { country: "Netherlands", species: "Dairy cattle", status: "Complete", lon: 5.3, lat: 52.1 },
+      { country: "United Kingdom", species: "Dogs & cats", status: "Complete", lon: -2.0, lat: 53.0 },
+      { country: "Vietnam", species: "Layers", status: "In progress", lon: 106.3, lat: 16.0 },
+      { country: "Brazil", species: "Beef cattle", status: "In progress", lon: -51.9, lat: -12.0 },
+      { country: "United States", species: "Dogs & cats", status: "In progress", lon: -98.5, lat: 39.5 },
     ],
   },
   onRequest: {
