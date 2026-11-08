@@ -33,7 +33,7 @@ export default function SciencePage() {
             <Image src="/images/lab.jpg" alt="Scientist working in a laboratory" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div>
-            <p className="eyebrow text-teal">Safety & quality</p>
+            <p className="eyebrow text-orange">Safety & quality</p>
             <h2 className="h-xl mt-3">Tested batch by batch.</h2>
             <p className="lede mt-5 text-lg text-white/75">
               Every batch is tested for potency, heavy metals and microbial safety before release. Formulas are developed with veterinary nutritionists and manufactured in GMP-certified facilities.

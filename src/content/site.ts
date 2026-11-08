@@ -24,7 +24,7 @@ export type Product = {
   short: string;
   image: string;
   imageAlt: string;
-  accent: "sky" | "teal" | "orange";
+  accent: "peach" | "teal" | "orange";
   intro: string;
   benefits: { title: string; body: string }[];
   forAnimals: string[];
@@ -39,7 +39,7 @@ export const products: Product[] = [
     short: "Daily soft chews for dogs and cats — joints, gut, skin and coat in one bite.",
     image: "/images/puppy.jpg",
     imageAlt: "Brown and white puppy looking up",
-    accent: "sky",
+    accent: "peach",
     intro:
       "A vet-formulated daily chew that delivers omega-3s, probiotics and joint-support actives inside our NutriCore™ micro-capsules, so they survive the stomach and absorb where they should.",
     benefits: [

@@ -18,13 +18,13 @@ export default function Home() {
       <HeroIntro />
 
       {/* ── Welcome ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-sky">
+      <section className="relative overflow-hidden bg-peach">
         <div className="container-x grid items-center gap-10 pb-16 pt-16 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:pb-24">
           <div>
             <p className="eyebrow inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-navy">
               <Sparkle className="size-3.5 text-orange" /> Vet-formulated animal nutrition
             </p>
-            <h2 className="font-display mt-6 text-[clamp(3rem,7vw,5.8rem)] leading-[0.95]">Made for the animals you love.</h2>
+            <h2 className="font-display mt-6 text-[clamp(2.4rem,5.4vw,4.6rem)] leading-[0.95]">Made for the animals you love.</h2>
                         <p className="lede mt-6 max-w-xl text-lg text-navy/75">{hero.body}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#products" className="btn btn-dark">
@@ -35,7 +35,7 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[540px]">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[48px] rounded-tr-[160px] bg-teal">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[48px] rounded-tr-[160px] bg-sand">
               <Image
                 src="/images/hero-owner-dog.jpg"
                 alt="A woman kissing her happy golden retriever outdoors"
@@ -74,7 +74,7 @@ export default function Home() {
       <section className="py-20 md:py-28">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <div className="relative aspect-[5/4] overflow-hidden rounded-[var(--radius-card)] bg-sky">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-[var(--radius-card)] bg-peach">
               <Image src="/images/empty-bowl.jpg" alt="A dog standing beside a nearly empty food bowl" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
@@ -96,7 +96,7 @@ export default function Home() {
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-lg font-medium tracking-tight text-navy-500">{solution.kicker}</p>
-            <h2 className="font-display mt-4 text-5xl leading-[1] md:text-7xl">{solution.title}</h2>
+            <h2 className="font-display mt-4 text-5xl leading-[1] md:text-6xl">{solution.title}</h2>
             <p className="lede mx-auto mt-6 max-w-2xl text-lg text-muted">{solution.body}</p>
             <Link href="/science" className="mt-6 inline-flex items-center gap-2 font-semibold underline decoration-orange decoration-2 underline-offset-4">
               How NutriCore™ works <ArrowRight />
@@ -110,7 +110,7 @@ export default function Home() {
                 return (
                   <Reveal key={t.title} delay={i * 80}>
                     <div className="rounded-3xl bg-white p-6 ring-1 ring-line">
-                      <Icon className="size-7 text-teal" />
+                      <Icon className="size-7 text-orange" />
                       <h3 className="h-md mt-3">{t.title}</h3>
                       <p className="mt-1 text-muted">{t.body}</p>
                     </div>
@@ -121,10 +121,11 @@ export default function Home() {
 
             <Reveal delay={120}>
               <div className="relative aspect-square overflow-hidden rounded-full bg-navy">
-                <Image src="/images/kibble.jpg" alt="Close-up of nutrient-rich kibble" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-70 mix-blend-luminosity" />
+                <Image src="/images/kibble.jpg" alt="Close-up of nutrient-rich kibble" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgb(255_127_0/0.35),rgb(22_19_69/0.85)_75%)]" />
                 <div className="absolute inset-0 grid place-items-center text-center text-white">
                   <div>
-                    <p className="eyebrow text-teal">Meet</p>
+                    <p className="eyebrow text-orange">Meet</p>
                     <p className="font-display text-5xl md:text-6xl">NutriCore™</p>
                     <p className="mt-2 text-white/80">Protected. Targeted. Absorbed.</p>
                   </div>
@@ -137,7 +138,7 @@ export default function Home() {
                 const Icon = benefitIcons[i];
                 return (
                   <Reveal key={b.title} delay={i * 80}>
-                    <div className="h-full rounded-3xl bg-sky p-5">
+                    <div className="h-full rounded-3xl bg-peach p-5">
                       <Icon className="size-6 text-navy" />
                       <h3 className="mt-3 font-semibold tracking-tight">{b.title}</h3>
                       <p className="mt-1 text-sm text-navy/70">{b.body}</p>
@@ -175,7 +176,7 @@ export default function Home() {
       <section className="py-20 md:py-28">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="lg:order-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] rounded-bl-[120px] bg-teal">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] rounded-bl-[120px] bg-sand">
               <Image src="/images/pasture-cows.jpg" alt="Cows grazing on a lush green pasture" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
@@ -186,7 +187,7 @@ export default function Home() {
             <ul className="mt-6 space-y-3">
               {["Plant-based capsule shells", "Recyclable packaging", "Concentrated = fewer trucks"].map((t) => (
                 <li key={t} className="flex items-center gap-3 font-medium">
-                  <span className="grid size-6 place-items-center rounded-full bg-teal text-navy"><Check className="size-3.5" /></span>
+                  <span className="grid size-6 place-items-center rounded-full bg-orange text-navy"><Check className="size-3.5" /></span>
                   {t}
                 </li>
               ))}
@@ -199,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* ── Products ─────────────────────────────────────── */}
-      <section id="products" className="bg-sky-50 py-20 md:py-28">
+      <section id="products" className="bg-peach-50 py-20 md:py-28">
         <div className="container-x">
           <Reveal className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
@@ -256,7 +257,7 @@ export default function Home() {
               </ul>
             </Reveal>
             <Reveal delay={120} className="flex flex-col gap-6">
-              <div className="relative min-h-[320px] flex-1 overflow-hidden rounded-[var(--radius-card)] bg-teal">
+              <div className="relative min-h-[320px] flex-1 overflow-hidden rounded-[var(--radius-card)] bg-sand">
                 <Image src="/images/farmer-vet.jpg" alt="A dairy farmer and a veterinarian talking beside a truck" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
               </div>
               <div className="rounded-[var(--radius-card)] bg-navy p-6 text-white">
@@ -274,7 +275,7 @@ export default function Home() {
           <Image src="/images/fish-cages.jpg" alt="Fish farm cages on a calm lake" fill sizes="100vw" className="object-cover opacity-45" />
           <div className="relative grid gap-6 p-8 text-white md:p-16 lg:grid-cols-[1.4fr_1fr] lg:items-end">
             <div>
-              <span className="eyebrow rounded-full bg-teal px-3 py-1 text-navy">Limited release</span>
+              <span className="eyebrow rounded-full bg-orange px-3 py-1 text-navy">Limited release</span>
               <h2 className="font-display mt-5 text-4xl leading-[1.02] md:text-6xl">{onRequest.title}</h2>
               <p className="lede mt-4 max-w-xl text-lg text-white/85">{onRequest.body}</p>
             </div>
@@ -310,7 +311,7 @@ export default function Home() {
       <section className="bg-orange py-20 md:py-28">
         <div className="container-x text-center">
           <Reveal>
-            <h2 className="font-display mx-auto max-w-4xl text-5xl leading-[1] md:text-7xl">{closing.title}</h2>
+            <h2 className="font-display mx-auto max-w-4xl text-5xl leading-[1] md:text-6xl">{closing.title}</h2>
             <p className="lede mx-auto mt-5 max-w-xl text-lg text-navy/80">{closing.body}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <RequestButton className="btn btn-dark">Request product</RequestButton>

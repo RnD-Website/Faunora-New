@@ -23,7 +23,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {groups.map((g) => (
               <div key={g.label}>
-                <p className="eyebrow text-teal">{g.label}</p>
+                <p className="eyebrow text-orange">{g.label}</p>
                 <ul className="mt-4 space-y-3">
                   {"items" in g &&
                     g.items.map((i) => (
@@ -35,7 +35,7 @@ export function Footer() {
               </div>
             ))}
             <div>
-              <p className="eyebrow text-teal">More</p>
+              <p className="eyebrow text-orange">More</p>
               <ul className="mt-4 space-y-3">
                 <li><Link href="/blog" className="text-white/80 hover:text-white">Blog</Link></li>
                 <li><Link href="/contact" className="text-white/80 hover:text-white">Contact</Link></li>

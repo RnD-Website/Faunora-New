@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Post, Product } from "@/content/site";
 import { ArrowRight } from "./icons";
 
-const accentBg = { sky: "bg-sky", teal: "bg-teal", orange: "bg-orange" } as const;
+const accentBg = { peach: "bg-peach", teal: "bg-teal", orange: "bg-orange" } as const;
 
 export function ProductCard({ p }: { p: Product }) {
   return (
@@ -37,7 +37,7 @@ export function ProductCard({ p }: { p: Product }) {
 export function PostCard({ post }: { post: Post }) {
   return (
     <Link href={`/blog/${post.slug}`} className="group flex h-full flex-col">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] bg-sky">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] bg-peach">
         <Image
           src={post.image}
           alt={post.imageAlt}
@@ -57,12 +57,12 @@ export function PostCard({ post }: { post: Post }) {
   );
 }
 
-export function PageHero({ eyebrow, title, body, tone = "sky" }: { eyebrow: string; title: string; body?: string; tone?: "sky" | "teal" }) {
+export function PageHero({ eyebrow, title, body, tone = "peach" }: { eyebrow: string; title: string; body?: string; tone?: "peach" | "sand" }) {
   return (
-    <section className={`${tone === "sky" ? "bg-sky" : "bg-teal-50"} -mt-[var(--header-h)] pt-[calc(var(--header-h)+56px)] pb-16 md:pb-24`}>
+    <section className={`${tone === "peach" ? "bg-peach" : "bg-sand"} -mt-[var(--header-h)] pt-[calc(var(--header-h)+56px)] pb-16 md:pb-24`}>
       <div className="container-x max-w-4xl text-center">
         <p className="eyebrow text-navy-500">{eyebrow}</p>
-        <h1 className="font-display mt-4 text-5xl leading-[1] md:text-7xl">{title}</h1>
+        <h1 className="font-display mt-4 text-5xl leading-[1] md:text-6xl">{title}</h1>
         {body && <p className="lede mx-auto mt-6 max-w-2xl text-lg text-navy/75">{body}</p>}
       </div>
     </section>

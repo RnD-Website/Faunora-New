@@ -110,14 +110,14 @@ export function RequestProvider({ children }: { children: ReactNode }) {
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-white hover:bg-sky"
+            className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-white hover:bg-peach"
           >
             <Close />
           </button>
 
           {status === "done" ? (
             <div className="py-10 text-center">
-              <div className="mx-auto mb-5 grid size-16 place-items-center rounded-full bg-teal text-navy">
+              <div className="mx-auto mb-5 grid size-16 place-items-center rounded-full bg-orange text-navy">
                 <Check className="size-8" />
               </div>
               <h2 id="request-title" className="h-lg">Thank you!</h2>

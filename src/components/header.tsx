@@ -56,7 +56,7 @@ export function Header() {
                   type="button"
                   aria-expanded={openMenu === item.label}
                   onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
-                  className="flex items-center gap-1 rounded-full px-4 py-2 font-medium tracking-tight hover:bg-sky-50"
+                  className="flex items-center gap-1 rounded-full px-4 py-2 font-medium tracking-tight hover:bg-peach-50"
                 >
                   {item.label}
                   <ChevronDown className={`size-4 transition ${openMenu === item.label ? "rotate-180" : ""}`} />
@@ -69,7 +69,7 @@ export function Header() {
                   <ul className="w-72 rounded-3xl border border-line bg-white p-2 shadow-xl">
                     {item.items.map((sub) => (
                       <li key={sub.href}>
-                        <Link href={sub.href} className="block rounded-2xl px-4 py-3 hover:bg-sky-50">
+                        <Link href={sub.href} className="block rounded-2xl px-4 py-3 hover:bg-peach-50">
                           <span className="block font-semibold tracking-tight">{sub.label}</span>
                           <span className="block text-sm text-muted">{sub.note}</span>
                         </Link>
@@ -79,7 +79,7 @@ export function Header() {
                 </div>
               </div>
             ) : (
-              <Link key={item.label} href={item.href} className="rounded-full px-4 py-2 font-medium tracking-tight hover:bg-sky-50">
+              <Link key={item.label} href={item.href} className="rounded-full px-4 py-2 font-medium tracking-tight hover:bg-peach-50">
                 {item.label}
               </Link>
             ),

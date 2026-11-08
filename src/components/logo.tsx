@@ -13,7 +13,7 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link href="/" className={`inline-flex items-center gap-2.5 ${className}`} aria-label="Faunora home">
       <LogoMark className="h-7 w-auto" />
-      <span className="font-display text-[1.6rem] leading-none">Faunora</span>
+      <span className="font-display text-[1.6rem] leading-none tracking-[-0.05em]">Faunora</span>
     </Link>
   );
 }

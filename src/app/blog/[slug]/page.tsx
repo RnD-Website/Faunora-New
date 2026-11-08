@@ -30,13 +30,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <p className="lede mt-5 text-xl text-muted">{post.excerpt}</p>
       </div>
       <div className="container-x mt-10 max-w-5xl">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] bg-sky">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] bg-peach">
           <Image src={post.image} alt={post.imageAlt} fill priority sizes="(min-width: 1024px) 1024px, 100vw" className="object-cover" />
         </div>
       </div>
       <div className="container-x mt-12 max-w-3xl space-y-6 text-lg leading-relaxed text-navy/85">
         {post.body.map((para, i) => <p key={i}>{para}</p>)}
-        <div className="!mt-12 rounded-[var(--radius-card)] bg-sky p-8">
+        <div className="!mt-12 rounded-[var(--radius-card)] bg-peach p-8">
           <p className="h-md">Want to try Faunora?</p>
           <p className="mt-2 text-base text-muted">Request a sample tailored to your animals.</p>
           <RequestButton className="btn btn-dark mt-5">Request a sample</RequestButton>

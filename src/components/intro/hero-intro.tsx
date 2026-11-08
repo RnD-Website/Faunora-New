@@ -18,7 +18,7 @@ const badges = [
   { src: "/images/hen.jpg", alt: "" },
   { src: "/images/calves.jpg", alt: "" },
 ];
-const ringText = "Faunora — Nutrition, Reimagined — For every paw, hoof and feather — ";
+const ringText = "Faunora  ✦  Nutrition, Reimagined  ✦  For every paw, hoof and feather  ✦  ";
 
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
@@ -125,8 +125,8 @@ export function HeroIntro() {
             <defs>
               <path id="ring-path" d="M250 250 m-210 0 a210 210 0 1 1 420 0 a210 210 0 1 1 -420 0" />
             </defs>
-            <text className="font-display" fill="currentColor" fontSize="34" letterSpacing="1">
-              <textPath href="#ring-path" textLength="1310" lengthAdjust="spacing">
+            <text fill="currentColor" fontSize="15" fontWeight="600" letterSpacing="4" style={{ textTransform: "uppercase", fontFamily: "var(--font-sans)" }}>
+              <textPath href="#ring-path" textLength="1316" lengthAdjust="spacing">
                 {ringText}
               </textPath>
             </text>
@@ -139,29 +139,30 @@ export function HeroIntro() {
         {/* Headline layer (Farm Minerals layout) */}
         <div className="intro-copy absolute inset-0 pt-[calc(var(--header-h)+24px)]">
           <div className="container-x relative h-full">
-            <h1 className="intro-title font-display max-w-[9ch] text-[clamp(2.6rem,5.8vw,5rem)] leading-[0.92] text-navy">
+            <h1 className="intro-title font-display max-w-[9ch] text-[clamp(2.3rem,5vw,4.4rem)] leading-[0.95] text-navy">
               {home.hero.title}
             </h1>
-            <p className="intro-sub absolute right-4 top-[46%] hidden max-w-[12ch] text-right text-[clamp(1.4rem,2.6vw,2.4rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-navy md:right-8 md:block">
-              {home.hero.subtitle}
-            </p>
-            <div className="intro-cta absolute inset-x-4 bottom-8 flex items-end justify-between gap-4 md:inset-x-8 md:bottom-10">
-              <div>
-                <p className="mb-4 max-w-[30ch] text-navy/75 md:hidden">{home.hero.subtitle}</p>
-                <Link href="#products" className="btn btn-dark">
-                  Explore products <ArrowRight />
-                </Link>
-              </div>
-              <div className="flex flex-col items-center gap-2 text-navy" aria-hidden="true">
-                <span className="eyebrow text-[0.65rem]">Scroll</span>
-                <span className="intro-mouse" />
-              </div>
+
+            {/* Right column: subtitle + primary button */}
+            <div className="intro-sub absolute bottom-8 right-4 flex flex-col items-end gap-5 text-right md:bottom-auto md:right-8 md:top-[44%] md:gap-7">
+              <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold uppercase leading-[1.1] tracking-[-0.01em] text-navy">
+                {home.hero.subtitle}
+              </p>
+              <Link href="#products" className="btn btn-dark">
+                Explore products <ArrowRight />
+              </Link>
+            </div>
+
+            {/* Scroll cue, bottom left */}
+            <div className="intro-cta absolute bottom-8 left-4 flex flex-col items-center gap-2 text-navy md:bottom-10 md:left-8" aria-hidden="true">
+              <span className="intro-mouse" />
+              <span className="eyebrow text-[0.65rem]">Scroll</span>
             </div>
           </div>
         </div>
 
         {/* Fade into the next section at the end of the zoom */}
-        <div className="intro-exit pointer-events-none absolute inset-0 bg-sky" />
+        <div className="intro-exit pointer-events-none absolute inset-0 bg-peach" />
 
         {/* Loader */}
         <div className="intro-loader absolute inset-0 z-10 text-white" role="status" aria-live="polite" aria-label={`Loading ${pct}%`}>

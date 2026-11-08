@@ -14,7 +14,7 @@ const pillars = [
 export default function SustainabilityPage() {
   return (
     <>
-      <PageHero tone="teal" eyebrow="Sustainability" title="Healthier animals, lighter footprint." body="Wasted nutrition is wasted resources. Fixing absorption is one of the simplest ways to make animal care more sustainable." />
+      <PageHero tone="sand" eyebrow="Sustainability" title="Healthier animals, lighter footprint." body="Wasted nutrition is wasted resources. Fixing absorption is one of the simplest ways to make animal care more sustainable." />
       <section className="py-20 md:py-28">
         <div className="container-x grid gap-6 sm:grid-cols-2">
           {pillars.map((p) => (
@@ -25,7 +25,7 @@ export default function SustainabilityPage() {
           ))}
         </div>
         <div className="container-x mt-10">
-          <div className="relative aspect-[21/9] overflow-hidden rounded-[var(--radius-card)] bg-teal">
+          <div className="relative aspect-[21/9] overflow-hidden rounded-[var(--radius-card)] bg-sand">
             <Image src="/images/calves.jpg" alt="Three young calves standing together" fill sizes="100vw" className="object-cover" />
           </div>
         </div>

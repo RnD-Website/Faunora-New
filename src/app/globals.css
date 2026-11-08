@@ -11,14 +11,15 @@
   --navy-500: #4a4680;
   --orange: #ff7f00;
   --orange-600: #e66f00;
-  --sky: #d7ecff;
-  --sky-50: #eef6ff;
+  --peach: #ffe9d6;
+  --peach-50: #fff6ee;
+  --sand: #fcdcbf;
   --teal: #60c4bf;
   --teal-50: #e3f5f4;
-  --paper: #f9f9f9;
+  --paper: #fffaf5;
   --white: #ffffff;
-  --muted: #5b5878;
-  --line: #e4e3ee;
+  --muted: #6a5d6e;
+  --line: #f1e0cf;
 
   --header-h: 72px;
 }
@@ -29,8 +30,9 @@
   --color-navy-500: var(--navy-500);
   --color-orange: var(--orange);
   --color-orange-600: var(--orange-600);
-  --color-sky: var(--sky);
-  --color-sky-50: var(--sky-50);
+  --color-peach: var(--peach);
+  --color-peach-50: var(--peach-50);
+  --color-sand: var(--sand);
   --color-teal: var(--teal);
   --color-teal-50: var(--teal-50);
   --color-paper: var(--paper);
@@ -43,13 +45,21 @@
   --radius-card: 28px;
 }
 
+/* All headings are set in capitals */
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-h);
 }
 
 body {
-  background: var(--white);
+  background: #fffcf8;
   color: var(--navy);
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
@@ -63,27 +73,27 @@ body {
   font-family: var(--font-display);
   font-variation-settings: "SOFT" 100, "opsz" 96;
   font-weight: 600;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
 }
 
 /* Headings in Inter, tracked tight like Liftoff */
 .h-xl {
   font-weight: 600;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.035em;
   line-height: 1.05;
-  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
 }
 .h-lg {
   font-weight: 600;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.03em;
   line-height: 1.1;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 .h-md {
   font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 1.15;
-  font-size: 1.35rem;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  font-size: 1.2rem;
 }
 .eyebrow {
   font-size: 0.8rem;
@@ -131,7 +141,7 @@ body {
 .btn:focus-visible,
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--teal);
+  outline: 3px solid var(--orange);
   outline-offset: 2px;
 }
 .btn-primary {
@@ -303,7 +313,7 @@ button:focus-visible {
 /* Ring text */
 .intro-ring {
   top: calc(50% + var(--cy));
-  width: min(calc(var(--s) * 510 * var(--cam)), 94vw);
+  width: min(calc(var(--s) * 480 * var(--cam)), 94vw);
   aspect-ratio: 1;
   color: var(--navy);
   transform: translate(-50%, -50%) scale(calc(1 + var(--p) * 1.6));
@@ -452,7 +462,7 @@ html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-dim {
   opacity: 0.55;
 }
 html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-bulb-core {
-  fill: #5d6b80;
+  fill: #7a6352;
 }
 html:not(.intro-skip) .intro[data-intro-phase="loading"] .intro-bulb-glow {
   opacity: 0;
