@@ -94,10 +94,10 @@ export function WelcomeHero() {
       {/* Colour-wash band */}
       <div className="relative mt-14 md:mt-20 lg:h-[440px]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="welcome-blob keep-ellipse absolute left-[-4%] top-[18%] h-[62%] w-[34%] bg-[#b8902a]/85 blur-[60px]" />
-          <div className="welcome-blob keep-ellipse absolute left-[26%] top-[4%] h-[70%] w-[30%] bg-[#e9963f]/80 blur-[70px] [animation-delay:-4s]" />
-          <div className="welcome-blob keep-ellipse absolute left-[46%] top-[30%] h-[60%] w-[26%] bg-[#93a95a]/75 blur-[70px] [animation-delay:-8s]" />
-          <div className="welcome-blob keep-ellipse absolute right-[-4%] top-[10%] h-[64%] w-[34%] bg-[#9fc0c9]/85 blur-[70px] [animation-delay:-2s]" />
+          <div className="welcome-blob keep-ellipse absolute left-[-4%] top-[18%] h-[62%] w-[34%] bg-[#d9892c]/75 blur-[70px]" />
+          <div className="welcome-blob keep-ellipse absolute left-[26%] top-[4%] h-[70%] w-[30%] bg-[#e9963f]/85 blur-[70px] [animation-delay:-4s]" />
+          <div className="welcome-blob keep-ellipse absolute left-[46%] top-[30%] h-[60%] w-[26%] bg-[#ef9f55]/75 blur-[70px] [animation-delay:-8s]" />
+          <div className="welcome-blob keep-ellipse absolute right-[-4%] top-[10%] h-[64%] w-[34%] bg-[#f2b27a]/80 blur-[70px] [animation-delay:-2s]" />
         </div>
 
         {/* Mobile / tablet: stacked cards */}
