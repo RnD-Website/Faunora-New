@@ -172,7 +172,7 @@ export default function Home() {
               We&rsquo;re currently testing in {trials.sites.map((s) => s.country).join(", ")} and more.
             </p>
           </Reveal>
-          <div className="text-forest">
+          <div className="-mx-[calc(var(--gutter)*0.6)] text-forest lg:-mr-[calc(var(--gutter)-16px)]">
             <TrialsMap sites={trials.sites} />
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function Home() {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.25)_0%,rgb(31_37_9/0.15)_45%,rgb(31_37_9/0.75)_100%)]" />
 
           {/* floating notes, stacked edge to edge */}
-          <div className="trials-notes absolute inset-x-0 top-0 flex flex-col items-end">
+          <div className="trials-notes absolute inset-x-0 top-6 flex flex-col items-end gap-4 md:top-10 md:gap-5">
             <div className="corners w-[46%] min-w-[170px] max-w-[300px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
               <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Next update</p>
               <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.next}</p>

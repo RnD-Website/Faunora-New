@@ -108,7 +108,10 @@ export function ProductsShowcase() {
           <h2 id="showcase-title" className="font-display mx-auto mt-5 max-w-[16ch] text-[clamp(2.4rem,6.4vw,6rem)] leading-[0.95] text-[#f4ede6]">
             {home.products.title}
           </h2>
-          <p className="mx-auto mt-5 max-w-sm text-[#f4ede6]/80">{home.products.body}</p>
+          <p className="mx-auto mt-5 max-w-xl text-[#f4ede6]/80 md:whitespace-nowrap">{home.products.body}</p>
+          <Link href="/products" className="btn btn-light pointer-events-auto mt-8">
+            View all products <ArrowRight />
+          </Link>
         </div>
       </div>
       {/* Flying product cards */}

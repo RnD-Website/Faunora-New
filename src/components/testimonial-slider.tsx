@@ -49,10 +49,6 @@ export function TestimonialSlider() {
         if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
       }}
     >
-      {/* oversized closing quote mark */}
-      <span aria-hidden="true" className="font-display pointer-events-none absolute bottom-[-0.45em] right-[var(--gutter)] select-none text-[clamp(7rem,14vw,13rem)] leading-none text-[#f4ede6]">
-        &rdquo;
-      </span>
 
       <div className="container-x relative text-center">
         <p className="eyebrow text-[#c9d3a8]">{home.testimonialsIntro.eyebrow}</p>
