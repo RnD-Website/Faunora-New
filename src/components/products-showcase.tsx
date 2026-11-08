@@ -95,7 +95,7 @@ export function ProductsShowcase() {
   }, []);
 
   return (
-    <section ref={ref} id="products" className="showcase relative isolate bg-forest-900" aria-labelledby="showcase-title">
+    <section ref={ref} id="products" className="showcase relative isolate bg-[#54602f]" aria-labelledby="showcase-title">
       {/* Pinned spacer so the heading and cards share one sticky frame */}
       <div className="sticky top-0 h-svh" aria-hidden="true" />
 
