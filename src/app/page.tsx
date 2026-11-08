@@ -163,11 +163,11 @@ export default function Home() {
 
           {/* floating notes, stacked edge to edge */}
           <div className="trials-notes absolute inset-x-0 top-6 flex flex-col items-end gap-4 pr-6 md:top-10 md:gap-5 md:pr-10 lg:pr-12">
-            <div className="corners w-[44%] min-w-[220px] max-w-[300px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
+            <div className="corners flex min-h-[170px] w-[36%] min-w-[180px] max-w-[240px] flex-col justify-between bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
               <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Next update</p>
               <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.next}</p>
             </div>
-            <div className="corners mr-[30%] w-[44%] min-w-[220px] max-w-[300px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
+            <div className="corners mr-[30%] flex min-h-[170px] w-[36%] min-w-[180px] max-w-[240px] flex-col justify-between bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
               <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Why we share this</p>
               <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.why}</p>
             </div>
