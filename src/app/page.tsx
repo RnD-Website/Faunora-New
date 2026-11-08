@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* ── Solution ─────────────────────────────────────── */}
-      <section id="science" className="bg-paper py-20 md:py-28">
+      <section id="science" className="py-20 md:py-28">
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-lg font-medium tracking-tight text-forest-500">{solution.kicker}</p>
