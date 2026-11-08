@@ -113,6 +113,7 @@ export function NutriCoreOrbit() {
                 fill="none"
                 stroke={c}
                 strokeWidth="13"
+                strokeLinecap="round"
                 pathLength={1}
                 className="orbit-seg"
                 style={{ transitionDelay: `${0.2 + i * 0.12}s` }}

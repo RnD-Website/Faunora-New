@@ -21,8 +21,8 @@ export default function Home() {
       <section className="relative overflow-hidden bg-beige">
         <div className="container-x grid items-center gap-10 pb-16 pt-16 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:pb-24">
           <div>
-            <p className="eyebrow inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-forest">
-              <Sparkle className="size-3.5 text-sage" /> Vet-formulated animal nutrition
+            <p className="eyebrow text-forest-500">
+              Vet-formulated animal nutrition
             </p>
             <h2 className="font-display mt-6 text-[clamp(2.4rem,5.4vw,4.6rem)] leading-[0.95]">Made for the animals you love.</h2>
                         <p className="lede mt-6 max-w-xl text-lg text-forest/75">{hero.body}</p>
@@ -72,9 +72,9 @@ export default function Home() {
 
       {/* ── Problem ──────────────────────────────────────── */}
       <section className="py-20 md:py-28">
-        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <Reveal>
-            <div className="corners relative aspect-[5/4] bg-beige">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2 lg:items-stretch">
+          <Reveal className="lg:h-full">
+            <div className="corners relative aspect-[5/4] bg-beige lg:aspect-auto lg:h-full lg:min-h-[520px]">
               <Image src="/images/empty-bowl.jpg" alt="A dog standing beside a nearly empty food bowl" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
@@ -115,9 +115,9 @@ export default function Home() {
           <Reveal>
             <h2 className="font-display text-center text-5xl md:text-6xl">{stats.title}</h2>
           </Reveal>
-          <dl className="corners mt-14 grid grid-cols-2 gap-px bg-white/15 lg:grid-cols-4">
+          <dl className="mt-14 grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
             {stats.items.map((s) => (
-              <div key={s.label} className="bg-forest p-6 text-center md:p-10">
+              <div key={s.label} className="corners p-6 text-center ring-1 ring-white/25 transition hover:bg-white/[0.04] md:p-10">
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
                   <span className="block text-5xl font-semibold tracking-[-0.06em] text-sage-200 md:text-6xl">{s.value}</span>
