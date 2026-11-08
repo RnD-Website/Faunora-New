@@ -35,7 +35,7 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[540px]">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[48px] rounded-tr-[160px] bg-sand">
+            <div className="corners relative aspect-[4/5] bg-sand">
               <Image
                 src="/images/hero-owner-dog.jpg"
                 alt="A woman kissing her happy golden retriever outdoors"
@@ -44,11 +44,11 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="float absolute -left-3 top-10 rounded-2xl bg-white px-4 py-3 shadow-xl md:-left-8">
+            <div className="corners float absolute -left-3 top-10 bg-white px-4 py-3 shadow-xl md:-left-8">
               <p className="text-2xl font-semibold tracking-tight">3×</p>
               <p className="text-xs text-muted">absorption*</p>
             </div>
-            <div className="float absolute -right-2 bottom-12 flex items-center gap-3 rounded-2xl bg-forest px-4 py-3 text-white shadow-xl [animation-delay:1.5s] md:-right-6">
+            <div className="corners float absolute -right-2 bottom-12 flex items-center gap-3 bg-forest px-4 py-3 text-white shadow-xl [animation-delay:1.5s] md:-right-6">
               <span className="grid size-9 place-items-center rounded-full bg-sage text-forest">
                 <Capsule className="size-5" />
               </span>
@@ -74,7 +74,7 @@ export default function Home() {
       <section className="py-20 md:py-28">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <div className="relative aspect-[5/4] overflow-hidden rounded-[var(--radius-card)] bg-beige">
+            <div className="corners relative aspect-[5/4] bg-beige">
               <Image src="/images/empty-bowl.jpg" alt="A dog standing beside a nearly empty food bowl" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
@@ -82,7 +82,7 @@ export default function Home() {
             <p className="eyebrow text-forest-500">The problem</p>
             <h2 className="h-xl mt-3">{problem.title}</h2>
             <p className="lede mt-5 text-lg text-muted">{problem.body}</p>
-            <div className="mt-8 rounded-[var(--radius-card)] bg-sage/10 p-6 ring-1 ring-sage/30">
+            <div className="corners mt-8 bg-sage/10 p-6 ring-1 ring-sage/30">
               <p className="font-display text-6xl text-forest">{problem.stat}</p>
               <p className="mt-2 text-lg font-medium tracking-tight">{problem.statLabel}</p>
               <p className="mt-3 text-xs text-muted">{problem.source}</p>
@@ -103,7 +103,7 @@ export default function Home() {
             </Link>
           </Reveal>
 
-          <Reveal className="mt-14">
+          <Reveal className="corners mt-14">
             <NutriCoreOrbit />
           </Reveal>
         </div>
@@ -115,7 +115,7 @@ export default function Home() {
           <Reveal>
             <h2 className="font-display text-center text-5xl md:text-6xl">{stats.title}</h2>
           </Reveal>
-          <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-card)] bg-white/15 lg:grid-cols-4">
+          <dl className="corners mt-14 grid grid-cols-2 gap-px bg-white/15 lg:grid-cols-4">
             {stats.items.map((s) => (
               <div key={s.label} className="bg-forest p-6 text-center md:p-10">
                 <dt className="sr-only">{s.label}</dt>
@@ -134,7 +134,7 @@ export default function Home() {
       <section className="py-20 md:py-28">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="lg:order-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] rounded-bl-[120px] bg-sand">
+            <div className="corners relative aspect-[4/3] bg-sand">
               <Image src="/images/pasture-cows.jpg" alt="Cows grazing on a lush green pasture" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
@@ -178,7 +178,7 @@ export default function Home() {
             <Reveal>
               <h2 className="h-xl">{trials.title}</h2>
               <p className="lede mt-4 max-w-xl text-lg text-muted">{trials.body}</p>
-              <ul className="mt-8 divide-y divide-line overflow-hidden rounded-[var(--radius-card)] ring-1 ring-line">
+              <ul className="corners mt-8 divide-y divide-line ring-1 ring-line">
                 {trials.sites.map((s) => (
                   <li key={s.country} className="flex items-center justify-between gap-4 bg-white px-5 py-4">
                     <div>
@@ -190,7 +190,7 @@ export default function Home() {
                         s.status === "Complete" ? "bg-teal-50 text-forest" : "bg-sage/15 text-forest"
                       }`}
                     >
-                      <span className={`size-2 rounded-full ${s.status === "Complete" ? "bg-teal" : "animate-pulse bg-sage"}`} />
+                      <span className={`keep-round size-2 ${s.status === "Complete" ? "bg-teal" : "animate-pulse bg-sage"}`} />
                       {s.status}
                     </span>
                   </li>
@@ -198,10 +198,10 @@ export default function Home() {
               </ul>
             </Reveal>
             <Reveal delay={120} className="flex flex-col gap-6">
-              <div className="relative min-h-[320px] flex-1 overflow-hidden rounded-[var(--radius-card)] bg-sand">
+              <div className="corners relative min-h-[320px] flex-1 bg-sand">
                 <Image src="/images/farmer-vet.jpg" alt="A dairy farmer and a veterinarian talking beside a truck" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
               </div>
-              <div className="rounded-[var(--radius-card)] bg-forest p-6 text-white">
+              <div className="corners bg-forest p-6 text-white">
                 <p className="font-semibold">{trials.next}</p>
                 <p className="mt-2 text-white/70">{trials.why}</p>
               </div>
@@ -212,7 +212,7 @@ export default function Home() {
 
       {/* ── On request ───────────────────────────────────── */}
       <section className="px-4 md:px-8">
-        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-[40px] bg-forest">
+        <div className="corners relative mx-auto max-w-[1280px] bg-forest">
           <Image src="/images/fish-cages.jpg" alt="Fish farm cages on a calm lake" fill sizes="100vw" className="object-cover opacity-45" />
           <div className="relative grid gap-6 p-8 text-white md:p-16 lg:grid-cols-[1.4fr_1fr] lg:items-end">
             <div>

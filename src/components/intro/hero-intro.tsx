@@ -162,7 +162,7 @@ export function HeroIntro() {
                   {pct}%
                 </span>
                 <span className="absolute top-6 -translate-x-1/2" style={{ left: `${progress}%` }}>
-                  <span key={badge.src} className="intro-badge relative block size-14 overflow-hidden rounded-full ring-2 ring-sage md:size-16">
+                  <span key={badge.src} className="intro-badge keep-round relative block size-14 overflow-hidden ring-2 ring-sage md:size-16">
                     <Image src={badge.src} alt={badge.alt} fill sizes="64px" className="object-cover" priority />
                   </span>
                 </span>

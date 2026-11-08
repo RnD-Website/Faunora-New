@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <Link href="/science" className="btn btn-ghost">The science</Link>
             </div>
           </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[48px] rounded-tl-[160px] bg-white">
+          <div className="corners relative aspect-[4/5] bg-white">
             <Image src={p.image} alt={p.imageAlt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
         </div>
@@ -55,7 +55,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <h2 className="h-xl max-w-2xl">What it does</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {p.benefits.map((b) => (
-              <div key={b.title} className="rounded-[var(--radius-card)] bg-paper p-6 ring-1 ring-line">
+              <div key={b.title} className="corners bg-paper p-6 ring-1 ring-line">
                 <span className="grid size-10 place-items-center rounded-full bg-sage text-forest"><Check /></span>
                 <h3 className="h-md mt-4">{b.title}</h3>
                 <p className="mt-2 text-muted">{b.body}</p>

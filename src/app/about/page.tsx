@@ -16,7 +16,7 @@ export default function AboutPage() {
       <PageHero eyebrow="About us" title="We exist for the animals." body="Faunora was founded by veterinarians and nutrition scientists who were tired of seeing good nutrition wasted." />
       <section className="py-20 md:py-28">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-card)] bg-beige">
+          <div className="corners relative aspect-[4/5] bg-beige">
             <Image src="/images/vet-dachshund.jpg" alt="A veterinarian examining a dachshund" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div>
@@ -26,7 +26,7 @@ export default function AboutPage() {
             </p>
             <div className="mt-10 space-y-4">
               {values.map((v) => (
-                <div key={v.title} className="rounded-3xl bg-paper p-6 ring-1 ring-line">
+                <div key={v.title} className="corners bg-paper p-6 ring-1 ring-line">
                   <h3 className="h-md">{v.title}</h3>
                   <p className="mt-1 text-muted">{v.body}</p>
                 </div>

@@ -9,7 +9,7 @@ export function ProductCard({ p }: { p: Product }) {
   return (
     <Link
       href={`/products/${p.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] bg-white ring-1 ring-line transition hover:-translate-y-1 hover:shadow-xl"
+      className="corners group flex h-full flex-col bg-white ring-1 ring-line transition hover:-translate-y-1 hover:shadow-xl"
     >
       <div className={`relative aspect-[4/3] overflow-hidden ${accentBg[p.accent]}`}>
         <Image
@@ -37,14 +37,16 @@ export function ProductCard({ p }: { p: Product }) {
 export function PostCard({ post }: { post: Post }) {
   return (
     <Link href={`/blog/${post.slug}`} className="group flex h-full flex-col">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] bg-beige">
-        <Image
-          src={post.image}
-          alt={post.imageAlt}
-          fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition duration-700 group-hover:scale-105"
-        />
+      <div className="corners">
+        <div className="relative aspect-[4/3] overflow-hidden bg-beige">
+          <Image
+            src={post.image}
+            alt={post.imageAlt}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition duration-700 group-hover:scale-105"
+          />
+        </div>
       </div>
       <p className="mt-4 text-sm text-muted">
         {new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })} · {post.readTime}

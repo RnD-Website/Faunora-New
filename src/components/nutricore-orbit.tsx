@@ -89,8 +89,8 @@ export function NutriCoreOrbit() {
       {/* blurred warm light, like a defocused photo */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <Image src="/images/pasture-cows.jpg" alt="" fill sizes="60vw" className="left-[35%] top-[-20%] !h-[110%] !w-[75%] object-cover opacity-25 blur-[80px] saturate-150" />
-        <div className="absolute -right-20 -top-28 size-[620px] rounded-full bg-[#8f9c4c]/45 blur-[120px]" />
-        <div className="absolute right-[18%] top-[4%] size-[360px] rounded-full bg-[#a6b45a]/30 blur-[100px]" />
+        <div className="absolute -right-20 -top-28 size-[620px] keep-round bg-[#8f9c4c]/45 blur-[120px]" />
+        <div className="absolute right-[18%] top-[4%] size-[360px] keep-round bg-[#a6b45a]/30 blur-[100px]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_10%,transparent_30%,rgb(57_79_54/0.95)_68%)]" />
       </div>
 
@@ -121,16 +121,16 @@ export function NutriCoreOrbit() {
           </svg>
 
           {/* Glass bezel around the globe */}
-          <div className="orbit-globe orbit-bezel absolute inset-[15.5%] rounded-full" aria-hidden="true" />
+          <div className="orbit-globe orbit-bezel keep-round absolute inset-[15.5%]" aria-hidden="true" />
 
           {/* Kibble globe */}
-          <div className="orbit-globe absolute inset-[19%] overflow-hidden rounded-full shadow-[0_40px_80px_-20px_rgb(10_20_8/0.7)]">
+          <div className="orbit-globe keep-round absolute inset-[19%] overflow-hidden shadow-[0_40px_80px_-20px_rgb(10_20_8/0.7)]">
             <Image src="/images/kibble.jpg" alt="Close-up of nutrient-rich kibble" fill sizes="(min-width: 1024px) 380px, 70vw" className="scale-110 object-cover" />
             {/* sphere shading: soft key light, dark rim */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_40%,rgb(20_32_16/0.78)_100%)]" />
             {/* glossy specular highlight */}
-            <div className="absolute left-[14%] top-[6%] h-[34%] w-[62%] -rotate-12 rounded-[50%] bg-[linear-gradient(180deg,rgb(255_255_255/0.42),rgb(255_255_255/0)_85%)] blur-[2px]" />
-            <div className="absolute inset-0 rounded-full shadow-[inset_0_2px_0_rgb(255_255_255/0.35),inset_0_-20px_40px_rgb(10_20_8/0.45)]" />
+            <div className="absolute left-[14%] top-[6%] h-[34%] w-[62%] -rotate-12 keep-ellipse bg-[linear-gradient(180deg,rgb(255_255_255/0.42),rgb(255_255_255/0)_85%)] blur-[2px]" />
+            <div className="keep-round absolute inset-0 shadow-[inset_0_2px_0_rgb(255_255_255/0.35),inset_0_-20px_40px_rgb(10_20_8/0.45)]" />
             <div className="absolute inset-0 grid place-items-center text-center">
               <div>
                 <p className="text-[clamp(4.5rem,11vw,8.5rem)] font-light leading-[0.85] tracking-[-0.06em] tabular-nums [text-shadow:0_6px_30px_rgb(10_20_8/0.55)]">
@@ -148,7 +148,7 @@ export function NutriCoreOrbit() {
           {figures.items.map((f, i) => (
             <li
               key={f.title}
-              className={`orbit-card glass-card relative rounded-[20px] p-5 lg:absolute lg:w-[27%] ${i === HIGHLIGHT ? "glass-card--tint" : ""}`}
+              className={`orbit-card glass-card corners relative p-5 lg:absolute lg:w-[27%] ${i === HIGHLIGHT ? "glass-card--tint" : ""}`}
               style={{ ...spotsStyle(i), transitionDelay: `${0.35 + i * 0.1}s` }}
             >
               <div className="flex items-start justify-between gap-3">

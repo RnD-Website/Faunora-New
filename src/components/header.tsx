@@ -67,7 +67,7 @@ export function Header() {
                     openMenu === item.label ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
                   }`}
                 >
-                  <ul className="w-72 rounded-3xl border border-line bg-white p-2 shadow-xl">
+                  <ul className="corners w-72 border border-line bg-white p-2 shadow-xl">
                     {item.items.map((sub) => (
                       <li key={sub.href}>
                         <Link href={sub.href} className="block rounded-2xl px-4 py-3 hover:bg-beige-50">
