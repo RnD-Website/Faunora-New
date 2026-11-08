@@ -121,7 +121,7 @@ export function NutriCoreOrbit() {
             <li
               key={f.title}
               className={`orbit-card glass-card corners relative p-5 lg:absolute lg:w-[27%] ${i === HIGHLIGHT ? "glass-card--tint" : ""}`}
-              style={{ ...spotsStyle(i), transitionDelay: `${0.35 + i * 0.1}s` }}
+              style={{ ...spotsStyle(i), transitionDelay: `${0.35 + i * 0.1}s`, ["--i" as string]: i }}
             >
               <div className="flex items-start justify-between gap-3">
                 <h4 className="text-xs font-semibold tracking-[0.04em]">{f.title}</h4>
