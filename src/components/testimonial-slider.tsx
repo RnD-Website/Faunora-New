@@ -49,17 +49,14 @@ export function TestimonialSlider() {
         if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
       }}
     >
-      {/* oversized quote marks */}
-      <span aria-hidden="true" className="font-display pointer-events-none absolute left-[var(--gutter)] top-2 select-none text-[clamp(7rem,14vw,13rem)] leading-none text-[#f4ede6] md:top-4">
-        &ldquo;
-      </span>
+      {/* oversized closing quote mark */}
       <span aria-hidden="true" className="font-display pointer-events-none absolute bottom-[-0.45em] right-[var(--gutter)] select-none text-[clamp(7rem,14vw,13rem)] leading-none text-[#f4ede6]">
         &rdquo;
       </span>
 
       <div className="container-x relative text-center">
         <p className="eyebrow text-[#c9d3a8]">{home.testimonialsIntro.eyebrow}</p>
-        <h2 className="font-display mx-auto mt-4 max-w-[18ch] text-[clamp(2.2rem,4.6vw,4rem)] leading-[0.98]">{home.testimonialsIntro.title}</h2>
+        <h2 className="font-display mx-auto mt-4 max-w-[26ch] text-[clamp(2rem,3.8vw,3.6rem)] leading-[0.98]">{home.testimonialsIntro.title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-[#f4ede6]/75">{home.testimonialsIntro.body}</p>
       </div>
 

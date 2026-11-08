@@ -112,18 +112,18 @@ export default function Home() {
       </section>
 
       {/* ── Stats band ───────────────────────────────────── */}
-      <section className="bg-forest py-20 text-white md:py-24">
+      <section className="py-20 text-forest md:py-24">
         <div className="container-x">
           <Reveal>
             <h2 className="font-display text-center text-5xl md:text-6xl">{stats.title}</h2>
           </Reveal>
           <dl className="mt-14 grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
             {stats.items.map((s) => (
-              <div key={s.label} className="corners p-6 text-center ring-1 ring-white/25 transition hover:bg-white/[0.04] md:p-10">
+              <div key={s.label} className="corners p-6 text-center ring-1 ring-forest/25 transition hover:bg-forest/[0.04] md:p-10">
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
-                  <span className="block text-5xl font-semibold tracking-[-0.06em] text-sage-200 md:text-6xl">{s.value}</span>
-                  <span className="mt-2 block text-white/75">{s.label}</span>
+                  <span className="block text-5xl font-semibold tracking-[-0.06em] text-sage md:text-6xl">{s.value}</span>
+                  <span className="mt-2 block text-forest/75">{s.label}</span>
                 </dd>
               </div>
             ))}
@@ -183,17 +183,20 @@ export default function Home() {
           <video className="trials-photo absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden" src="/videos/fish-farm.mp4" poster="/images/fish-farm-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(31_37_9/0.25)_0%,rgb(31_37_9/0.15)_45%,rgb(31_37_9/0.75)_100%)]" />
 
-          <div className="trials-note trials-note--a corners absolute right-0 top-0 w-[46%] min-w-[170px] max-w-[300px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
-            <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Next update</p>
-            <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.next}</p>
-          </div>
-          <div className="trials-note trials-note--b corners absolute right-[30%] top-[24%] w-[40%] min-w-[160px] max-w-[260px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
-            <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Why we share this</p>
-            <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.why}</p>
+          {/* floating notes, stacked edge to edge */}
+          <div className="trials-notes absolute inset-x-0 top-0 flex flex-col items-end">
+            <div className="corners w-[46%] min-w-[170px] max-w-[300px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
+              <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Next update</p>
+              <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.next}</p>
+            </div>
+            <div className="corners mr-[30%] w-[40%] min-w-[160px] max-w-[260px] bg-[#f4ede6] p-4 text-forest md:p-5" style={{ ["--corner" as string]: "#f4ede6" }}>
+              <p className="text-lg font-semibold leading-tight tracking-[-0.02em] md:text-xl">Why we share this</p>
+              <p className="mt-10 text-[11px] font-medium uppercase leading-snug tracking-[0.04em] text-forest/80 md:mt-14">{trials.why}</p>
+            </div>
           </div>
 
-          <div className="absolute inset-x-[var(--gutter)] bottom-8 md:bottom-12">
-            <h3 className="font-display max-w-[13ch] text-[clamp(2rem,3.6vw,3.4rem)] leading-[0.98]">{onRequest.title}</h3>
+          <div className="absolute inset-x-6 bottom-14 md:inset-x-10 md:bottom-20 lg:inset-x-12">
+            <h3 className="font-display max-w-[22ch] text-[clamp(2rem,3.4vw,3.2rem)] leading-[0.98]">{onRequest.title}</h3>
             <p className="mt-4 max-w-md text-[#f4ede6]/80">{onRequest.body}</p>
             <RequestButton product="Faunora Aqua™" className="btn btn-light mt-6">
               Request product <ArrowRight />
@@ -223,7 +226,7 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#1f2509_0%,rgb(31_37_9/0.92)_10%,rgb(31_37_9/0.75)_20%,rgb(31_37_9/0.55)_32%,rgb(31_37_9/0.4)_46%,rgb(31_37_9/0.35)_62%,rgb(31_37_9/0.6)_100%)]" />
         <div className="container-x relative flex h-full flex-col lg:min-h-[calc(100svh-12rem)]">
           <div className="flex items-start justify-between gap-6">
-            <h2 className="font-display max-w-[10ch] text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.95]">Latest from the community</h2>
+            <h2 className="font-display max-w-[17ch] text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.95]">Latest from the community</h2>
             <Link href="/blog" className="btn btn-ghost hidden shrink-0 text-[#f4ede6] md:inline-flex [--fill:#f4ede6] [--fill-text:var(--forest)]">
               All articles <ArrowRight />
             </Link>

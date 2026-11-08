@@ -84,18 +84,21 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Headings in Inter, tracked tight like Liftoff */
-.h-xl {
+/* Section headings share the display serif */
+.h-xl,
+.h-lg {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "opsz" 96;
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  letter-spacing: -0.02em;
+}
+.h-xl {
+  line-height: 0.98;
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
 }
 .h-lg {
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.02;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
 }
 .h-md {
   font-weight: 600;
@@ -717,16 +720,13 @@ header[data-tone="light"] .btn-ghost {
 .trials-note {
   will-change: transform;
 }
-.trials-note--a {
-  transform: translateY(calc((0.5 - var(--sp)) * 260px));
-}
-.trials-note--b {
-  transform: translateY(calc((0.5 - var(--sp)) * 140px));
+.trials-notes {
+  transform: translateY(calc((0.5 - var(--sp)) * 200px));
+  will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
   .trials-photo,
-  .trials-note--a,
-  .trials-note--b {
+  .trials-notes {
     transform: none;
   }
 }
