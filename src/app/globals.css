@@ -126,23 +126,46 @@ body {
   }
 }
 
-/* Buttons */
+/* Buttons — signature hover: a fill wipes across in a contrasting brand
+   colour, the label flips colour, the arrow nudges, corner markers spread. */
 .btn {
+  --fill: var(--forest-900);
+  --fill-text: #f4ede6;
   position: relative;
+  isolation: isolate;
+  overflow: visible;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 999px;
   padding: 0.85rem 1.5rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   transition:
-    background-color 0.2s,
-    color 0.2s,
-    transform 0.2s,
-    box-shadow 0.2s;
+    color 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.2s;
   white-space: nowrap;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--fill);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.btn:hover {
+  color: var(--fill-text);
+}
+.btn:hover::before {
+  clip-path: inset(0 0 0 0);
+}
+.btn svg {
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.btn:hover svg {
+  transform: translateX(4px);
 }
 .btn:active {
   transform: translateY(1px);
@@ -156,30 +179,31 @@ button:focus-visible {
 .btn-primary {
   background: var(--sage);
   color: var(--forest-900);
-}
-.btn-primary:hover {
-  background: var(--sage-600);
-  box-shadow: 0 10px 24px -10px rgb(124 145 76 / 0.6);
+  --fill: var(--forest-900);
+  --fill-text: #f4ede6;
 }
 .btn-dark {
   background: var(--forest);
-  color: var(--white);
-}
-.btn-dark:hover {
-  background: var(--forest-700);
+  color: #f4ede6;
+  --fill: var(--sage);
+  --fill-text: var(--forest-900);
 }
 .btn-light {
   background: var(--beige-50);
   color: var(--forest);
-}
-.btn-light:hover {
-  background: #ffffff;
+  --fill: var(--forest);
+  --fill-text: #f4ede6;
 }
 .btn-ghost {
-  border: 1.5px solid currentColor;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+  --fill: var(--forest);
+  --fill-text: #f4ede6;
 }
-.btn-ghost:hover {
-  background: rgb(64 79 29 / 0.07);
+@media (prefers-reduced-motion: reduce) {
+  .btn::before,
+  .btn svg {
+    transition: none;
+  }
 }
 
 }
@@ -563,8 +587,9 @@ html:not(.intro-skip) .intro:is([data-intro-phase="loading"], [data-intro-phase=
 header[data-tone="light"] {
   color: #f4ede6;
 }
-header[data-tone="light"] .btn-ghost:hover {
-  background: rgb(244 237 230 / 0.12);
+header[data-tone="light"] .btn-ghost {
+  --fill: #f4ede6;
+  --fill-text: var(--forest);
 }
 
 /* ══════════════════════════════════════════════════════════════
