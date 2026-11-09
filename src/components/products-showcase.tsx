@@ -115,11 +115,11 @@ export function ProductsShowcase() {
         </div>
       </div>
       {/* Flying product cards */}
-      <ul className="absolute inset-0">
+      <ul className="pointer-events-none absolute inset-0">
         {cards.map((c) => (
           <li
             key={c.n}
-            className={`showcase-card absolute ${c.shape === "portrait" ? "aspect-[4/5]" : "aspect-[4/3]"}`}
+            className={`showcase-card pointer-events-auto absolute ${c.shape === "portrait" ? "aspect-[4/5]" : "aspect-[4/3]"}`}
             style={{ ...cssVars(c.pos), ["--speed" as string]: `${c.speed}px` }}
           >
             <Link href={c.href} className="group relative block h-full w-full overflow-hidden bg-forest">
