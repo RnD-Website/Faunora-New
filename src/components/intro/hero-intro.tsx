@@ -127,7 +127,7 @@ export function HeroIntro() {
 
             {/* Right column: subtitle + primary button */}
             <div className="intro-sub absolute bottom-8 right-[var(--gutter)] flex flex-col items-end gap-5 text-right md:bottom-auto md:top-[44%] md:gap-7">
-              <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold uppercase leading-[1.1] tracking-[-0.01em] text-[#f4ede6] [text-shadow:0_2px_18px_rgb(16_21_10/0.65)]">
+              <p className="max-w-[16ch] text-[clamp(1.05rem,1.9vw,1.75rem)] font-semibold leading-[1.1] tracking-[-0.01em] text-[#f4ede6] [text-shadow:0_2px_18px_rgb(16_21_10/0.65)]">
                 {home.hero.subtitle}
               </p>
               <Link href="#products" className="btn btn-light">
