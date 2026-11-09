@@ -131,14 +131,6 @@ export function Scene() {
         <filter id="sc-depth" x="-10%" y="-10%" width="120%" height="120%">
           <feGaussianBlur stdDeviation="1.6" />
         </filter>
-        <clipPath id="sc-chew-clip">
-          <rect x="-112" y="-112" width="224" height="224" rx="60" />
-        </clipPath>
-        <linearGradient id="sc-sheen" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#ffffff" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
-        </linearGradient>
       </defs>
 
       {/* Studio backdrop (static) */}
@@ -211,7 +203,6 @@ export function Scene() {
         {/* The chew */}
         <g transform="translate(720 450)">
           <g className="intro-chew">
-            <g className="intro-chew-turn">
             <g transform="rotate(-12)">
               <rect x="-112" y="-96" width="224" height="224" rx="60" fill="url(#sc-chew-side)" />
               <rect x="-112" y="-112" width="224" height="224" rx="60" fill="url(#sc-chew)" />
@@ -220,13 +211,6 @@ export function Scene() {
               <Mark fill="#6b5333" dx={2.5} dy={3.5} opacity={0.75} />
               <Mark fill="#fff9ec" dx={-1.5} dy={-1.5} />
               <Mark fill="#d4bc93" />
-              {/* light sweep across the face */}
-              <g clipPath="url(#sc-chew-clip)">
-                <g transform="skewX(-18)">
-                  <rect className="intro-chew-sheen" x="-40" y="-170" width="64" height="340" fill="url(#sc-sheen)" />
-                </g>
-              </g>
-            </g>
             </g>
           </g>
         </g>
