@@ -30,7 +30,7 @@ export function TestimonialSlider() {
 
   return (
     <section
-      className="testimonials relative overflow-hidden bg-forest-900 pb-32 pt-20 text-[#f4ede6] md:pb-44 md:pt-28"
+      className="testimonials relative overflow-hidden bg-[#54602f] pb-32 pt-20 text-[#f4ede6] md:pb-44 md:pt-28"
       aria-roledescription="carousel"
       aria-label="What vets, farmers and owners say"
       onMouseEnter={() => (paused.current = true)}
